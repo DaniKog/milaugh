@@ -24,6 +24,13 @@ func invite_robot(idx):
 	%label_pitch_value.text = str(robot.pitch)
 	%label_speed_value.text = str(robot.speed)
 	%label_volume_value.text = str(robot.volume)
+	$"../ResultScreen/Robot_Name".text = robot.name
+	$"../ResultScreen/Robot_Icon".texture = robot.image
+	$"../ResultScreen/Text_Fail".text = robot.fail_text
+	$"../ResultScreen/Text_Fail".visible = 0
+	$"../ResultScreen/Text_Average".text = robot.avg_text
+	$"../ResultScreen/Text_Success".text = robot.success_text
+	$"../ResultScreen/Text_Success".visible = 0
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=24 format=3 uid="uid://bb6hv48hppt78"]
-
+[gd_scene load_steps=27 format=3 uid="uid://bb6hv48hppt78"]
 
 [ext_resource type="Script" path="res://scripts/gameplay-ui.gd" id="1_nibp3"]
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="2_ceahc"]
@@ -10,7 +8,6 @@
 [ext_resource type="Script" path="res://scripts/itemListSelection.gd" id="4_434bg"]
 [ext_resource type="FontFile" uid="uid://6m88uyjxpw1y" path="res://font/joystix monospace.otf" id="4_rly5q"]
 [ext_resource type="Texture2D" uid="uid://bchs5t42givn3" path="res://ui_images/blank_white.png" id="5_btbry"]
-
 [ext_resource type="Script" path="res://scripts/robot_interaction.gd" id="6_dmtxg"]
 [ext_resource type="Script" path="res://scripts/CurrentModule.gd" id="7_3xkvv"]
 [ext_resource type="Texture2D" uid="uid://ch2pujv2mefim" path="res://art/ui-fg.png" id="11_pymud"]
@@ -385,7 +382,6 @@ patch_margin_left = 48
 patch_margin_top = 48
 patch_margin_right = 48
 patch_margin_bottom = 48
-
 script = ExtResource("6_dmtxg")
 metadata/_edit_use_anchors_ = true
 
@@ -566,7 +562,7 @@ offset_bottom = 101.0
 text = "Result"
 label_settings = SubResource("LabelSettings_bk7j1")
 
-[node name="Label" type="Label" parent="panel_frame/ResultScreen"]
+[node name="Robot_Name" type="Label" parent="panel_frame/ResultScreen"]
 layout_mode = 0
 offset_left = 441.0
 offset_top = 127.0
@@ -576,20 +572,52 @@ text = "Robot Name
 "
 label_settings = SubResource("LabelSettings_8vom7")
 
-[node name="TextureRect" type="TextureRect" parent="panel_frame/ResultScreen"]
+[node name="Text_Fail" type="Label" parent="panel_frame/ResultScreen"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 444.0
+offset_right = 1009.0
+offset_bottom = 631.0
+theme_type_variation = &"HeaderLarge"
+text = "Robot Name
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Text_Average" type="Label" parent="panel_frame/ResultScreen"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 444.0
+offset_right = 1009.0
+offset_bottom = 631.0
+theme_type_variation = &"HeaderLarge"
+text = "Robot Name
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Text_Success" type="Label" parent="panel_frame/ResultScreen"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 444.0
+offset_right = 1009.0
+offset_bottom = 631.0
+theme_type_variation = &"HeaderLarge"
+text = "Robot Name
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Robot_Icon" type="TextureRect" parent="panel_frame/ResultScreen"]
 layout_mode = 0
 offset_left = 432.0
 offset_top = 175.0
 offset_right = 659.0
 offset_bottom = 420.0
 texture = ExtResource("11_pymud")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="panel_frame/ResultScreen"]
-layout_mode = 0
-offset_left = 376.0
-offset_top = 427.0
-offset_right = 739.0
-offset_bottom = 635.0
 
 [connection signal="gui_input" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="panel_frame/panel_modifiers/VBoxContainer/item_list" method="_on_gui_input"]
 [connection signal="item_clicked" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="." method="_on_item_list_item_clicked"]
