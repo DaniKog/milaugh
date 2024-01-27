@@ -1,16 +1,15 @@
-[gd_scene load_steps=27 format=3 uid="uid://bb6hv48hppt78"]
+[gd_scene load_steps=26 format=3 uid="uid://bb6hv48hppt78"]
 
 [ext_resource type="Script" path="res://scripts/gameplay-ui.gd" id="1_nibp3"]
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="2_ceahc"]
 [ext_resource type="PackedScene" uid="uid://ngu1bkvclntg" path="res://scenes/LaughterModule.tscn" id="2_i56to"]
 [ext_resource type="Texture2D" uid="uid://bhiaf4y2m05aa" path="res://ui_images/table_with_module_open.png" id="3_cna1x"]
-[ext_resource type="Texture2D" uid="uid://bwrt333tfcmlq" path="res://ui_images/blank_ui.png" id="4_0clmj"]
 [ext_resource type="Script" path="res://scripts/itemListSelection.gd" id="4_434bg"]
 [ext_resource type="FontFile" uid="uid://6m88uyjxpw1y" path="res://font/joystix monospace.otf" id="4_rly5q"]
 [ext_resource type="Texture2D" uid="uid://bchs5t42givn3" path="res://ui_images/blank_white.png" id="5_btbry"]
 [ext_resource type="Script" path="res://scripts/robot_interaction.gd" id="6_dmtxg"]
 [ext_resource type="Script" path="res://scripts/CurrentModule.gd" id="7_3xkvv"]
-[ext_resource type="Texture2D" uid="uid://ch2pujv2mefim" path="res://art/ui-fg.png" id="11_pymud"]
+[ext_resource type="Texture2D" uid="uid://bsc8totrvkc4s" path="res://art/Robots/JokerRobot.png" id="8_a2phi"]
 
 [sub_resource type="Theme" id="Theme_yees3"]
 default_font = ExtResource("4_rly5q")
@@ -463,7 +462,7 @@ anchor_left = 0.657579
 anchor_top = 0.118976
 anchor_right = 0.896401
 anchor_bottom = 0.448795
-texture = ExtResource("4_0clmj")
+texture = ExtResource("8_a2phi")
 metadata/_edit_use_anchors_ = true
 
 [node name="text_robot" type="RichTextLabel" parent="panel_frame/panel_laugh_module"]
@@ -573,14 +572,14 @@ text = "Robot Name
 label_settings = SubResource("LabelSettings_8vom7")
 
 [node name="Text_Fail" type="Label" parent="panel_frame/ResultScreen"]
+visible = false
 layout_mode = 0
 offset_left = 54.0
 offset_top = 444.0
 offset_right = 1009.0
 offset_bottom = 631.0
 theme_type_variation = &"HeaderLarge"
-text = "Robot Name
-"
+text = "Failure text"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -592,21 +591,21 @@ offset_top = 444.0
 offset_right = 1009.0
 offset_bottom = 631.0
 theme_type_variation = &"HeaderLarge"
-text = "Robot Name
+text = "Average result text
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Text_Success" type="Label" parent="panel_frame/ResultScreen"]
+visible = false
 layout_mode = 0
 offset_left = 54.0
 offset_top = 444.0
 offset_right = 1009.0
 offset_bottom = 631.0
 theme_type_variation = &"HeaderLarge"
-text = "Robot Name
-"
+text = "Success result text"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -617,7 +616,7 @@ offset_left = 432.0
 offset_top = 175.0
 offset_right = 659.0
 offset_bottom = 420.0
-texture = ExtResource("11_pymud")
+texture = ExtResource("8_a2phi")
 
 [connection signal="gui_input" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="panel_frame/panel_modifiers/VBoxContainer/item_list" method="_on_gui_input"]
 [connection signal="item_clicked" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="." method="_on_item_list_item_clicked"]
