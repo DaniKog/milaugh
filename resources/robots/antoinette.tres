@@ -11,6 +11,3 @@ image = ExtResource("1_wbfyd")
 pitch = 5
 speed = 1
 volume = 3
-fail_text = "I URGENTLY need a laugh that I can use for high tea with the girls today. Give me a laugh that sounds like money and melting sugar."
-avg_text = "Are you trying to ruin my life?! Do you want the other girls to make fun of me? "
-success_text = "This. Oh my gosh. This is it! Yes, my magical transformation is now complete!"
