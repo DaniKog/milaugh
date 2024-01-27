@@ -5,8 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://ngu1bkvclntg" path="res://scenes/LaughterModule.tscn" id="2_i56to"]
 [ext_resource type="Texture2D" uid="uid://bhiaf4y2m05aa" path="res://ui_images/table_with_module_open.png" id="3_cna1x"]
 [ext_resource type="Texture2D" uid="uid://bwrt333tfcmlq" path="res://ui_images/blank_ui.png" id="4_0clmj"]
+[ext_resource type="FontFile" uid="uid://6m88uyjxpw1y" path="res://font/joystix monospace.otf" id="4_rly5q"]
 [ext_resource type="Texture2D" uid="uid://bchs5t42givn3" path="res://ui_images/blank_white.png" id="5_btbry"]
 [ext_resource type="Script" path="res://scripts/CurrentModule.gd" id="7_3xkvv"]
+
+[sub_resource type="Theme" id="Theme_ufk8t"]
+default_font = ExtResource("4_rly5q")
 
 [sub_resource type="SystemFont" id="SystemFont_g6nxb"]
 
@@ -110,6 +114,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="label_modifiers" type="Label" parent="panel_frame/panel_modifiers/VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_ufk8t")
 text = "Available Items"
 label_settings = SubResource("LabelSettings_n36ei")
 
@@ -148,6 +153,7 @@ grow_vertical = 2
 
 [node name="label_object" type="Label" parent="panel_frame/panel_object/VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_ufk8t")
 text = "Active Items"
 label_settings = SubResource("LabelSettings_n36ei")
 
@@ -184,9 +190,9 @@ anchor_right = 0.46512
 anchor_bottom = 0.426745
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_ufk8t")
 text = "Description"
 label_settings = SubResource("LabelSettings_n36ei")
-metadata/_edit_use_anchors_ = true
 
 [node name="text_description" type="RichTextLabel" parent="panel_frame/panel_object_description"]
 layout_mode = 0
@@ -194,9 +200,9 @@ anchor_left = 0.0335079
 anchor_top = 0.326531
 anchor_right = 0.973822
 anchor_bottom = 0.897959
+theme = SubResource("Theme_ufk8t")
 theme_override_font_sizes/normal_font_size = 28
 text = "Evil monkey. They steal bananas fast, and have a high voice."
-metadata/_edit_use_anchors_ = true
 
 [node name="panel_target" type="NinePatchRect" parent="panel_frame"]
 clip_contents = true
@@ -222,6 +228,7 @@ anchor_right = 0.176719
 anchor_bottom = 0.214969
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_ufk8t")
 text = "Target"
 label_settings = SubResource("LabelSettings_n36ei")
 metadata/_edit_use_anchors_ = true
@@ -239,6 +246,7 @@ offset_right = -24.262
 offset_bottom = -8.95999
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_ufk8t")
 text = "Pitch"
 label_settings = SubResource("LabelSettings_1vrp3")
 metadata/_edit_use_anchors_ = true
@@ -254,6 +262,7 @@ offset_top = 22.96
 offset_bottom = -22.96
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_ufk8t")
 text = "3
 "
 label_settings = SubResource("LabelSettings_xvs7j")
@@ -272,6 +281,7 @@ offset_right = -34.762
 offset_bottom = -8.95998
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_ufk8t")
 text = "Speed"
 label_settings = SubResource("LabelSettings_1vrp3")
 metadata/_edit_use_anchors_ = true
@@ -288,6 +298,7 @@ offset_right = -1.52588e-05
 offset_bottom = -22.96
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_ufk8t")
 text = "3
 "
 label_settings = SubResource("LabelSettings_xqlj8")
@@ -306,6 +317,7 @@ offset_right = -11.262
 offset_bottom = -8.95999
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_ufk8t")
 text = "Vol."
 label_settings = SubResource("LabelSettings_1vrp3")
 metadata/_edit_use_anchors_ = true
@@ -321,6 +333,7 @@ offset_top = 22.96
 offset_bottom = -22.96
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_ufk8t")
 text = "3
 "
 label_settings = SubResource("LabelSettings_xx25p")
@@ -350,6 +363,7 @@ anchor_right = 0.486032
 anchor_bottom = 0.125
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_ufk8t")
 text = "Laughter Module"
 label_settings = SubResource("LabelSettings_n36ei")
 metadata/_edit_use_anchors_ = true
@@ -363,6 +377,7 @@ anchor_right = 0.956379
 anchor_bottom = 0.135542
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_ufk8t")
 text = "Robot
 "
 label_settings = SubResource("LabelSettings_n36ei")
@@ -418,9 +433,9 @@ anchor_top = 0.563253
 anchor_right = 0.966194
 anchor_bottom = 0.954819
 offset_top = 3.05176e-05
+theme = SubResource("Theme_ufk8t")
 theme_override_font_sizes/normal_font_size = 28
 text = "I want to be an evil robot that is fast with a deep voice "
-metadata/_edit_use_anchors_ = true
 
 [node name="separator" type="TextureRect" parent="panel_frame/panel_laugh_module"]
 layout_mode = 0

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpus1miu4qx71"]
+[gd_scene load_steps=6 format=3 uid="uid://bpus1miu4qx71"]
 
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="1_0ucix"]
+[ext_resource type="Theme" uid="uid://cv5o7uq4xg1rr" path="res://themes/pixel_font_theme.tres" id="2_vmukq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0cj81"]
 font_size = 50
@@ -34,6 +35,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 0
 anchor_right = 0.988095
 anchor_bottom = 0.193122
+theme = ExtResource("2_vmukq")
 text = "Story
 "
 label_settings = SubResource("LabelSettings_0cj81")
@@ -47,12 +49,15 @@ anchor_left = 0.0514541
 anchor_top = 0.19571
 anchor_right = 0.967934
 anchor_bottom = 0.75067
+theme = ExtResource("2_vmukq")
 theme_override_font_sizes/normal_font_size = 22
 theme_override_font_sizes/bold_font_size = 22
 theme_override_font_sizes/italics_font_size = 22
 theme_override_font_sizes/bold_italics_font_size = 22
 theme_override_font_sizes/mono_font_size = 22
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fames ac turpis egestas integer eget aliquet nibh. In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. In arcu cursus euismod quis viverra nibh cras pulvinar mattis. Metus aliquam eleifend mi in nulla. Donec massa sapien faucibus et molestie ac feugiat sed. Sit amet risus nullam eget. Eu tincidunt tortor aliquam nulla facilisi cras. Tempus imperdiet nulla malesuada pellentesque elit eget gravida cum. Montes nascetur ridiculus mus mauris. Ultricies mi eget mauris pharetra et ultrices neque. Fermentum posuere urna nec tincidunt praesent semper. Ultricies lacus sed turpis tincidunt. Odio aenean sed adipiscing diam donec."
+text = "\"The year is 9999, humanity is long extinct and the world is only inhabited by robots. Disk City is a thriving metropolis (akin to large major cities like New York, Tokyo, Los Angeles) with a prominent financial business district. 20 minutes away by public transport, buried in a lesser known part of town is Bitburb (similar to Brooklyn, Shimokitazawa, Berlin, other artsy enclaves) where a cultural revolution is taking place.
+
+Coined by an independent zine as The Junkadelic Era, this was the start of a period of creativity, individualism and self-expression for the robot population. Disk City residents were loosening their “ties” and abandoning conformity. And it was all starting inside Bitburb.\""
 metadata/_edit_use_anchors_ = true
 
 [node name="button_play" type="Button" parent="bg"]
@@ -62,6 +67,7 @@ anchor_left = 0.737509
 anchor_top = 0.780161
 anchor_right = 0.964952
 anchor_bottom = 0.946381
+theme = ExtResource("2_vmukq")
 theme_override_colors/font_color = Color(0.231373, 0.145098, 0.188235, 1)
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_24c1i")
