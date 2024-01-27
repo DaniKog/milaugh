@@ -4,6 +4,7 @@ const PREVIEW_LENGTH = 0.1
 
 @onready var globals  = get_node("/root/Globals")
 
+@onready var currentModelValues = $panel_frame/panel_laugh_module/CurrentModule
 var modules = [
 	load("res://resources/items/evil_monkey.tres"),
 	load("res://resources/items/hot_sauce.tres"),
@@ -46,6 +47,10 @@ func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 	%laughter_module/Laughter.Play()
 	await get_tree().create_timer(PREVIEW_LENGTH).timeout
 	%laughter_module/Laughter.Stop()
+	currentModelValues.SetPitch(modules[index].pitch)
+	currentModelValues.SetSpeed(modules[index].speed)
+	currentModelValues.SetVolume(modules[index].volume)
+	
 	
 	
 
