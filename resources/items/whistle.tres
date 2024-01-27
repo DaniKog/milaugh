@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dsvo6v2rf6vhv"]
+
+[ext_resource type="Texture2D" uid="uid://deebx2llaqgad" path="res://art/Items/wistle.png" id="1_gkl8u"]
+[ext_resource type="Script" path="res://resources/item.gd" id="1_nqqvr"]
+
+[resource]
+script = ExtResource("1_nqqvr")
+name = ""
+description = ""
+icon = ExtResource("1_gkl8u")
+pitch = 3
+speed = 1
+volume = 2

@@ -1,8 +1,8 @@
 extends Control
 
 var modules = [
-	load("res://resources/module-datas/evil-monkey.tres"),
-	load("res://resources/module-datas/hot-sauce.tres")
+	load("res://resources/items/evil_monkey.tres"),
+	load("res://resources/items/hot_sauce.tres")
 ]
 @onready var globals  = get_node("/root/Globals")
 

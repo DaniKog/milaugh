@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Robot" load_steps=3 format=3 uid="uid://o63devn7emci"]
+
+[ext_resource type="Texture2D" uid="uid://bsc8totrvkc4s" path="res://art/Robots/JokerRobot.png" id="1_ws8vx"]
+[ext_resource type="Script" path="res://resources/robot.gd" id="2_s7l10"]
+
+[resource]
+script = ExtResource("2_s7l10")
+name = "J35T-ER"
+description = "I'm in the business of making people laugh. But I've never laughed myself! Give me a laugh that's worthy of an encore.I'm in the business of making people laugh. But I've never laughed myself! Give me a laugh that's worthy of an encore."
+image = ExtResource("1_ws8vx")
+pitch = 3
+speed = 1
+volume = 5

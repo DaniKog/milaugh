@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Robot" load_steps=3 format=3 uid="uid://cwmytcace48x4"]
+
+[ext_resource type="Script" path="res://resources/robot.gd" id="1_3u18t"]
+[ext_resource type="Texture2D" uid="uid://poc3onywew3r" path="res://art/Robots/Antoinette.png" id="1_wbfyd"]
+
+[resource]
+script = ExtResource("1_3u18t")
+name = "AN-T01N3-TT3"
+description = "I URGENTLY need a laugh that I can use for high tea with the girls today. Give me a laugh that sounds like money and melting sugar."
+image = ExtResource("1_wbfyd")
+pitch = 5
+speed = 1
+volume = 3
