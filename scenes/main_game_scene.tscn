@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://bb6hv48hppt78"]
+[gd_scene load_steps=16 format=3 uid="uid://bb6hv48hppt78"]
 
 [ext_resource type="Script" path="res://scripts/gameplay-ui.gd" id="1_nibp3"]
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="2_ceahc"]
+[ext_resource type="PackedScene" uid="uid://ngu1bkvclntg" path="res://scenes/LaughterModule.tscn" id="2_i56to"]
 [ext_resource type="Texture2D" uid="uid://bhiaf4y2m05aa" path="res://ui_images/table_with_module_open.png" id="3_cna1x"]
 [ext_resource type="Texture2D" uid="uid://bwrt333tfcmlq" path="res://ui_images/blank_ui.png" id="4_0clmj"]
 [ext_resource type="Texture2D" uid="uid://bchs5t42givn3" path="res://ui_images/blank_white.png" id="5_btbry"]
@@ -47,6 +48,9 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_nibp3")
+
+[node name="laughter_module" parent="." instance=ExtResource("2_i56to")]
+unique_name_in_owner = true
 
 [node name="panel_frame" type="NinePatchRect" parent="."]
 clip_contents = true
@@ -99,7 +103,7 @@ label_settings = SubResource("LabelSettings_n36ei")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
 max_columns = 4
 same_column_width = true
 
@@ -402,3 +406,5 @@ anchor_bottom = 0.879518
 texture = ExtResource("5_btbry")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
+
+[connection signal="item_clicked" from="panel_frame/panel_modifiers/VBoxContainer/modifier_list" to="." method="_on_item_list_item_clicked"]

@@ -64,6 +64,7 @@ func UpdateLaughSound():
 	print(pitch)
 	
 	audioPlayer.stream = laugh
+	audioPlayer.pitch_scale = pitch
 	var effect = AudioServer.get_bus_effect(1, 0)
 	if speed == 4:
 		effect.drive = 1

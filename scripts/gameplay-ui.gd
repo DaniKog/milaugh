@@ -4,6 +4,7 @@ var modules = [
 	load("res://resources/module-datas/evil-monkey.tres"),
 	load("res://resources/module-datas/hot-sauce.tres")
 ]
+@onready var globals  = get_node("/root/Globals")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,9 +20,10 @@ func _process(delta):
 
 
 func _on_item_list_item_clicked(index, at_position, mouse_button_index):
-	%laughter_module/Laughter.SetPitch(modules[index].pitch)
-	%laughter_module/Laughter.SetSpeed(modules[index].speed)
-	%laughter_module/Laughter.SetVolume(modules[index].volume)
+	print(modules[index].pitch)
+	%laughter_module/Laughter.SetValue(globals.LaughParameter.Pitch, modules[index].pitch)
+	%laughter_module/Laughter.SetValue(globals.LaughParameter.Speed, modules[index].speed)
+	%laughter_module/Laughter.SetValue(globals.LaughParameter.Volume, modules[index].volume)
 	%laughter_module/Laughter.Play()
 	
 	# Add module to the list of active modifiers
