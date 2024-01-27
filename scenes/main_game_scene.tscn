@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bb6hv48hppt78"]
+[gd_scene load_steps=17 format=3 uid="uid://bb6hv48hppt78"]
 
 [ext_resource type="Script" path="res://scripts/gameplay-ui.gd" id="1_nibp3"]
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="2_ceahc"]
@@ -12,6 +12,16 @@
 [sub_resource type="LabelSettings" id="LabelSettings_n36ei"]
 font = SubResource("SystemFont_g6nxb")
 font_size = 35
+
+[sub_resource type="Theme" id="Theme_gc2j1"]
+TooltipLabel/colors/font_color = Color(1, 1, 1, 1)
+TooltipLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+TooltipLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+TooltipLabel/constants/outline_size = 0
+TooltipLabel/constants/shadow_offset_x = 0
+TooltipLabel/constants/shadow_offset_y = 0
+TooltipLabel/font_sizes/font_size = 24
+TooltipLabel/fonts/font = null
 
 [sub_resource type="LabelSettings" id="LabelSettings_1vrp3"]
 font = SubResource("SystemFont_g6nxb")
@@ -71,10 +81,10 @@ metadata/_edit_use_anchors_ = true
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.00988554
-anchor_top = 0.02058
-anchor_right = 0.506243
-anchor_bottom = 0.323667
+anchor_left = 0.00966255
+anchor_top = 0.0200454
+anchor_right = 0.506169
+anchor_bottom = 0.501136
 offset_right = 6.10352e-05
 texture = ExtResource("2_ceahc")
 patch_margin_left = 48
@@ -96,13 +106,14 @@ metadata/_edit_use_anchors_ = true
 
 [node name="label_modifiers" type="Label" parent="panel_frame/panel_modifiers/VBoxContainer"]
 layout_mode = 2
-text = "Modifiers"
+text = "Available Items"
 label_settings = SubResource("LabelSettings_n36ei")
 
-[node name="modifier_list" type="ItemList" parent="panel_frame/panel_modifiers/VBoxContainer"]
+[node name="item_list" type="ItemList" parent="panel_frame/panel_modifiers/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme = SubResource("Theme_gc2j1")
 theme_override_font_sizes/font_size = 32
 max_columns = 4
 same_column_width = true
@@ -111,10 +122,10 @@ same_column_width = true
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.00988554
-anchor_top = 0.328344
-anchor_right = 0.506243
-anchor_bottom = 0.787652
+anchor_left = 0.00966255
+anchor_top = 0.513163
+anchor_right = 0.506169
+anchor_bottom = 0.787117
 offset_right = 6.10352e-05
 texture = ExtResource("2_ceahc")
 patch_margin_left = 48
@@ -123,18 +134,26 @@ patch_margin_right = 48
 patch_margin_bottom = 48
 metadata/_edit_use_anchors_ = true
 
-[node name="label_object" type="Label" parent="panel_frame/panel_object"]
+[node name="VBoxContainer" type="VBoxContainer" parent="panel_frame/panel_object"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0305797
-anchor_top = 0.0532138
-anchor_right = 0.46559
-anchor_bottom = 0.193743
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Object"
+
+[node name="label_object" type="Label" parent="panel_frame/panel_object/VBoxContainer"]
+layout_mode = 2
+text = "Active Items"
 label_settings = SubResource("LabelSettings_n36ei")
-metadata/_edit_use_anchors_ = true
+
+[node name="active_item_list" type="ItemList" parent="panel_frame/panel_object/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+max_columns = 4
+same_column_width = true
 
 [node name="panel_object_description" type="NinePatchRect" parent="panel_frame"]
 clip_contents = true
@@ -347,6 +366,7 @@ horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="button_launch" type="Button" parent="panel_frame/panel_laugh_module"]
+unique_name_in_owner = true
 layout_mode = 0
 anchor_left = 0.089422
 anchor_top = 0.596386
@@ -356,6 +376,7 @@ theme_override_colors/font_color = Color(0.945098, 0.960784, 0, 1)
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_pumu3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uw3th")
+disabled = true
 text = "Launch"
 metadata/_edit_use_anchors_ = true
 
@@ -407,4 +428,5 @@ texture = ExtResource("5_btbry")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[connection signal="item_clicked" from="panel_frame/panel_modifiers/VBoxContainer/modifier_list" to="." method="_on_item_list_item_clicked"]
+[connection signal="item_clicked" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="." method="_on_item_list_item_clicked"]
+[connection signal="pressed" from="panel_frame/panel_laugh_module/button_launch" to="." method="_on_button_launch_pressed"]

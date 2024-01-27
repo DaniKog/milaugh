@@ -1,4 +1,11 @@
 extends Node2D
+
+# For the sake of simplicity, all values have the same bounds
+# based on the size of the sound variation arrays (5).
+const MIN_VALUE = 0
+const MAX_VALUE = 4
+
+
 #naming variables
 var maxVariations = 2
 @onready var globals  = get_node("/root/Globals")
@@ -37,6 +44,23 @@ func SetValue(myType, value):
 			speed = value
 		globals.LaughParameter.Volume:
 			volume = value
+		_:
+			print('Laugh Paramter not support')
+	UpdateLaughSound()
+
+func AddValue(myType, value):
+	match myType:
+		globals.LaughParameter.Pitch:
+			pitch += value*0.5
+			if pitch == 0:
+				pitch += .3
+			pitch = max(MIN_VALUE, min(MAX_VALUE, pitch))
+		globals.LaughParameter.Speed:
+			speed += value
+			speed = max(MIN_VALUE, min(MAX_VALUE, speed))
+		globals.LaughParameter.Volume:
+			volume += value
+			volume = max(MIN_VALUE, min(MAX_VALUE, volume))
 		_:
 			print('Laugh Paramter not support')
 	UpdateLaughSound()

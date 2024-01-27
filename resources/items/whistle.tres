@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dsvo6v2rf6vhv"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://srg5hxn7f42w"]
 
 [ext_resource type="Texture2D" uid="uid://deebx2llaqgad" path="res://art/Items/wistle.png" id="1_gkl8u"]
 [ext_resource type="Script" path="res://resources/item.gd" id="1_nqqvr"]
 
 [resource]
 script = ExtResource("1_nqqvr")
-name = ""
-description = ""
+name = "Whistle"
+description = "Once used to referee sporting events. Still used today if one wishes to seem important."
 icon = ExtResource("1_gkl8u")
 pitch = 3
 speed = 1
