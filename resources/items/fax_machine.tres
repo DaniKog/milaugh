@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://btt2bla5vruy1"]
+
+[ext_resource type="Texture2D" uid="uid://8x0qs2noyc2a" path="res://art/Items/fax_machine.png" id="1_1ein8"]
+[ext_resource type="Script" path="res://resources/item.gd" id="1_uj86v"]
+
+[resource]
+script = ExtResource("1_uj86v")
+name = "Fax Machine"
+description = "This was once a popular long-distance communication device. However, many speculate it was slow and noisy to use, even for its time"
+icon = ExtResource("1_1ein8")
+pitch = 4
+speed = 3
+volume = -1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bb6hv48hppt78"]
+[gd_scene load_steps=27 format=3 uid="uid://bb6hv48hppt78"]
 
 [ext_resource type="Script" path="res://scripts/gameplay-ui.gd" id="1_nibp3"]
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="2_ceahc"]
@@ -8,7 +8,9 @@
 [ext_resource type="Script" path="res://scripts/itemListSelection.gd" id="4_434bg"]
 [ext_resource type="FontFile" uid="uid://6m88uyjxpw1y" path="res://font/joystix monospace.otf" id="4_rly5q"]
 [ext_resource type="Texture2D" uid="uid://bchs5t42givn3" path="res://ui_images/blank_white.png" id="5_btbry"]
+[ext_resource type="Script" path="res://scripts/robot_interaction.gd" id="6_cubky"]
 [ext_resource type="Script" path="res://scripts/CurrentModule.gd" id="7_3xkvv"]
+[ext_resource type="Texture2D" uid="uid://ch2pujv2mefim" path="res://art/ui-fg.png" id="11_pymud"]
 
 [sub_resource type="Theme" id="Theme_yees3"]
 default_font = ExtResource("4_rly5q")
@@ -60,6 +62,14 @@ size = Vector2(108.617, 93.6227)
 default_font = ExtResource("4_rly5q")
 
 [sub_resource type="LabelSettings" id="LabelSettings_iannj"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_bk7j1"]
+font = ExtResource("4_rly5q")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_8vom7"]
+font = ExtResource("4_rly5q")
 font_size = 24
 
 [node name="main_game_scene_zach" type="Control"]
@@ -269,6 +279,7 @@ text = "Pitch"
 label_settings = SubResource("LabelSettings_1vrp3")
 
 [node name="label_pitch_value" type="Label" parent="panel_frame/panel_target"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.113709
@@ -304,6 +315,7 @@ text = "Speed"
 label_settings = SubResource("LabelSettings_1vrp3")
 
 [node name="label_speed_value" type="Label" parent="panel_frame/panel_target"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.451033
@@ -339,6 +351,7 @@ text = "Vol."
 label_settings = SubResource("LabelSettings_1vrp3")
 
 [node name="label_volume_value" type="Label" parent="panel_frame/panel_target"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.815559
@@ -369,6 +382,7 @@ patch_margin_left = 48
 patch_margin_top = 48
 patch_margin_right = 48
 patch_margin_bottom = 48
+script = ExtResource("6_cubky")
 metadata/_edit_use_anchors_ = true
 
 [node name="label_laugh_module" type="Label" parent="panel_frame/panel_laugh_module"]
@@ -389,6 +403,7 @@ text = "Laughter Module"
 label_settings = SubResource("LabelSettings_n36ei")
 
 [node name="label_robot" type="Label" parent="panel_frame/panel_laugh_module"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.503817
@@ -442,6 +457,7 @@ position = Vector2(-22.8571, -51.5656)
 shape = SubResource("RectangleShape2D_hw4ma")
 
 [node name="texture_rect_robot" type="TextureRect" parent="panel_frame/panel_laugh_module"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.657579
@@ -452,6 +468,7 @@ texture = ExtResource("4_0clmj")
 metadata/_edit_use_anchors_ = true
 
 [node name="text_robot" type="RichTextLabel" parent="panel_frame/panel_laugh_module"]
+unique_name_in_owner = true
 layout_mode = 0
 anchor_left = 0.400218
 anchor_top = 0.563253
@@ -524,6 +541,52 @@ theme = SubResource("Theme_6bjud")
 text = "0"
 label_settings = SubResource("LabelSettings_iannj")
 horizontal_alignment = 1
+
+[node name="ResultScreen" type="NinePatchRect" parent="panel_frame"]
+layout_mode = 0
+offset_left = 138.4
+offset_top = 35.2
+offset_right = 1198.4
+offset_bottom = 701.2
+texture = ExtResource("2_ceahc")
+patch_margin_left = 48
+patch_margin_top = 48
+patch_margin_right = 48
+patch_margin_bottom = 48
+
+[node name="Result_Title" type="Label" parent="panel_frame/ResultScreen"]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 43.0
+offset_right = 660.0
+offset_bottom = 101.0
+text = "Result"
+label_settings = SubResource("LabelSettings_bk7j1")
+
+[node name="Label" type="Label" parent="panel_frame/ResultScreen"]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 127.0
+offset_right = 641.0
+offset_bottom = 156.0
+text = "Robot Name
+"
+label_settings = SubResource("LabelSettings_8vom7")
+
+[node name="TextureRect" type="TextureRect" parent="panel_frame/ResultScreen"]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 175.0
+offset_right = 659.0
+offset_bottom = 420.0
+texture = ExtResource("11_pymud")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="panel_frame/ResultScreen"]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 427.0
+offset_right = 739.0
+offset_bottom = 635.0
 
 [connection signal="gui_input" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="panel_frame/panel_modifiers/VBoxContainer/item_list" method="_on_gui_input"]
 [connection signal="item_clicked" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="." method="_on_item_list_item_clicked"]

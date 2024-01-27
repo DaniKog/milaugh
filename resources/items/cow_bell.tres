@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cc8dqh4dni662"]
+
+[ext_resource type="Texture2D" uid="uid://cu4qr0mhg38o8" path="res://art/Items/SwissBell.png" id="1_qhpxi"]
+[ext_resource type="Script" path="res://resources/item.gd" id="1_rcjof"]
+
+[resource]
+script = ExtResource("1_rcjof")
+name = "Cow Bell"
+description = "I think we all know how this sounds like"
+icon = ExtResource("1_qhpxi")
+pitch = 1
+speed = -1
+volume = 2
