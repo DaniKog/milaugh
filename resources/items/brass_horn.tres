@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bnsgwaac6tfma"]
+
+[ext_resource type="Texture2D" uid="uid://bhhm01hmc64un" path="res://art/Items/Brasshorn.png" id="1_c6fiv"]
+[ext_resource type="Script" path="res://resources/item.gd" id="2_rk37l"]
+
+[resource]
+script = ExtResource("2_rk37l")
+name = ""
+description = ""
+icon = ExtResource("1_c6fiv")
+pitch = -2
+speed = -4
+volume = 0

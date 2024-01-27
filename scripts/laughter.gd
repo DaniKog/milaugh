@@ -43,20 +43,9 @@ func SetValue(myType, value):
 	
 func UpdateLaughSound():
 	var formatString = "res://audio/Laugh_Ha_{intensity}_{speed}-00{variation}.wav"
-	var sample_volume = volume
-	if sample_volume > 3 :
-		sample_volume = 3
-	if sample_volume < 1 :
-		sample_volume = 1
 		
-	var sample_speed = speed
-	if sample_speed > 3 :
-		sample_speed = 3
-	if sample_speed < 1 :
-		sample_speed = 1
-		
-	var laughSoundPath = formatString.format({"intensity": globals.laughterVolume.keys()[sample_volume],
-	 "speed": globals.laughterSpeed.keys()[sample_speed], "variation" : 1})
+	var laughSoundPath = formatString.format({"intensity": globals.laughterVolume.keys()[volume],
+	 "speed": globals.laughterSpeed.keys()[speed], "variation" : 1})
 	laugh = load(str(laughSoundPath))
 	print(str(laughSoundPath))
 	print(globals.laughterSpeed.keys()[speed])
@@ -65,10 +54,5 @@ func UpdateLaughSound():
 	
 	audioPlayer.stream = laugh
 	audioPlayer.pitch_scale = pitch
-	var effect = AudioServer.get_bus_effect(1, 0)
-	if speed == 4:
-		effect.drive = 1
-	else:
-		effect.drive = 0
 		
 
