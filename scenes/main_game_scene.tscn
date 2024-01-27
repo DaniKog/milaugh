@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bb6hv48hppt78"]
+[gd_scene load_steps=23 format=3 uid="uid://bb6hv48hppt78"]
 
 [ext_resource type="Script" path="res://scripts/gameplay-ui.gd" id="1_nibp3"]
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="2_ceahc"]
@@ -10,16 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://bchs5t42givn3" path="res://ui_images/blank_white.png" id="5_btbry"]
 [ext_resource type="Script" path="res://scripts/CurrentModule.gd" id="7_3xkvv"]
 
-[sub_resource type="Theme" id="Theme_ufk8t"]
+[sub_resource type="Theme" id="Theme_yees3"]
 default_font = ExtResource("4_rly5q")
 
-[sub_resource type="SystemFont" id="SystemFont_g6nxb"]
-
 [sub_resource type="LabelSettings" id="LabelSettings_n36ei"]
-font = SubResource("SystemFont_g6nxb")
-font_size = 35
+font = ExtResource("4_rly5q")
+font_size = 30
 
 [sub_resource type="Theme" id="Theme_gc2j1"]
+default_font = ExtResource("4_rly5q")
 TooltipLabel/colors/font_color = Color(1, 1, 1, 1)
 TooltipLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 TooltipLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -27,22 +26,25 @@ TooltipLabel/constants/outline_size = 0
 TooltipLabel/constants/shadow_offset_x = 0
 TooltipLabel/constants/shadow_offset_y = 0
 TooltipLabel/font_sizes/font_size = 24
-TooltipLabel/fonts/font = null
+TooltipLabel/fonts/font = ExtResource("4_rly5q")
+
+[sub_resource type="Theme" id="Theme_ufk8t"]
+default_font = ExtResource("4_rly5q")
 
 [sub_resource type="LabelSettings" id="LabelSettings_1vrp3"]
-font = SubResource("SystemFont_g6nxb")
+font = ExtResource("4_rly5q")
 font_size = 40
 
 [sub_resource type="LabelSettings" id="LabelSettings_xvs7j"]
-font = SubResource("SystemFont_g6nxb")
+font = ExtResource("4_rly5q")
 font_size = 60
 
 [sub_resource type="LabelSettings" id="LabelSettings_xqlj8"]
-font = SubResource("SystemFont_g6nxb")
+font = ExtResource("4_rly5q")
 font_size = 60
 
 [sub_resource type="LabelSettings" id="LabelSettings_xx25p"]
-font = SubResource("SystemFont_g6nxb")
+font = ExtResource("4_rly5q")
 font_size = 60
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pumu3"]
@@ -54,8 +56,11 @@ bg_color = Color(0.905882, 0.254902, 0.290196, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hw4ma"]
 size = Vector2(108.617, 93.6227)
 
+[sub_resource type="Theme" id="Theme_6bjud"]
+default_font = ExtResource("4_rly5q")
+
 [sub_resource type="LabelSettings" id="LabelSettings_iannj"]
-font_size = 31
+font_size = 24
 
 [node name="main_game_scene_zach" type="Control"]
 layout_mode = 3
@@ -115,7 +120,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="label_modifiers" type="Label" parent="panel_frame/panel_modifiers/VBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_ufk8t")
+theme = SubResource("Theme_yees3")
 text = "Available Items"
 label_settings = SubResource("LabelSettings_n36ei")
 
@@ -125,7 +130,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = SubResource("Theme_gc2j1")
 theme_override_font_sizes/font_size = 32
-max_columns = 4
+max_columns = 2
 same_column_width = true
 script = ExtResource("4_434bg")
 
@@ -159,7 +164,7 @@ grow_vertical = 2
 
 [node name="label_object" type="Label" parent="panel_frame/panel_object/VBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_ufk8t")
+theme = SubResource("Theme_yees3")
 text = "Active Items"
 label_settings = SubResource("LabelSettings_n36ei")
 
@@ -194,9 +199,13 @@ anchor_left = 0.0305654
 anchor_top = 0.0747041
 anchor_right = 0.46512
 anchor_bottom = 0.426745
+offset_left = -1.33298
+offset_top = -2.14966
+offset_right = 27.1672
+offset_bottom = -2.14966
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_ufk8t")
+theme = SubResource("Theme_yees3")
 text = "Description"
 label_settings = SubResource("LabelSettings_n36ei")
 
@@ -232,12 +241,15 @@ anchor_left = 0.0355484
 anchor_top = 0.0696583
 anchor_right = 0.176719
 anchor_bottom = 0.214969
+offset_left = 3.13191
+offset_top = -1.85305
+offset_right = 60.3168
+offset_bottom = 5.66605
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_ufk8t")
+theme = SubResource("Theme_yees3")
 text = "Target"
 label_settings = SubResource("LabelSettings_n36ei")
-metadata/_edit_use_anchors_ = true
 
 [node name="label_pitch" type="Label" parent="panel_frame/panel_target"]
 layout_mode = 1
@@ -246,16 +258,15 @@ anchor_left = 0.0347934
 anchor_top = 0.242056
 anchor_right = 0.193144
 anchor_bottom = 0.444611
-offset_left = 24.262
-offset_top = 8.95999
-offset_right = -24.262
-offset_bottom = -8.95999
+offset_left = 21.6176
+offset_top = -4.64301
+offset_right = 84.7506
+offset_bottom = 3.6562
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_ufk8t")
+theme = SubResource("Theme_yees3")
 text = "Pitch"
 label_settings = SubResource("LabelSettings_1vrp3")
-metadata/_edit_use_anchors_ = true
 
 [node name="label_pitch_value" type="Label" parent="panel_frame/panel_target"]
 layout_mode = 1
@@ -264,15 +275,16 @@ anchor_left = 0.113709
 anchor_top = 0.453167
 anchor_right = 0.166458
 anchor_bottom = 0.811278
-offset_top = 22.96
-offset_bottom = -22.96
+offset_left = 25.8511
+offset_top = 1.97923
+offset_right = 41.9177
+offset_bottom = 14.7894
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_ufk8t")
+theme = SubResource("Theme_yees3")
 text = "3
 "
 label_settings = SubResource("LabelSettings_xvs7j")
-metadata/_edit_use_anchors_ = true
 
 [node name="label_speed" type="Label" parent="panel_frame/panel_target"]
 layout_mode = 1
@@ -281,16 +293,15 @@ anchor_left = 0.375381
 anchor_top = 0.239278
 anchor_right = 0.579433
 anchor_bottom = 0.441833
-offset_left = 34.762
-offset_top = 8.95999
-offset_right = -34.762
-offset_bottom = -8.95998
+offset_left = 12.5175
+offset_top = -4.09852
+offset_right = 46.2507
+offset_bottom = 4.20068
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_ufk8t")
+theme = SubResource("Theme_yees3")
 text = "Speed"
 label_settings = SubResource("LabelSettings_1vrp3")
-metadata/_edit_use_anchors_ = true
 
 [node name="label_speed_value" type="Label" parent="panel_frame/panel_target"]
 layout_mode = 1
@@ -299,16 +310,16 @@ anchor_left = 0.451033
 anchor_top = 0.472611
 anchor_right = 0.503781
 anchor_bottom = 0.830722
-offset_top = 22.96
-offset_right = -1.52588e-05
-offset_bottom = -22.96
+offset_left = 8.85049
+offset_top = 0.168198
+offset_right = 26.9177
+offset_bottom = 14.9784
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_ufk8t")
+theme = SubResource("Theme_yees3")
 text = "3
 "
 label_settings = SubResource("LabelSettings_xqlj8")
-metadata/_edit_use_anchors_ = true
 
 [node name="label_volume" type="Label" parent="panel_frame/panel_target"]
 layout_mode = 1
@@ -317,16 +328,15 @@ anchor_left = 0.79105
 anchor_top = 0.264278
 anchor_right = 0.892817
 anchor_bottom = 0.466833
-offset_left = 11.262
-offset_top = 8.95999
-offset_right = -11.262
-offset_bottom = -8.95999
+offset_left = -47.8826
+offset_top = -5.99852
+offset_right = 18.6506
+offset_bottom = 2.30069
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_ufk8t")
+theme = SubResource("Theme_yees3")
 text = "Vol."
 label_settings = SubResource("LabelSettings_1vrp3")
-metadata/_edit_use_anchors_ = true
 
 [node name="label_volume_value" type="Label" parent="panel_frame/panel_target"]
 layout_mode = 1
@@ -335,15 +345,16 @@ anchor_left = 0.815559
 anchor_top = 0.497611
 anchor_right = 0.868308
 anchor_bottom = 0.855722
-offset_top = 22.96
-offset_bottom = -22.96
+offset_left = -39.6493
+offset_top = -5.7318
+offset_right = -23.5827
+offset_bottom = 7.07841
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_ufk8t")
+theme = SubResource("Theme_yees3")
 text = "3
 "
 label_settings = SubResource("LabelSettings_xx25p")
-metadata/_edit_use_anchors_ = true
 
 [node name="panel_laugh_module" type="NinePatchRect" parent="panel_frame"]
 clip_contents = true
@@ -367,12 +378,15 @@ anchor_left = 0.0334689
 anchor_top = 0.0210843
 anchor_right = 0.486032
 anchor_bottom = 0.125
+offset_left = -1.88408
+offset_top = 4.66327
+offset_right = 142.616
+offset_bottom = 4.66327
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_ufk8t")
+theme = SubResource("Theme_yees3")
 text = "Laughter Module"
 label_settings = SubResource("LabelSettings_n36ei")
-metadata/_edit_use_anchors_ = true
 
 [node name="label_robot" type="Label" parent="panel_frame/panel_laugh_module"]
 layout_mode = 1
@@ -381,22 +395,26 @@ anchor_left = 0.503817
 anchor_top = 0.0316265
 anchor_right = 0.956379
 anchor_bottom = 0.135542
+offset_left = 106.6
+offset_top = 4.59533
+offset_right = -48.8995
+offset_bottom = -12.3057
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_ufk8t")
+theme = SubResource("Theme_yees3")
 text = "Robot
 "
 label_settings = SubResource("LabelSettings_n36ei")
 horizontal_alignment = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="button_launch" type="Button" parent="panel_frame/panel_laugh_module"]
 unique_name_in_owner = true
-layout_mode = 0
-anchor_left = 0.089422
-anchor_top = 0.596386
-anchor_right = 0.299891
-anchor_bottom = 0.725904
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089733
+anchor_top = 0.481202
+anchor_right = 0.300202
+anchor_bottom = 0.61072
 theme_override_colors/font_color = Color(0.945098, 0.960784, 0, 1)
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_pumu3")
@@ -456,10 +474,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CurrentModule" type="GridContainer" parent="panel_frame/panel_laugh_module"]
 layout_mode = 0
-offset_left = 43.0
-offset_top = 357.0
-offset_right = 223.0
-offset_bottom = 507.0
+offset_left = 32.5996
+offset_top = 350.6
+offset_right = 229.6
+offset_bottom = 452.6
 theme_override_constants/h_separation = 4
 theme_override_constants/v_separation = 0
 columns = 2
@@ -467,36 +485,42 @@ script = ExtResource("7_3xkvv")
 
 [node name="Current_Pitch" type="Label" parent="panel_frame/panel_laugh_module/CurrentModule"]
 layout_mode = 2
+theme = SubResource("Theme_6bjud")
 text = "Pitch"
 label_settings = SubResource("LabelSettings_iannj")
 horizontal_alignment = 1
 
 [node name="Current_P_Value" type="Label" parent="panel_frame/panel_laugh_module/CurrentModule"]
 layout_mode = 2
+theme = SubResource("Theme_6bjud")
 text = "0"
 label_settings = SubResource("LabelSettings_iannj")
 horizontal_alignment = 1
 
 [node name="Current_Speed" type="Label" parent="panel_frame/panel_laugh_module/CurrentModule"]
 layout_mode = 2
+theme = SubResource("Theme_6bjud")
 text = "Speed "
 label_settings = SubResource("LabelSettings_iannj")
 horizontal_alignment = 1
 
 [node name="Current_S_Value" type="Label" parent="panel_frame/panel_laugh_module/CurrentModule"]
 layout_mode = 2
+theme = SubResource("Theme_6bjud")
 text = "0"
 label_settings = SubResource("LabelSettings_iannj")
 horizontal_alignment = 1
 
 [node name="Current_Volume" type="Label" parent="panel_frame/panel_laugh_module/CurrentModule"]
 layout_mode = 2
+theme = SubResource("Theme_6bjud")
 text = "Volume "
 label_settings = SubResource("LabelSettings_iannj")
 horizontal_alignment = 1
 
 [node name="Current_V_Value" type="Label" parent="panel_frame/panel_laugh_module/CurrentModule"]
 layout_mode = 2
+theme = SubResource("Theme_6bjud")
 text = "0"
 label_settings = SubResource("LabelSettings_iannj")
 horizontal_alignment = 1
