@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="Milaugh"
-run/main_scene="res://scenes/root.tscn"
+run/main_scene="res://scenes/top_node_scene.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/bg_color=Color(0.145098, 0.12549, 0.203922, 1)
+boot_splash/image="res://art/Robots/JokerRobot.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [display]
