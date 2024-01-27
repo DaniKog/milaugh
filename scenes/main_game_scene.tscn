@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://bb6hv48hppt78"]
 
-[ext_resource type="Script" path="res://scripts/gameplay-ui.gd" id="1_m2npj"]
-[ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="1_ueey3"]
-[ext_resource type="Texture2D" uid="uid://bhiaf4y2m05aa" path="res://ui_images/table_with_module_open.png" id="2_ousk2"]
-[ext_resource type="Texture2D" uid="uid://bwrt333tfcmlq" path="res://ui_images/blank_ui.png" id="3_3uim4"]
-[ext_resource type="Texture2D" uid="uid://bchs5t42givn3" path="res://ui_images/blank_white.png" id="4_xg8jk"]
+[ext_resource type="Script" path="res://scripts/gameplay-ui.gd" id="1_nibp3"]
+[ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="2_ceahc"]
+[ext_resource type="Texture2D" uid="uid://bhiaf4y2m05aa" path="res://ui_images/table_with_module_open.png" id="3_cna1x"]
+[ext_resource type="Texture2D" uid="uid://bwrt333tfcmlq" path="res://ui_images/blank_ui.png" id="4_0clmj"]
+[ext_resource type="Texture2D" uid="uid://bchs5t42givn3" path="res://ui_images/blank_white.png" id="5_btbry"]
 
 [sub_resource type="SystemFont" id="SystemFont_g6nxb"]
 
@@ -46,7 +46,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_m2npj")
+script = ExtResource("1_nibp3")
 
 [node name="panel_frame" type="NinePatchRect" parent="."]
 clip_contents = true
@@ -56,7 +56,7 @@ anchor_left = -0.00104167
 anchor_top = 0.0037037
 anchor_right = 1.0
 anchor_bottom = 0.993519
-texture = ExtResource("1_ueey3")
+texture = ExtResource("2_ceahc")
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
@@ -72,7 +72,7 @@ anchor_top = 0.02058
 anchor_right = 0.506243
 anchor_bottom = 0.323667
 offset_right = 6.10352e-05
-texture = ExtResource("1_ueey3")
+texture = ExtResource("2_ceahc")
 patch_margin_left = 48
 patch_margin_top = 48
 patch_margin_right = 48
@@ -112,7 +112,7 @@ anchor_top = 0.328344
 anchor_right = 0.506243
 anchor_bottom = 0.787652
 offset_right = 6.10352e-05
-texture = ExtResource("1_ueey3")
+texture = ExtResource("2_ceahc")
 patch_margin_left = 48
 patch_margin_top = 48
 patch_margin_right = 48
@@ -141,7 +141,7 @@ anchor_top = 0.797942
 anchor_right = 0.506764
 anchor_bottom = 0.981291
 offset_right = -6.10352e-05
-texture = ExtResource("1_ueey3")
+texture = ExtResource("2_ceahc")
 patch_margin_left = 48
 patch_margin_top = 48
 patch_margin_right = 48
@@ -179,7 +179,7 @@ anchor_left = 0.510926
 anchor_top = 0.02058
 anchor_right = 0.989074
 anchor_bottom = 0.282507
-texture = ExtResource("1_ueey3")
+texture = ExtResource("2_ceahc")
 patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
@@ -307,7 +307,7 @@ anchor_left = 0.511967
 anchor_top = 0.28812
 anchor_right = 0.989074
 anchor_bottom = 0.981291
-texture = ExtResource("1_ueey3")
+texture = ExtResource("2_ceahc")
 patch_margin_left = 48
 patch_margin_top = 48
 patch_margin_right = 48
@@ -361,7 +361,7 @@ anchor_left = 0.0697928
 anchor_top = 0.161145
 anchor_right = 0.317339
 anchor_bottom = 0.503012
-texture = ExtResource("2_ousk2")
+texture = ExtResource("3_cna1x")
 metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="panel_frame/panel_laugh_module/TextureRect"]
@@ -370,7 +370,6 @@ scale = Vector2(2.73438, 2.73438)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="panel_frame/panel_laugh_module/TextureRect/Area2D"]
 position = Vector2(-22.8571, -51.5656)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hw4ma")
 
 [node name="texture_rect_robot" type="TextureRect" parent="panel_frame/panel_laugh_module"]
@@ -380,7 +379,7 @@ anchor_left = 0.657579
 anchor_top = 0.118976
 anchor_right = 0.896401
 anchor_bottom = 0.448795
-texture = ExtResource("3_3uim4")
+texture = ExtResource("4_0clmj")
 metadata/_edit_use_anchors_ = true
 
 [node name="text_robot" type="RichTextLabel" parent="panel_frame/panel_laugh_module"]
@@ -400,6 +399,6 @@ anchor_left = 0.363141
 anchor_top = 0.149096
 anchor_right = 0.374046
 anchor_bottom = 0.879518
-texture = ExtResource("4_xg8jk")
+texture = ExtResource("5_btbry")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
