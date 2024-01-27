@@ -65,21 +65,21 @@ func AddValue(myType, value):
 	UpdateLaughSound()
 	
 func UpdateLaughSound():
-	var formatString = "res://audio/Laugh_Ha_{intensity}_{speed}-00{variation}.wav"
-		
-	var laughSoundPath = formatString.format({"intensity": globals.laughterVolume.keys()[volume-1],
-	 "speed": globals.laughterSpeed.keys()[speed-1], "variation" : 1})
-	laugh = load(str(laughSoundPath))
+	#var formatString = "res://audio/Laugh_Ha_{intensity}_{speed}-00{variation}.wav"
+	var volumestr = str(globals.laughterVolume.keys()[volume-1])
+	var speedstr = str(globals.laughterSpeed.keys()[speed-1])
+	var variationstr = str(1)
+	
+	laugh = load("res://audio/Laugh_Ha_" + volumestr + "_"
+										 + speedstr + "-00"
+										 + variationstr + ".wav")
+	
+	print("Pitch="+str(pitch)+" Intensity="+volumestr+" Speed="+speedstr)
 
 	audioPlayer.stream = laugh
-	var pitchToSet = pitch*0.5 - 0.5
-	if pitchToSet <= 0:
-		pitchToSet += .3
+	var realPitch = max(0.3, pitch*0.5 - 0.5)
 	
-	print(str(laughSoundPath))
-	print(globals.laughterSpeed.keys()[speed-1])
-	print(globals.laughterVolume.keys()[volume-1])
-	print(pitch, "->", pitchToSet)
-	audioPlayer.pitch_scale = pitchToSet
+	print(pitch, "->", realPitch)
+	audioPlayer.pitch_scale = realPitch
 		
 

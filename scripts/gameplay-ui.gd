@@ -6,33 +6,30 @@ const PREVIEW_LENGTH = 0.1
 @onready var laughterModule = %laughter_module/Laughter
 @onready var currentModelValues = $panel_frame/panel_laugh_module/CurrentModule
 @onready var textDescriptionDisplay = $panel_frame/panel_object_description/text_description
-var modules = [
-	load("res://resources/items/evil_monkey.tres"),
-	load("res://resources/items/brass_horn.tres"),
-	load("res://resources/items/moonshine.tres"),
-	load("res://resources/items/whistle.tres"),
-	load("res://resources/items/cow_bell.tres"),
-	load("res://resources/items/fax_machine.tres"),
-]
+
+var item_rsrc:Array[Item]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for module in modules:
-		%item_list.add_item(module.name, module.icon)
-		%item_list.set_item_tooltip(-1, module.description)
-		%item_list.set_item_tooltip_enabled(-1, true)
-		
+	#populate item list, copy the complete rsrc into item "metadata"
+	for filePath in DirAccess.get_files_at("res://resources/items/"):
+		if filePath.get_extension() == "tres":  
+			var item:Item = load("resources/items/"+filePath)
+			var item_idx = %item_list.add_item(item.name, item.icon)
+			%item_list.set_item_tooltip(item_idx, item.description)
+			%item_list.set_item_tooltip_enabled(item_idx, true)
+			%item_list.set_item_metadata(item_idx, item)
+
 
 func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 	if mouse_button_index == 1:
 		# Add to active item list
-		%active_item_list.add_item(
+		var active_item_idx = %active_item_list.add_item(
 			%item_list.get_item_text(index),
-			%item_list.get_item_icon(index)
-		)
-		
-		# Remove from available item list
-		%item_list.remove_item(index)
+			%item_list.get_item_icon(index))
+		%active_item_list.set_item_tooltip(active_item_idx,%item_list.get_item_tooltip(index))
+		%active_item_list.set_item_tooltip_enabled(active_item_idx, true)
+		%active_item_list.set_item_metadata(active_item_idx,%item_list.get_item_metadata(index))	
 		
 		# If we've selected 3 items, stop further selections
 		if %active_item_list.item_count >= 3:
@@ -41,11 +38,10 @@ func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 				%item_list.set_item_disabled(i, true)
 				
 		
-		
 		# Apply value changes
-		%laughter_module/Laughter.AddValue(globals.LaughParameter.Pitch, modules[index].pitch)
-		%laughter_module/Laughter.AddValue(globals.LaughParameter.Speed, modules[index].speed)
-		%laughter_module/Laughter.AddValue(globals.LaughParameter.Volume, modules[index].volume)
+		%laughter_module/Laughter.AddValue(globals.LaughParameter.Pitch, %item_list.get_item_metadata(index).pitch)
+		%laughter_module/Laughter.AddValue(globals.LaughParameter.Speed, %item_list.get_item_metadata(index).speed)
+		%laughter_module/Laughter.AddValue(globals.LaughParameter.Volume, %item_list.get_item_metadata(index).volume)
 		
 		# Play preview of new sound
 		%laughter_module/Laughter.Play()
@@ -56,6 +52,22 @@ func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 		currentModelValues.SetSpeed(%laughter_module/Laughter.speed)
 		currentModelValues.SetVolume(%laughter_module/Laughter.volume)
 
+		# LASTLY Remove from available item list
+		%item_list.remove_item(index)
+
+func _on_next_robot_pressed():
+	#invite new robot
+	$panel_frame/panel_laugh_module.invite_robot(randi_range(1,4))
+	#hide results panel
+	$panel_frame/ResultScreen.visible=0
+	#clear active list
+	%active_item_list.clear()
+	#reenable items
+	for i in range(%item_list.item_count):
+				%item_list.set_item_disabled(i, false)
+	#re-disable Launch button
+	%button_launch.set_disabled(true)
+	pass
 
 func _on_button_launch_pressed():
 	laughterModule.Play()
@@ -81,6 +93,7 @@ func calculate_result():
 		$panel_frame/ResultScreen/Result_Title.text = "..whut..how..why?"
 		$panel_frame/ResultScreen/Text_Fail.visible = 1
 	$panel_frame/ResultScreen.visible=1
+	pass
 	
 
 

@@ -576,6 +576,24 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_uw3th")
 text = "Laugh Again"
 metadata/_edit_use_anchors_ = true
 
+[node name="Next_Robot" type="Button" parent="panel_frame/ResultScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.418758
+anchor_top = 0.191413
+anchor_right = -0.148004
+anchor_bottom = 0.320542
+offset_left = 512.883
+offset_top = 109.519
+offset_right = 512.883
+offset_bottom = 109.519
+theme_override_colors/font_color = Color(0.945098, 0.960784, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_pumu3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uw3th")
+text = "Next Robot!"
+metadata/_edit_use_anchors_ = true
+
 [node name="Result_Title" type="Label" parent="panel_frame/ResultScreen"]
 layout_mode = 0
 offset_left = 425.0
@@ -644,8 +662,10 @@ offset_right = 659.0
 offset_bottom = 420.0
 texture = ExtResource("11_lrb24")
 
-[connection signal="gui_input" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="panel_frame/panel_modifiers/VBoxContainer/item_list" method="_on_gui_input"]
+[connection signal="gui_input" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="panel_frame/panel_modifiers/VBoxContainer/item_list" method="_on_ItemList_gui_input"]
 [connection signal="item_clicked" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="." method="_on_item_list_item_clicked"]
 [connection signal="item_selected" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="." method="_on_item_list_item_selected"]
+[connection signal="gui_input" from="panel_frame/panel_object/VBoxContainer/active_item_list" to="panel_frame/panel_modifiers/VBoxContainer/item_list" method="_on_ItemList_gui_input"]
 [connection signal="pressed" from="panel_frame/panel_laugh_module/button_launch" to="." method="_on_button_launch_pressed"]
 [connection signal="pressed" from="panel_frame/ResultScreen/Laugh_Again" to="." method="_on_button_launch_pressed"]
+[connection signal="pressed" from="panel_frame/ResultScreen/Next_Robot" to="." method="_on_next_robot_pressed"]
