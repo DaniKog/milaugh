@@ -10,4 +10,4 @@ description = "I think we all know how this sounds like"
 icon = ExtResource("1_qhpxi")
 pitch = 1
 speed = -1
-volume = 2
+volume = 1

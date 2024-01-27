@@ -76,9 +76,9 @@ func _on_button_launch_pressed():
 
 func calculate_result():
 	var diff:int = 0
-	diff += int(%label_pitch_value.text) - int(%Current_P_Value.text)
-	diff += int(%label_speed_value.text) - int(%Current_S_Value.text)
-	diff += int(%label_volume_value.text) - int(%Current_V_Value.text)
+	diff += abs(int(%label_pitch_value.text) - int(%Current_P_Value.text))
+	diff += abs(int(%label_speed_value.text) - int(%Current_S_Value.text))
+	diff += abs(int(%label_volume_value.text) - int(%Current_V_Value.text))
 	
 	if (diff<=2):
 		#success
