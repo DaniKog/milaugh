@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://idbruavivbvn"]
+[gd_scene load_steps=7 format=3 uid="uid://idbruavivbvn"]
 
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="1_ifybn"]
 [ext_resource type="Texture2D" uid="uid://bwrt333tfcmlq" path="res://ui_images/blank_ui.png" id="2_82qj0"]
+[ext_resource type="FontFile" uid="uid://6m88uyjxpw1y" path="res://font/joystix monospace.otf" id="2_nad3f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p3ifa"]
+font = ExtResource("2_nad3f")
 font_size = 50
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p3f8"]
