@@ -1,0 +1,136 @@
+[gd_scene load_steps=6 format=3 uid="uid://cot7mftcsu0bx"]
+
+[ext_resource type="Script" path="res://scripts/laughter.gd" id="1_1oo0h"]
+[ext_resource type="Script" path="res://scripts/Debug_LaughController.gd" id="3_246ph"]
+[ext_resource type="Script" path="res://scripts/Debug_LaughControllerPlayStop.gd" id="4_urxu0"]
+
+[sub_resource type="GDScript" id="GDScript_odkkf"]
+script/source = "extends PanelContainer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sey5a"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Laughter" type="Node2D" parent="."]
+script = ExtResource("1_1oo0h")
+
+[node name="LaughterSound" type="AudioStreamPlayer2D" parent="Laughter"]
+volume_db = -5.622
+bus = &"Laugh"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LaughterController" type="PanelContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2.13686, 2.09061)
+script = SubResource("GDScript_odkkf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LaughterController"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/LaughterController/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_246ph")
+
+[node name="Up" type="Button" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "+"
+icon = SubResource("ViewportTexture_sey5a")
+
+[node name="Label" type="Label" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Pitch"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Down" type="Button" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "_"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_246ph")
+
+[node name="Up" type="Button" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "+"
+icon = SubResource("ViewportTexture_sey5a")
+
+[node name="Label" type="Label" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Speed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Down" type="Button" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "_"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_246ph")
+
+[node name="Up" type="Button" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "+"
+icon = SubResource("ViewportTexture_sey5a")
+
+[node name="Label" type="Label" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Vol."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Down" type="Button" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "_"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/LaughterController/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("4_urxu0")
+
+[node name="Play" type="Button" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Play"
+
+[node name="stop" type="Button" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "stop"
+
+[connection signal="pressed" from="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer2/Play" to="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer2" method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer2/stop" to="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer2" method="_on_stop_pressed"]
