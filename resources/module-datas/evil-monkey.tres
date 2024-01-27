@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource("1_umowq")
-name = "top hat"
-pitch = 0.5
-speed = -0.5
-volume = -0.1
+name = "Evil Monkey"
+description = "Derived from an extinct species. This particular monkey is said to have had an evil streak, keep bananas away at all costs."
+pitch = 2.08165e-12
+speed = 1.0
+volume = 2.08165e-12
