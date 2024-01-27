@@ -51,9 +51,8 @@ func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 		%laughter_module/Laughter.Play()
 		await get_tree().create_timer(PREVIEW_LENGTH).timeout
 		%laughter_module/Laughter.Stop()
-		var pitchToShow = round(%laughter_module/Laughter.pitch*2)
-		pitchToShow = max(%laughter_module/Laughter.MIN_VALUE, min(%laughter_module/Laughter.MAX_VALUE, pitchToShow))
-		currentModelValues.SetPitch(pitchToShow)
+
+		currentModelValues.SetPitch(%laughter_module/Laughter.pitch)
 		currentModelValues.SetSpeed(%laughter_module/Laughter.speed)
 		currentModelValues.SetVolume(%laughter_module/Laughter.volume)
 

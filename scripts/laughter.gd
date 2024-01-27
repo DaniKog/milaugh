@@ -2,7 +2,7 @@ extends Node2D
 
 # For the sake of simplicity, all values have the same bounds
 # based on the size of the sound variation arrays (5).
-const MIN_VALUE = 0
+const MIN_VALUE = 1
 const MAX_VALUE = 5
 
 
@@ -12,7 +12,7 @@ var maxVariations = 2
 @onready var volume = globals.laughterVolume.Medium
 
 @onready var speed = globals.laughterSpeed.Normal
-var pitch = 0
+var pitch = 3
 
 @onready var audioPlayer = $LaughterSound
 @onready var laugh = load("res://audio/Laugh_Ha_High_Fast-001.wav")
@@ -37,9 +37,7 @@ func Stop():
 func SetValue(myType, value):
 	match myType:
 		globals.LaughParameter.Pitch:
-			pitch = value*0.5
-			if pitch == 0:
-				pitch = .3
+			pitch = value
 			pitch = max(MIN_VALUE, min(MAX_VALUE, pitch))
 		globals.LaughParameter.Speed:
 			speed = value
@@ -54,9 +52,7 @@ func SetValue(myType, value):
 func AddValue(myType, value):
 	match myType:
 		globals.LaughParameter.Pitch:
-			pitch += value*0.5
-			if pitch <= 0:
-				pitch += .3
+			pitch += value
 			pitch = max(MIN_VALUE, min(MAX_VALUE, pitch))
 		globals.LaughParameter.Speed:
 			speed += value
@@ -74,12 +70,16 @@ func UpdateLaughSound():
 	var laughSoundPath = formatString.format({"intensity": globals.laughterVolume.keys()[volume-1],
 	 "speed": globals.laughterSpeed.keys()[speed-1], "variation" : 1})
 	laugh = load(str(laughSoundPath))
+
+	audioPlayer.stream = laugh
+	var pitchToSet = pitch*0.5 - 0.5
+	if pitchToSet <= 0:
+		pitchToSet += .3
+	
 	print(str(laughSoundPath))
 	print(globals.laughterSpeed.keys()[speed-1])
 	print(globals.laughterVolume.keys()[volume-1])
-	print(pitch)
-	
-	audioPlayer.stream = laugh
-	audioPlayer.pitch_scale = pitch
+	print(pitch, "->", pitchToSet)
+	audioPlayer.pitch_scale = pitchToSet
 		
 
