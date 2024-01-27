@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="ModuleData" load_steps=2 format=3 uid="uid://6al1iwc8defi"]
 
-[ext_resource type="Script" path="res://resources/module-data.gd" id="1_umowq"]
+[ext_resource type="Script" path="res://resources/item.gd" id="1_umowq"]
 
 [resource]
 script = ExtResource("1_umowq")
 name = "Evil Monkey"
 description = "Derived from an extinct species. This particular monkey is said to have had an evil streak, keep bananas away at all costs."
-pitch = 2.08165e-12
-speed = 1.0
-volume = 2.08165e-12
+pitch = 3.0
+speed = 4.0
+volume = 3.0
