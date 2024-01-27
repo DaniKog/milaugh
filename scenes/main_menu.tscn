@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://idbruavivbvn"]
+
+[ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="1_ifybn"]
+[ext_resource type="Texture2D" uid="uid://bwrt333tfcmlq" path="res://ui_images/blank_ui.png" id="2_82qj0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p3ifa"]
+font_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p3f8"]
+bg_color = Color(0.6, 0.537255, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s843a"]
+bg_color = Color(0.505882, 0.937255, 0.6, 1)
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.997768
+anchor_bottom = 0.986772
+texture = ExtResource("1_ifybn")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+metadata/_edit_use_anchors_ = true
+
+[node name="label_story" type="Label" parent="bg"]
+layout_mode = 0
+anchor_right = 0.988095
+anchor_bottom = 0.193122
+text = "Mi-Laugh"
+label_settings = SubResource("LabelSettings_p3ifa")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="bg/label_story"]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 140.0
+offset_right = 900.0
+offset_bottom = 602.0
+texture = ExtResource("2_82qj0")
+
+[node name="button_play" type="Button" parent="bg"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.737509
+anchor_top = 0.780161
+anchor_right = 0.964952
+anchor_bottom = 0.946381
+theme_override_colors/font_color = Color(0.231373, 0.145098, 0.188235, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_1p3f8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s843a")
+text = "Play"
+metadata/_edit_use_anchors_ = true

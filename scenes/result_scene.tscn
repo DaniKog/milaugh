@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://s4oi1oh2dv47"]
+
+[ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="1_xj7dw"]
+[ext_resource type="Texture2D" uid="uid://bwrt333tfcmlq" path="res://ui_images/blank_ui.png" id="2_np42v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0cj81"]
+font_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24c1i"]
+bg_color = Color(0.6, 0.537255, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j41eo"]
+bg_color = Color(0.505882, 0.937255, 0.6, 1)
+
+[node name="result_scene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="NinePatchRect" parent="."]
+layout_mode = 0
+anchor_right = 0.997768
+anchor_bottom = 0.986772
+texture = ExtResource("1_xj7dw")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+metadata/_edit_use_anchors_ = true
+
+[node name="label_results" type="Label" parent="bg"]
+layout_mode = 0
+anchor_right = 0.988095
+anchor_bottom = 0.193122
+text = "Results"
+label_settings = SubResource("LabelSettings_0cj81")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="button_next" type="Button" parent="bg"]
+layout_mode = 0
+anchor_left = 0.744221
+anchor_top = 0.785523
+anchor_right = 0.971663
+anchor_bottom = 0.951743
+theme_override_colors/font_color = Color(0.231373, 0.145098, 0.188235, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_24c1i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_j41eo")
+text = "Next"
+metadata/_edit_use_anchors_ = true
+
+[node name="Robot" type="TextureRect" parent="bg"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.397465
+anchor_top = 0.270777
+anchor_right = 0.604773
+anchor_bottom = 0.643432
+texture = ExtResource("2_np42v")
+metadata/_edit_use_anchors_ = true
