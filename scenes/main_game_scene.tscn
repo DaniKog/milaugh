@@ -1,22 +1,23 @@
-[gd_scene load_steps=26 format=3 uid="uid://bb6hv48hppt78"]
+[gd_scene load_steps=27 format=3 uid="uid://bb6hv48hppt78"]
 
 [ext_resource type="Script" path="res://scripts/gameplay-ui.gd" id="1_nibp3"]
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="2_ceahc"]
 [ext_resource type="PackedScene" uid="uid://ngu1bkvclntg" path="res://scenes/LaughterModule.tscn" id="2_i56to"]
 [ext_resource type="Texture2D" uid="uid://bhiaf4y2m05aa" path="res://ui_images/table_with_module_open.png" id="3_cna1x"]
+[ext_resource type="Texture2D" uid="uid://bwrt333tfcmlq" path="res://ui_images/blank_ui.png" id="4_0clmj"]
 [ext_resource type="Script" path="res://scripts/itemListSelection.gd" id="4_434bg"]
 [ext_resource type="FontFile" uid="uid://6m88uyjxpw1y" path="res://font/joystix monospace.otf" id="4_rly5q"]
 [ext_resource type="Texture2D" uid="uid://bchs5t42givn3" path="res://ui_images/blank_white.png" id="5_btbry"]
-[ext_resource type="Script" path="res://scripts/robot_interaction.gd" id="6_dmtxg"]
+[ext_resource type="Script" path="res://scripts/robot_interaction.gd" id="6_cubky"]
 [ext_resource type="Script" path="res://scripts/CurrentModule.gd" id="7_3xkvv"]
-[ext_resource type="Texture2D" uid="uid://bsc8totrvkc4s" path="res://art/Robots/JokerRobot.png" id="8_a2phi"]
+[ext_resource type="Texture2D" uid="uid://ch2pujv2mefim" path="res://art/ui-fg.png" id="11_pymud"]
 
 [sub_resource type="Theme" id="Theme_yees3"]
 default_font = ExtResource("4_rly5q")
 
 [sub_resource type="LabelSettings" id="LabelSettings_n36ei"]
 font = ExtResource("4_rly5q")
-font_size = 30
+font_size = 25
 
 [sub_resource type="Theme" id="Theme_gc2j1"]
 default_font = ExtResource("4_rly5q")
@@ -34,19 +35,19 @@ default_font = ExtResource("4_rly5q")
 
 [sub_resource type="LabelSettings" id="LabelSettings_1vrp3"]
 font = ExtResource("4_rly5q")
-font_size = 40
+font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_xvs7j"]
 font = ExtResource("4_rly5q")
-font_size = 60
+font_size = 42
 
 [sub_resource type="LabelSettings" id="LabelSettings_xqlj8"]
 font = ExtResource("4_rly5q")
-font_size = 60
+font_size = 42
 
 [sub_resource type="LabelSettings" id="LabelSettings_xx25p"]
 font = ExtResource("4_rly5q")
-font_size = 60
+font_size = 42
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pumu3"]
 border_color = Color(0.764706, 0.823529, 0.145098, 1)
@@ -138,7 +139,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme = SubResource("Theme_gc2j1")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 18
 max_columns = 2
 same_column_width = true
 script = ExtResource("4_434bg")
@@ -208,10 +209,10 @@ anchor_left = 0.0305654
 anchor_top = 0.0747041
 anchor_right = 0.46512
 anchor_bottom = 0.426745
-offset_left = -1.33298
-offset_top = -2.14966
-offset_right = 27.1672
-offset_bottom = -2.14966
+offset_left = -2.33298
+offset_top = 1.85034
+offset_right = 26.1672
+offset_bottom = 1.85034
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_yees3")
@@ -225,7 +226,7 @@ anchor_top = 0.326531
 anchor_right = 0.973822
 anchor_bottom = 0.897959
 theme = SubResource("Theme_ufk8t")
-theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/normal_font_size = 22
 text = "Evil monkey. They steal bananas fast, and have a high voice."
 
 [node name="panel_target" type="NinePatchRect" parent="panel_frame"]
@@ -285,10 +286,10 @@ anchor_left = 0.113709
 anchor_top = 0.453167
 anchor_right = 0.166458
 anchor_bottom = 0.811278
-offset_left = 25.8511
-offset_top = 1.97923
-offset_right = 41.9177
-offset_bottom = 14.7894
+offset_left = 17.8511
+offset_top = -0.0207748
+offset_right = 33.9177
+offset_bottom = 12.7894
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_yees3")
@@ -321,10 +322,10 @@ anchor_left = 0.451033
 anchor_top = 0.472611
 anchor_right = 0.503781
 anchor_bottom = 0.830722
-offset_left = 8.85049
-offset_top = 0.168198
-offset_right = 26.9177
-offset_bottom = 14.9784
+offset_left = 4.85031
+offset_top = -3.63179
+offset_right = 22.9175
+offset_bottom = -0.821564
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_yees3")
@@ -357,10 +358,10 @@ anchor_left = 0.815559
 anchor_top = 0.497611
 anchor_right = 0.868308
 anchor_bottom = 0.855722
-offset_left = -39.6493
-offset_top = -5.7318
-offset_right = -23.5827
-offset_bottom = 7.07841
+offset_left = -51.6492
+offset_top = -7.7318
+offset_right = -35.5826
+offset_bottom = -2.92159
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_yees3")
@@ -381,7 +382,7 @@ patch_margin_left = 48
 patch_margin_top = 48
 patch_margin_right = 48
 patch_margin_bottom = 48
-script = ExtResource("6_dmtxg")
+script = ExtResource("6_cubky")
 metadata/_edit_use_anchors_ = true
 
 [node name="label_laugh_module" type="Label" parent="panel_frame/panel_laugh_module"]
@@ -409,19 +410,20 @@ anchor_left = 0.503817
 anchor_top = 0.0316265
 anchor_right = 0.956379
 anchor_bottom = 0.135542
-offset_left = 106.6
-offset_top = 4.59533
-offset_right = -48.8995
-offset_bottom = -12.3057
+offset_left = 23.1996
+offset_top = 45.195
+offset_right = -132.3
+offset_bottom = 28.294
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_yees3")
 text = "Robot
 "
 label_settings = SubResource("LabelSettings_n36ei")
-horizontal_alignment = 2
+horizontal_alignment = 1
 
 [node name="button_launch" type="Button" parent="panel_frame/panel_laugh_module"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.089733
@@ -458,11 +460,11 @@ shape = SubResource("RectangleShape2D_hw4ma")
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.657579
-anchor_top = 0.118976
-anchor_right = 0.896401
-anchor_bottom = 0.448795
-texture = ExtResource("8_a2phi")
+anchor_left = 0.529054
+anchor_top = 0.199729
+anchor_right = 0.767876
+anchor_bottom = 0.529549
+texture = ExtResource("4_0clmj")
 metadata/_edit_use_anchors_ = true
 
 [node name="text_robot" type="RichTextLabel" parent="panel_frame/panel_laugh_module"]
@@ -474,7 +476,7 @@ anchor_right = 0.966194
 anchor_bottom = 0.954819
 offset_top = 3.05176e-05
 theme = SubResource("Theme_ufk8t")
-theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/normal_font_size = 22
 text = "I want to be an evil robot that is fast with a deep voice "
 
 [node name="separator" type="TextureRect" parent="panel_frame/panel_laugh_module"]
@@ -616,7 +618,14 @@ offset_left = 432.0
 offset_top = 175.0
 offset_right = 659.0
 offset_bottom = 420.0
-texture = ExtResource("8_a2phi")
+texture = ExtResource("11_pymud")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="panel_frame/ResultScreen"]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 427.0
+offset_right = 739.0
+offset_bottom = 635.0
 
 [connection signal="gui_input" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="panel_frame/panel_modifiers/VBoxContainer/item_list" method="_on_gui_input"]
 [connection signal="item_clicked" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="." method="_on_item_list_item_clicked"]

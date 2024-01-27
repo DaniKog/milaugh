@@ -60,9 +60,14 @@ func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 
 func _on_button_launch_pressed():
 	laughterModule.Play()
+	calculate_result()
 	pass # Replace with function body.
 
-
+func calculate_result():
+	var target_pitch = int(%label_pitch_value.text)
+	var target_speed = int(%label_speed_value.text)
+	var target_volume = int(%label_volume_value.text)
+	
 
 func _on_item_list_item_selected(index):
 	print(%item_list.get_item_text(index))
