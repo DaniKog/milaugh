@@ -1,0 +1,479 @@
+[gd_scene load_steps=17 format=3 uid="uid://bb6hv48hppt78"]
+
+[ext_resource type="Script" path="res://scripts/gameplay-ui.gd" id="1_m2npj"]
+[ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="1_ueey3"]
+[ext_resource type="Texture2D" uid="uid://bhiaf4y2m05aa" path="res://ui_images/table_with_module_open.png" id="2_ousk2"]
+[ext_resource type="Texture2D" uid="uid://bwrt333tfcmlq" path="res://ui_images/blank_ui.png" id="3_3uim4"]
+[ext_resource type="Texture2D" uid="uid://bchs5t42givn3" path="res://ui_images/blank_white.png" id="4_xg8jk"]
+
+[sub_resource type="SystemFont" id="SystemFont_g6nxb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n36ei"]
+font = SubResource("SystemFont_g6nxb")
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_1vrp3"]
+font = SubResource("SystemFont_g6nxb")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_xvs7j"]
+font = SubResource("SystemFont_g6nxb")
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_xqlj8"]
+font = SubResource("SystemFont_g6nxb")
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_xx25p"]
+font = SubResource("SystemFont_g6nxb")
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_ywhk6"]
+font = SubResource("SystemFont_g6nxb")
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_mwfup"]
+font = SubResource("SystemFont_g6nxb")
+font_size = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pumu3"]
+border_color = Color(0.764706, 0.823529, 0.145098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uw3th"]
+bg_color = Color(0.905882, 0.254902, 0.290196, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hw4ma"]
+size = Vector2(64, 64)
+
+[node name="main_game_scene_zach" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_m2npj")
+
+[node name="panel_frame" type="NinePatchRect" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.994
+offset_left = -2.0
+offset_top = 4.0
+offset_bottom = -0.52002
+texture = ExtResource("1_ueey3")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="panel_modifiers" type="NinePatchRect" parent="panel_frame"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.156
+offset_top = 22.0
+offset_right = -949.0
+offset_bottom = -723.0
+texture = ExtResource("1_ueey3")
+patch_margin_left = 48
+patch_margin_top = 48
+patch_margin_right = 48
+patch_margin_bottom = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="panel_frame/panel_modifiers"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="label_modifiers" type="Label" parent="panel_frame/panel_modifiers/VBoxContainer"]
+layout_mode = 2
+text = "Modifiers"
+label_settings = SubResource("LabelSettings_n36ei")
+
+[node name="modifier_list" type="ItemList" parent="panel_frame/panel_modifiers/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+max_columns = 4
+same_column_width = true
+
+[node name="panel_object" type="NinePatchRect" parent="panel_frame"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.156
+offset_top = 351.0
+offset_right = -949.0
+offset_bottom = -227.0
+texture = ExtResource("1_ueey3")
+patch_margin_left = 48
+patch_margin_top = 48
+patch_margin_right = 48
+patch_margin_bottom = 48
+
+[node name="label_object" type="Label" parent="panel_frame/panel_object"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.046
+anchor_right = 0.017
+anchor_bottom = 0.046
+offset_left = 12.955
+offset_top = 3.542
+offset_right = 427.955
+offset_bottom = 72.542
+grow_horizontal = 2
+grow_vertical = 2
+text = "Object"
+label_settings = SubResource("LabelSettings_n36ei")
+
+[node name="panel_object_description" type="NinePatchRect" parent="panel_frame"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.987
+offset_left = 19.0
+offset_top = 853.0
+offset_right = -948.0
+offset_bottom = -6.10303
+texture = ExtResource("1_ueey3")
+patch_margin_left = 48
+patch_margin_top = 48
+patch_margin_right = 48
+patch_margin_bottom = 48
+
+[node name="label_object_description" type="Label" parent="panel_frame/panel_object_description"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.046
+anchor_right = 0.017
+anchor_bottom = 0.046
+offset_left = 12.955
+offset_top = 5.626
+offset_right = 427.955
+offset_bottom = 74.626
+grow_horizontal = 2
+grow_vertical = 2
+text = "Description"
+label_settings = SubResource("LabelSettings_n36ei")
+
+[node name="text_description" type="RichTextLabel" parent="panel_frame/panel_object_description"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 64.0
+offset_right = 930.0
+offset_bottom = 176.0
+theme_override_font_sizes/normal_font_size = 28
+text = "Evil monkey. They steal bananas fast, and have a high voice."
+
+[node name="panel_target" type="NinePatchRect" parent="panel_frame"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 982.0
+offset_top = 22.0
+offset_right = -21.0
+offset_bottom = -687.0
+texture = ExtResource("1_ueey3")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="label_target" type="Label" parent="panel_frame/panel_target"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.046
+anchor_right = 0.017
+anchor_bottom = 0.046
+offset_left = 17.046
+offset_top = 8.517
+offset_right = 146.782
+offset_bottom = 60.829
+grow_horizontal = 2
+grow_vertical = 2
+text = "Target"
+label_settings = SubResource("LabelSettings_n36ei")
+
+[node name="label_pitch" type="Label" parent="panel_frame/panel_target"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019
+anchor_top = 0.047
+anchor_right = 0.975
+anchor_bottom = 0.943
+offset_left = 23.038
+offset_top = 136.14
+offset_right = -807.05
+offset_bottom = -149.34
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pitch"
+label_settings = SubResource("LabelSettings_1vrp3")
+
+[node name="label_pitch_value" type="Label" parent="panel_frame/panel_target"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019
+anchor_top = 0.047
+anchor_right = 0.975
+anchor_bottom = 0.943
+offset_left = 23.038
+offset_top = 248.14
+offset_right = -807.05
+offset_bottom = -37.34
+grow_horizontal = 2
+grow_vertical = 2
+text = "3
+"
+label_settings = SubResource("LabelSettings_xvs7j")
+
+[node name="label_speed" type="Label" parent="panel_frame/panel_target"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019
+anchor_top = 0.047
+anchor_right = 0.975
+anchor_bottom = 0.943
+offset_left = 173.038
+offset_top = 135.14
+offset_right = -657.05
+offset_bottom = -150.34
+grow_horizontal = 2
+grow_vertical = 2
+text = "Speed"
+label_settings = SubResource("LabelSettings_1vrp3")
+
+[node name="label_speed_value" type="Label" parent="panel_frame/panel_target"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019
+anchor_top = 0.047
+anchor_right = 0.975
+anchor_bottom = 0.943
+offset_left = 173.038
+offset_top = 247.14
+offset_right = -657.05
+offset_bottom = -38.34
+grow_horizontal = 2
+grow_vertical = 2
+text = "3
+"
+label_settings = SubResource("LabelSettings_xqlj8")
+
+[node name="label_volume" type="Label" parent="panel_frame/panel_target"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019
+anchor_top = 0.047
+anchor_right = 0.975
+anchor_bottom = 0.943
+offset_left = 316.038
+offset_top = 136.14
+offset_right = -514.05
+offset_bottom = -149.34
+grow_horizontal = 2
+grow_vertical = 2
+text = "Vol."
+label_settings = SubResource("LabelSettings_1vrp3")
+
+[node name="label_volume_value" type="Label" parent="panel_frame/panel_target"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019
+anchor_top = 0.047
+anchor_right = 0.975
+anchor_bottom = 0.943
+offset_left = 316.038
+offset_top = 248.14
+offset_right = -514.05
+offset_bottom = -37.34
+grow_horizontal = 2
+grow_vertical = 2
+text = "3
+"
+label_settings = SubResource("LabelSettings_xx25p")
+
+[node name="label_vowel" type="Label" parent="panel_frame/panel_target"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019
+anchor_top = 0.047
+anchor_right = 0.975
+anchor_bottom = 0.943
+offset_left = 467.038
+offset_top = 136.14
+offset_right = -363.05
+offset_bottom = -149.34
+grow_horizontal = 2
+grow_vertical = 2
+text = "Vowel
+"
+label_settings = SubResource("LabelSettings_1vrp3")
+
+[node name="label_vowel_value" type="Label" parent="panel_frame/panel_target"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019
+anchor_top = 0.047
+anchor_right = 0.975
+anchor_bottom = 0.943
+offset_left = 467.038
+offset_top = 248.14
+offset_right = -363.05
+offset_bottom = -37.34
+grow_horizontal = 2
+grow_vertical = 2
+text = "\"O\""
+label_settings = SubResource("LabelSettings_ywhk6")
+
+[node name="label_misc" type="Label" parent="panel_frame/panel_target"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019
+anchor_top = 0.047
+anchor_right = 0.975
+anchor_bottom = 0.943
+offset_left = 653.038
+offset_top = 136.14
+offset_right = -177.05
+offset_bottom = -149.34
+grow_horizontal = 2
+grow_vertical = 2
+text = "Flavor"
+label_settings = SubResource("LabelSettings_1vrp3")
+
+[node name="label_misc_value" type="Label" parent="panel_frame/panel_target"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019
+anchor_top = 0.047
+anchor_right = 0.975
+anchor_bottom = 0.943
+offset_left = 653.038
+offset_top = 248.14
+offset_right = -177.05
+offset_bottom = -37.34
+grow_horizontal = 2
+grow_vertical = 2
+text = "Evil"
+label_settings = SubResource("LabelSettings_mwfup")
+
+[node name="panel_laugh_module" type="NinePatchRect" parent="panel_frame"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.993
+anchor_bottom = 0.996
+offset_left = 984.0
+offset_top = 385.0
+offset_right = -7.54602
+offset_bottom = -15.724
+texture = ExtResource("1_ueey3")
+patch_margin_left = 48
+patch_margin_top = 48
+patch_margin_right = 48
+patch_margin_bottom = 48
+
+[node name="label_laugh_module" type="Label" parent="panel_frame/panel_laugh_module"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_top = 0.046
+anchor_right = 0.017
+anchor_bottom = 0.046
+offset_left = 15.102
+offset_top = -16.544
+offset_right = 430.102
+offset_bottom = 52.456
+grow_horizontal = 2
+grow_vertical = 2
+text = "Laughter Module"
+label_settings = SubResource("LabelSettings_n36ei")
+
+[node name="label_robot" type="Label" parent="panel_frame/panel_laugh_module"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.976
+anchor_top = 0.046
+anchor_right = 0.976
+anchor_bottom = 0.046
+offset_left = -432.992
+offset_top = -9.544
+offset_right = -17.9921
+offset_bottom = 59.456
+grow_horizontal = 2
+grow_vertical = 2
+text = "Robot
+"
+label_settings = SubResource("LabelSettings_n36ei")
+horizontal_alignment = 2
+
+[node name="button_launch" type="Button" parent="panel_frame/panel_laugh_module"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 396.0
+offset_right = 275.0
+offset_bottom = 482.0
+theme_override_colors/font_color = Color(0.945098, 0.960784, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_pumu3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uw3th")
+text = "Launch"
+
+[node name="table_and_module" type="Sprite2D" parent="panel_frame/panel_laugh_module"]
+position = Vector2(177, 256)
+scale = Vector2(2.73438, 2.73438)
+texture = ExtResource("2_ousk2")
+
+[node name="Area2D" type="Area2D" parent="panel_frame/panel_laugh_module/table_and_module"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="panel_frame/panel_laugh_module/table_and_module/Area2D"]
+shape = SubResource("RectangleShape2D_hw4ma")
+
+[node name="robot" type="Sprite2D" parent="panel_frame/panel_laugh_module"]
+position = Vector2(758, 234)
+scale = Vector2(3.8125, 3.8125)
+texture = ExtResource("3_3uim4")
+
+[node name="text_robot" type="RichTextLabel" parent="panel_frame/panel_laugh_module"]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 374.0
+offset_right = 886.0
+offset_bottom = 634.0
+theme_override_font_sizes/normal_font_size = 28
+text = "I want to be an evil robot that is fast with a deep voice "
+
+[node name="separator" type="TextureRect" parent="panel_frame/panel_laugh_module"]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 99.0
+offset_right = 343.0
+offset_bottom = 584.0
+texture = ExtResource("4_xg8jk")
+expand_mode = 1

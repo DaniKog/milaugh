@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ModuleData" load_steps=2 format=3 uid="uid://6al1iwc8defi"]
+
+[ext_resource type="Script" path="res://resources/module-data.gd" id="1_umowq"]
+
+[resource]
+script = ExtResource("1_umowq")
+name = "top hat"
+pitch = 0.5
+speed = -0.5
+volume = -0.1
