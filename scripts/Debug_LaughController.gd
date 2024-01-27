@@ -21,13 +21,21 @@ func _process(delta):
 
 func ValueUp():
 	valueNumber = valueNumber + 1
+	if valueNumber > 1:
+		valueNumber = 1
+	else:
+		RaiseVlaue()
 	value.text = str(valueNumber)
-	RaiseVlaue()
+
 	
 func ValueDown():
 	valueNumber = valueNumber - 1
+	if valueNumber < -1:
+		valueNumber = -1
+	else:
+		LowerVlaue()
 	value.text = str(valueNumber)
-	LowerVlaue()
+	
 	
 func RaiseVlaue():
 	match myValueType:

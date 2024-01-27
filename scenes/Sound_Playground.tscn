@@ -72,6 +72,7 @@ text = "_"
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 script = ExtResource("3_246ph")
+myValueType = 1
 
 [node name="Up" type="Button" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -97,6 +98,7 @@ text = "_"
 [node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 script = ExtResource("3_246ph")
+myValueType = 2
 
 [node name="Up" type="Button" parent="CanvasLayer/LaughterController/VBoxContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2

@@ -6,18 +6,15 @@ var intensity = laughterIntensity.Medium
 enum laughterSpeed {Slow, Normal, Fast}
 var speed = laughterSpeed.Normal
 var pitch = 1
+
+var speedCount = 3
+var volumeCount = 3
 @onready var audioplayer = $LaughterSound
 @onready var laugh = load("res://audio/Laugh_Ha_High_Fast-001.wav")
 #@export AudioStream streams: Array  
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var formatString = "res://audio/Laugh_Ha_{intensity}_{speed}-00{variation}.wav"
-	var laughSoundPath = formatString.format({"intensity": laughterIntensity.keys()[intensity],
-	 "speed": laughterSpeed.keys()[speed], "variation" : 1})
-	laugh = load(str(laughSoundPath))
-	audioplayer.stream = laugh
-	
-	
+
 	pass # Replace with function body.
 
 
@@ -59,7 +56,18 @@ func SetPitch(pitch_number):
 	pitch = pitch_number
 	
 func Play():
+	UpdateLaughSound()
 	audioplayer.play()
 
 func Stop():
 	audioplayer.stop()
+	
+func UpdateLaughSound():
+	var formatString = "res://audio/Laugh_Ha_{intensity}_{speed}-00{variation}.wav"
+	var laughSoundPath = formatString.format({"intensity": laughterIntensity.keys()[intensity],
+	 "speed": laughterSpeed.keys()[speed], "variation" : 1})
+	laugh = load(str(laughSoundPath))
+	print(str(laughSoundPath))
+	audioplayer.pitch_scale = pitch
+	audioplayer.stream = laugh
+
