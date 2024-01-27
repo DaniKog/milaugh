@@ -64,10 +64,21 @@ func _on_button_launch_pressed():
 	pass # Replace with function body.
 
 func calculate_result():
-	var target_pitch = int(%label_pitch_value.text)
-	var target_speed = int(%label_speed_value.text)
-	var target_volume = int(%label_volume_value.text)
+	var diff:int = 0
+	diff += int(%label_pitch_value.text) - int(%Current_P_Value.text)
+	diff += int(%label_speed_value.text) - int(%Current_S_Value.text)
+	diff += int(%label_volume_value.text) - int(%Current_V_Value.text)
 	
+	if (diff<=2):
+		#success
+		$panel_frame/ResultScreen/Text_Success.visible = 1
+	elif (diff <=5):
+		#average
+		$panel_frame/ResultScreen/Text_Average.visible = 1
+	else:
+		#fail
+		$panel_frame/ResultScreen/Text_Fail.visible = 1
+	$panel_frame/ResultScreen.visible=1
 
 func _on_item_list_item_selected(index):
 	print(%item_list.get_item_text(index))

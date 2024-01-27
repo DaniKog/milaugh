@@ -508,6 +508,7 @@ label_settings = SubResource("LabelSettings_iannj")
 horizontal_alignment = 1
 
 [node name="Current_P_Value" type="Label" parent="panel_frame/panel_laugh_module/CurrentModule"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_6bjud")
 text = "0"
@@ -522,6 +523,7 @@ label_settings = SubResource("LabelSettings_iannj")
 horizontal_alignment = 1
 
 [node name="Current_S_Value" type="Label" parent="panel_frame/panel_laugh_module/CurrentModule"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_6bjud")
 text = "0"
@@ -536,6 +538,7 @@ label_settings = SubResource("LabelSettings_iannj")
 horizontal_alignment = 1
 
 [node name="Current_V_Value" type="Label" parent="panel_frame/panel_laugh_module/CurrentModule"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_6bjud")
 text = "0"
@@ -543,6 +546,7 @@ label_settings = SubResource("LabelSettings_iannj")
 horizontal_alignment = 1
 
 [node name="ResultScreen" type="NinePatchRect" parent="panel_frame"]
+visible = false
 layout_mode = 0
 offset_left = 138.4
 offset_top = 35.2
@@ -587,6 +591,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Text_Average" type="Label" parent="panel_frame/ResultScreen"]
+visible = false
 layout_mode = 0
 offset_left = 54.0
 offset_top = 444.0
