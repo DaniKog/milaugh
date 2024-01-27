@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Robot" load_steps=3 format=3 uid="uid://i548o1aqtp6t"]
+
+[ext_resource type="Script" path="res://resources/robot.gd" id="1_lt3xt"]
+[ext_resource type="Texture2D" uid="uid://br8c3vitwcpn5" path="res://art/Robots/C-RI.png" id="1_qplho"]
+
+[resource]
+script = ExtResource("1_lt3xt")
+name = "C-RI"
+description = "Everything I do needs to be fast! I also want more people to like me, so I need a comforting and relatable laugh."
+image = ExtResource("1_qplho")
+pitch = 3
+speed = 5
+volume = 3
