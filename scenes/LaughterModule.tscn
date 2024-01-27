@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/laughter.gd" id="1_74gjl"]
 
-[node name="Node2D" type="Node2D"]
+[node name="LaughterModule" type="Node2D"]
 
 [node name="Laughter" type="Node2D" parent="."]
 script = ExtResource("1_74gjl")
