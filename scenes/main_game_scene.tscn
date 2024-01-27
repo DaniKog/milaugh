@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://bb6hv48hppt78"]
+[gd_scene load_steps=22 format=3 uid="uid://bb6hv48hppt78"]
 
 [ext_resource type="Script" path="res://scripts/gameplay-ui.gd" id="1_nibp3"]
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="2_ceahc"]
 [ext_resource type="PackedScene" uid="uid://ngu1bkvclntg" path="res://scenes/LaughterModule.tscn" id="2_i56to"]
 [ext_resource type="Texture2D" uid="uid://bhiaf4y2m05aa" path="res://ui_images/table_with_module_open.png" id="3_cna1x"]
 [ext_resource type="Texture2D" uid="uid://bwrt333tfcmlq" path="res://ui_images/blank_ui.png" id="4_0clmj"]
+[ext_resource type="Script" path="res://scripts/itemListSelection.gd" id="4_434bg"]
 [ext_resource type="FontFile" uid="uid://6m88uyjxpw1y" path="res://font/joystix monospace.otf" id="4_rly5q"]
 [ext_resource type="Texture2D" uid="uid://bchs5t42givn3" path="res://ui_images/blank_white.png" id="5_btbry"]
 [ext_resource type="Script" path="res://scripts/CurrentModule.gd" id="7_3xkvv"]
@@ -104,10 +105,10 @@ metadata/_edit_use_anchors_ = true
 [node name="VBoxContainer" type="VBoxContainer" parent="panel_frame/panel_modifiers"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0209644
-anchor_top = 0.0617284
-anchor_right = 0.979036
-anchor_bottom = 0.938272
+anchor_left = 0.0284431
+anchor_top = 0.0527777
+anchor_right = 0.979042
+anchor_bottom = 0.938888
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -126,6 +127,7 @@ theme = SubResource("Theme_gc2j1")
 theme_override_font_sizes/font_size = 32
 max_columns = 4
 same_column_width = true
+script = ExtResource("4_434bg")
 
 [node name="panel_object" type="NinePatchRect" parent="panel_frame"]
 clip_contents = true
@@ -148,6 +150,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 17.0
+offset_right = -19.9999
+offset_bottom = -17.9999
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -409,6 +415,7 @@ texture = ExtResource("3_cna1x")
 metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="panel_frame/panel_laugh_module/TextureRect"]
+visible = false
 position = Vector2(177, 256)
 scale = Vector2(2.73438, 2.73438)
 
@@ -449,17 +456,18 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CurrentModule" type="GridContainer" parent="panel_frame/panel_laugh_module"]
 layout_mode = 0
-offset_left = 42.5996
-offset_top = 366.6
-offset_right = 212.6
-offset_bottom = 506.6
-theme_override_constants/h_separation = 2
+offset_left = 43.0
+offset_top = 357.0
+offset_right = 223.0
+offset_bottom = 507.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 0
 columns = 2
 script = ExtResource("7_3xkvv")
 
 [node name="Current_Pitch" type="Label" parent="panel_frame/panel_laugh_module/CurrentModule"]
 layout_mode = 2
-text = "Pitch "
+text = "Pitch"
 label_settings = SubResource("LabelSettings_iannj")
 horizontal_alignment = 1
 
@@ -493,16 +501,7 @@ text = "0"
 label_settings = SubResource("LabelSettings_iannj")
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="panel_frame/panel_laugh_module"]
-layout_mode = 0
-offset_left = 28.0
-offset_top = 395.0
-offset_right = 68.0
-offset_bottom = 442.0
-scale = Vector2(4.88686, 2.16166)
-
-[node name="BoxContainer" type="BoxContainer" parent="panel_frame/panel_laugh_module/HBoxContainer"]
-layout_mode = 2
-
+[connection signal="gui_input" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="panel_frame/panel_modifiers/VBoxContainer/item_list" method="_on_gui_input"]
 [connection signal="item_clicked" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="." method="_on_item_list_item_clicked"]
+[connection signal="item_selected" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="." method="_on_item_list_item_selected"]
 [connection signal="pressed" from="panel_frame/panel_laugh_module/button_launch" to="." method="_on_button_launch_pressed"]

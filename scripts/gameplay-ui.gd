@@ -3,11 +3,11 @@ extends Control
 const PREVIEW_LENGTH = 0.1
 
 @onready var globals  = get_node("/root/Globals")
-
+@onready var laughterModule = %laughter_module/Laughter
 @onready var currentModelValues = $panel_frame/panel_laugh_module/CurrentModule
+@onready var textDescriptionDisplay = $panel_frame/panel_object_description/text_description
 var modules = [
 	load("res://resources/items/evil_monkey.tres"),
-	load("res://resources/items/hot_sauce.tres"),
 	load("res://resources/items/brass_horn.tres"),
 	load("res://resources/items/moonshine.tres"),
 	load("res://resources/items/whistle.tres"),
@@ -19,6 +19,7 @@ func _ready():
 		%item_list.add_item(module.name, module.icon)
 		%item_list.set_item_tooltip(-1, module.description)
 		%item_list.set_item_tooltip_enabled(-1, true)
+		
 
 func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 	# Add to active item list
@@ -50,11 +51,14 @@ func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 	currentModelValues.SetPitch(modules[index].pitch)
 	currentModelValues.SetSpeed(modules[index].speed)
 	currentModelValues.SetVolume(modules[index].volume)
-	
-	
-	
 
 
 func _on_button_launch_pressed():
-	print("go big mode")
+	laughterModule.Play()
+	pass # Replace with function body.
+
+
+
+func _on_item_list_item_selected(index):
+	print(%item_list.get_item_text(index))
 	pass # Replace with function body.

@@ -52,7 +52,7 @@ func AddValue(myType, value):
 	match myType:
 		globals.LaughParameter.Pitch:
 			pitch += value*0.5
-			if pitch == 0:
+			if pitch <= 0:
 				pitch += .3
 			pitch = max(MIN_VALUE, min(MAX_VALUE, pitch))
 		globals.LaughParameter.Speed:

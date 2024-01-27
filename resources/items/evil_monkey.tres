@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="ModuleData" load_steps=2 format=3 uid="uid://6al1iwc8defi"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cgb0wq1g3wrbd"]
 
+[ext_resource type="Texture2D" uid="uid://bolto3e1ci1ay" path="res://art/Items/evil_monkey.png" id="1_8hnsm"]
 [ext_resource type="Script" path="res://resources/item.gd" id="1_umowq"]
 
 [resource]
 script = ExtResource("1_umowq")
 name = "Evil Monkey"
 description = "Derived from an extinct species. This particular monkey is said to have had an evil streak, keep bananas away at all costs."
+icon = ExtResource("1_8hnsm")
 pitch = 3.0
 speed = 4.0
 volume = 3.0
