@@ -71,14 +71,19 @@ func calculate_result():
 	
 	if (diff<=2):
 		#success
+		$panel_frame/ResultScreen/Result_Title.text = "Great Job!"
 		$panel_frame/ResultScreen/Text_Success.visible = 1
 	elif (diff <=5):
 		#average
+		$panel_frame/ResultScreen/Result_Title.text = "Good enough.."
 		$panel_frame/ResultScreen/Text_Average.visible = 1
 	else:
 		#fail
+		$panel_frame/ResultScreen/Result_Title.text = "..whut..how..why?"
 		$panel_frame/ResultScreen/Text_Fail.visible = 1
 	$panel_frame/ResultScreen.visible=1
+	
+
 
 func _on_item_list_item_selected(index):
 	print(%item_list.get_item_text(index))
