@@ -1,4 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://bb6hv48hppt78"]
+
+[gd_scene load_steps=24 format=3 uid="uid://bb6hv48hppt78"]
+
 
 [ext_resource type="Script" path="res://scripts/gameplay-ui.gd" id="1_nibp3"]
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="2_ceahc"]
@@ -8,7 +10,8 @@
 [ext_resource type="Script" path="res://scripts/itemListSelection.gd" id="4_434bg"]
 [ext_resource type="FontFile" uid="uid://6m88uyjxpw1y" path="res://font/joystix monospace.otf" id="4_rly5q"]
 [ext_resource type="Texture2D" uid="uid://bchs5t42givn3" path="res://ui_images/blank_white.png" id="5_btbry"]
-[ext_resource type="Script" path="res://scripts/robot_interaction.gd" id="6_cubky"]
+
+[ext_resource type="Script" path="res://scripts/robot_interaction.gd" id="6_dmtxg"]
 [ext_resource type="Script" path="res://scripts/CurrentModule.gd" id="7_3xkvv"]
 [ext_resource type="Texture2D" uid="uid://ch2pujv2mefim" path="res://art/ui-fg.png" id="11_pymud"]
 
@@ -382,7 +385,8 @@ patch_margin_left = 48
 patch_margin_top = 48
 patch_margin_right = 48
 patch_margin_bottom = 48
-script = ExtResource("6_cubky")
+
+script = ExtResource("6_dmtxg")
 metadata/_edit_use_anchors_ = true
 
 [node name="label_laugh_module" type="Label" parent="panel_frame/panel_laugh_module"]
@@ -423,7 +427,6 @@ label_settings = SubResource("LabelSettings_n36ei")
 horizontal_alignment = 2
 
 [node name="button_launch" type="Button" parent="panel_frame/panel_laugh_module"]
-unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.089733

@@ -1,16 +1,17 @@
 extends Node
 
-var robot_rsrc = [
-	load("res://resources/robots/antoinette.tres"),
-	load("res://resources/robots/jester.tres"),
-	load("res://resources/robots/siri.tres"),
-	load("res://resources/robots/mcrapper.tres"),
-]
+var robot_rsrc:Array[Robot]    
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# invite random robot
+	for filePath in DirAccess.get_files_at("res://resources/robots/"):
+		if filePath.get_extension() == "tres":  
+			robot_rsrc.append(load("resources/robots/"+filePath) )
+	
+	# choose a random robot
 	var rand_robot_idx = randi_range(1,4)
+	
+	# invite the robot
 	invite_robot(rand_robot_idx)
 	pass # Replace with function body.
 
