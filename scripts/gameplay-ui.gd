@@ -1,31 +1,32 @@
 extends Control
 
+const PREVIEW_LENGTH = 0.1
+
+@onready var globals  = get_node("/root/Globals")
+
 var modules = [
 	load("res://resources/items/evil_monkey.tres"),
-	load("res://resources/items/hot_sauce.tres")
+	load("res://resources/items/hot_sauce.tres"),
+	load("res://resources/items/brass_horn.tres"),
+	load("res://resources/items/moonshine.tres"),
+	load("res://resources/items/whistle.tres"),
 ]
-@onready var globals  = get_node("/root/Globals")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for module in modules:
-		%modifier_list.add_item(module.name, module.icon)
-		
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+		%item_list.add_item(module.name, module.icon)
 
 func _on_item_list_item_clicked(index, at_position, mouse_button_index):
-	print(modules[index].pitch)
-	%laughter_module/Laughter.SetValue(globals.LaughParameter.Pitch, modules[index].pitch)
-	%laughter_module/Laughter.SetValue(globals.LaughParameter.Speed, modules[index].speed)
-	%laughter_module/Laughter.SetValue(globals.LaughParameter.Volume, modules[index].volume)
+	# Add to active item list
+	%active_item_list.add_item(modules[index].name, modules[index].icon)
+	
+	# Apply value changes
+	%laughter_module/Laughter.AddValue(globals.LaughParameter.Pitch, modules[index].pitch)
+	%laughter_module/Laughter.AddValue(globals.LaughParameter.Speed, modules[index].speed)
+	%laughter_module/Laughter.AddValue(globals.LaughParameter.Volume, modules[index].volume)
+	
+	# Play preview of new sound
 	%laughter_module/Laughter.Play()
-	
-	# Add module to the list of active modifiers
-	
-	pass # Replace with function body.
+	await get_tree().create_timer(PREVIEW_LENGTH).timeout
+	%laughter_module/Laughter.Stop()
