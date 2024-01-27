@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dqwop66hc1s6g"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://7pq57ffq7dec"]
 
 [ext_resource type="Texture2D" uid="uid://73awe2pf20wv" path="res://art/Items/Moonshine.png" id="1_8phts"]
 [ext_resource type="Script" path="res://resources/item.gd" id="1_h7is3"]
 
 [resource]
 script = ExtResource("1_h7is3")
-name = ""
-description = ""
+name = "Moonshine"
+description = "A homebrewed alcohol that imbues confidence in the individual."
 icon = ExtResource("1_8phts")
-pitch = 3
-speed = 3
-volume = 3
+pitch = 1
+speed = 1
+volume = -3
