@@ -11,3 +11,6 @@ image = ExtResource("1_ws8vx")
 pitch = 3
 speed = 1
 volume = 5
+fail_text = "Are you trying to ruin my life?! Do you want the other girls to make fun of me? "
+avg_text = "Ugh, I don't love it. But I'm in a hurry so whatever!"
+success_text = "This. Oh my gosh. This is it! Yes, my magical transformation is now complete!"
