@@ -7,11 +7,13 @@ extends Node
 @onready var DownButton = $Down
 
 enum valueTpye {Pitch, Speed, Volume}
+@onready var globals  = get_node("/root/Globals")
 @export var myValueType = valueTpye.Pitch
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	UpButton.pressed.connect(self.ValueUp)
 	DownButton.pressed.connect(self.ValueDown)
+	valueNumber = int(value.text) -1
 	pass # Replace with function body.
 
 
@@ -21,40 +23,29 @@ func _process(delta):
 
 func ValueUp():
 	valueNumber = valueNumber + 1
-	if valueNumber > 1:
-		valueNumber = 1
+	if valueNumber > 4:
+		valueNumber = 4
 	else:
-		RaiseVlaue()
-	value.text = str(valueNumber)
+		laughterModule.SetValue(myValueType, valueNumber)
+	value.text = str(valueNumber+1)
 
 	
 func ValueDown():
 	valueNumber = valueNumber - 1
-	if valueNumber < -1:
-		valueNumber = -1
+	if valueNumber < 0:
+		valueNumber = 0
 	else:
-		LowerVlaue()
-	value.text = str(valueNumber)
+		laughterModule.SetValue(myValueType, valueNumber)
+	value.text = str(valueNumber+1)
 	
 	
-func RaiseVlaue():
+func SetValue():
 	match myValueType:
 		valueTpye.Pitch:
 			laughterModule.RaisePitch()
 		valueTpye.Speed:
 			laughterModule.RaiseSpeed()
 		valueTpye.Volume:
-			laughterModule.RaiseIntensity()
-		_:
-			print('This tool is not supported')
-			
-func LowerVlaue():
-	match myValueType:
-		valueTpye.Pitch:
-			laughterModule.LowerPitch()
-		valueTpye.Speed:
-			laughterModule.LowerSpeed()
-		valueTpye.Volume:
-			laughterModule.LowerIntensity()
+			laughterModule.RaiseVolume()
 		_:
 			print('This tool is not supported')
