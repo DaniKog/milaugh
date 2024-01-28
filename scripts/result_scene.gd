@@ -18,7 +18,8 @@ var sad_robot = preload("res://art/robot_sad.png")
 func _on_visibility_changed():
 	if visible:
 		# Set content based on results
-		%label_result.text = "That's {num} happy customers!".format({ "num": globals.happy_customers })
+		%label_result.text = tr_n("That's %d happy customer!", "That's %d happy customers!", globals.happy_customers) % globals.happy_customers
+
 		if globals.happy_customers >= SUCCESS_THRESHOLD:
 			%label_summary.text = RESULT_SUCCESS
 			%graphic_result.texture = happy_robot
