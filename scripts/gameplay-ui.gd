@@ -10,6 +10,7 @@ var currentCustomerIndex = 0
 @onready var currentModelValues = $panel_frame/panel_laugh_module/CurrentModule
 @onready var textDescriptionDisplay = $panel_frame/panel_object_description/text_description
 
+
 #var item_rsrc:Array[Item]
 var item_rsrc = [
 	load("res://resources/items/blue_whistle.tres"),
@@ -54,11 +55,14 @@ func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 		# Add to active item list
 		var active_item_idx = %active_item_list.add_item(
 			%item_list.get_item_text(index),
-			%item_list.get_item_icon(index))
+			%item_list.get_item_icon(index)
+		)
 		%active_item_list.set_item_tooltip(active_item_idx,%item_list.get_item_tooltip(index))
 		%active_item_list.set_item_tooltip_enabled(active_item_idx, true)
-		%active_item_list.set_item_metadata(active_item_idx,%item_list.get_item_metadata(index))	
+		%active_item_list.set_item_metadata(active_item_idx,%item_list.get_item_metadata(index))
 		
+		%label_object.text = "Active components (" + str(%active_item_list.item_count) + "/3)"
+
 		# If we've selected 3 items, stop further selections
 		if %active_item_list.item_count >= 1:
 			%button_launch.set_disabled(false)

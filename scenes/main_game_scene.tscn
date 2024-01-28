@@ -181,9 +181,10 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="label_object" type="Label" parent="panel_frame/panel_object/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_yees3")
-text = "Active Components"
+text = "Active Components (0/3)"
 label_settings = SubResource("LabelSettings_n36ei")
 
 [node name="active_item_list" type="ItemList" parent="panel_frame/panel_object/VBoxContainer"]
