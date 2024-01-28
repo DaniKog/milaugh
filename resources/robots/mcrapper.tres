@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Robot" load_steps=3 format=3 uid="uid://fypheim3dxlp"]
 
-[ext_resource type="Texture2D" uid="uid://br8c3vitwcpn5" path="res://art/Robots/C-RI.png" id="1_vlq7b"]
+[ext_resource type="Texture2D" uid="uid://br8c3vitwcpn5" path="res://art/Robots/Rapernomore.png" id="1_vlq7b"]
 [ext_resource type="Script" path="res://resources/robot.gd" id="2_3qmfv"]
 
 [resource]
