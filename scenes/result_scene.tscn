@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/result_scene.gd" id="1_1luu0"]
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="1_xj7dw"]
 [ext_resource type="Theme" uid="uid://cv5o7uq4xg1rr" path="res://themes/pixel_font_theme.tres" id="3_an16t"]
-[ext_resource type="Texture2D" uid="uid://drjhniryel0ye" path="res://art/robot_happy.png" id="4_7fvwm"]
+[ext_resource type="Texture2D" uid="uid://qdar88grjshk" path="res://art/robot_happy.png" id="4_7fvwm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0cj81"]
 font_size = 32
@@ -59,7 +59,7 @@ custom_minimum_size = Vector2(800, 100)
 layout_mode = 2
 theme = ExtResource("3_an16t")
 theme_override_font_sizes/font_size = 56000
-text = "That's [num] happy customers today!"
+text = "That's [num] happy customer(s) today!"
 label_settings = SubResource("LabelSettings_0cj81")
 horizontal_alignment = 1
 vertical_alignment = 1

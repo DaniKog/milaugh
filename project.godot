@@ -27,6 +27,7 @@ Globals="*res://scripts/Globals.gd"
 
 window/size/viewport_width=1344
 window/size/viewport_height=756
+window/size/mode=3
 window/stretch/scale_mode="integer"
 
 [rendering]

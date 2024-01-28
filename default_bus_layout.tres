@@ -1,6 +1,12 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://drb86462hgt5r"]
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://drb86462hgt5r"]
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_miiup"]
+resource_name = "Amplify"
+volume_db = 12.0
 
 [resource]
+bus/0/effect/0/effect = SubResource("AudioEffectAmplify_miiup")
+bus/0/effect/0/enabled = true
 bus/1/name = &"Laugh"
 bus/1/solo = false
 bus/1/mute = false
