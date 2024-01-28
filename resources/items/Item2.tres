@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_x3pwh")
-name = ""
-description = ""
-pitch = 0
-speed = 0
-volume = 0
+name = "Tax Machine"
+description = "A soul-sucking mood killing device. It is extremely fast and quiet. Like an assassin."
+pitch = -1
+speed = 2
+volume = -2
