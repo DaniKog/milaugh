@@ -11,6 +11,6 @@ image = ExtResource("1_vlq7b")
 pitch = 3
 speed = 5
 volume = 3
-fail_text = "I don't just sound bad. I sound basic. This is awful."
+fail_text = "I don't just sound bad. I sound basic. This is awful!"
 avg_text = "I understand if this is the best you can do. We can't all be born with talent."
 success_text = "Dude. This is like nothing I've ever heard. I'll definitely be using this on my next track. Cheers."
