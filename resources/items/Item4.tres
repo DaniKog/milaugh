@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_t8eu6")
-name = ""
-description = ""
-pitch = 0
-speed = 0
-volume = 0
+name = "Green Whistle"
+description = "A whistle that is neutral. Don't get it involved in your petty fights. Has an okay sound."
+pitch = -1
+speed = 1
+volume = 1
