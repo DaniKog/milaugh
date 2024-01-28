@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://bjejfn0dtuxuo"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bjejfn0dtuxuo"]
 
 [ext_resource type="Script" path="res://resources/item.gd" id="1_c8pw0"]
+[ext_resource type="Texture2D" uid="uid://b781haar48ste" path="res://art/Items/hotsauce.png" id="1_nf1u2"]
 
 [resource]
 script = ExtResource("1_c8pw0")
 name = "Hot Sauce"
 description = "A somewhat masochistic food seasoning. Common side effects include sweating, hallucinations and a shriekier voice"
+icon = ExtResource("1_nf1u2")
 pitch = 1
 speed = 1
 volume = -1

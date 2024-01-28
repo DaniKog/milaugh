@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://bmpw1135dxmjh"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dhlc87wi0uqnk"]
 
 [ext_resource type="Script" path="res://resources/item.gd" id="1_l5j3m"]
+[ext_resource type="Texture2D" uid="uid://cnr4d1ncsy2sf" path="res://art/Items/Evilrubberduck.png" id="1_xm20y"]
 
 [resource]
 script = ExtResource("1_l5j3m")
 name = "Devil Duck"
 description = "It's hoarse and evil, do not bring into bathtub."
+icon = ExtResource("1_xm20y")
 pitch = -2
 speed = -2
 volume = -1
