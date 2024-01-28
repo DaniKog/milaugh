@@ -18,7 +18,7 @@ default_font = ExtResource("4_rly5q")
 
 [sub_resource type="LabelSettings" id="LabelSettings_n36ei"]
 font = ExtResource("4_rly5q")
-font_size = 25
+font_size = 24
 
 [sub_resource type="Theme" id="Theme_gc2j1"]
 default_font = ExtResource("4_rly5q")
@@ -36,19 +36,26 @@ default_font = ExtResource("4_rly5q")
 
 [sub_resource type="LabelSettings" id="LabelSettings_1vrp3"]
 font = ExtResource("4_rly5q")
-font_size = 30
+font_size = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_xvs7j"]
 font = ExtResource("4_rly5q")
-font_size = 42
+font_size = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_xqlj8"]
 font = ExtResource("4_rly5q")
-font_size = 42
+font_size = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_xx25p"]
 font = ExtResource("4_rly5q")
-font_size = 42
+font_size = 25
+
+[sub_resource type="Theme" id="Theme_6bjud"]
+default_font = ExtResource("4_rly5q")
+
+[sub_resource type="LabelSettings" id="LabelSettings_iannj"]
+font = ExtResource("4_rly5q")
+font_size = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pumu3"]
 border_color = Color(0.764706, 0.823529, 0.145098, 1)
@@ -58,12 +65,6 @@ bg_color = Color(0.905882, 0.254902, 0.290196, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hw4ma"]
 size = Vector2(108.617, 93.6227)
-
-[sub_resource type="Theme" id="Theme_6bjud"]
-default_font = ExtResource("4_rly5q")
-
-[sub_resource type="LabelSettings" id="LabelSettings_iannj"]
-font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_bk7j1"]
 font = ExtResource("4_rly5q")
@@ -251,130 +252,129 @@ patch_margin_right = 16
 patch_margin_bottom = 16
 metadata/_edit_use_anchors_ = true
 
-[node name="label_target" type="Label" parent="panel_frame/panel_target"]
+[node name="Node" type="Node" parent="panel_frame/panel_target"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="panel_frame/panel_target"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0355484
-anchor_top = 0.0696583
-anchor_right = 0.176719
-anchor_bottom = 0.214969
-offset_left = 3.13191
-offset_top = -1.85305
-offset_right = 60.3168
-offset_bottom = 5.66605
+anchor_left = 0.026
+anchor_top = 0.086
+anchor_right = 0.974
+anchor_bottom = 0.912
+offset_left = -1.72581
+offset_top = -0.856007
+offset_right = 0.425415
+offset_bottom = 0.24794
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="label_target" type="Label" parent="panel_frame/panel_target/VBoxContainer"]
+layout_mode = 2
 theme = SubResource("Theme_yees3")
 text = "Target"
 label_settings = SubResource("LabelSettings_n36ei")
 
-[node name="label_pitch" type="Label" parent="panel_frame/panel_target"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0347934
-anchor_top = 0.242056
-anchor_right = 0.193144
-anchor_bottom = 0.444611
-offset_left = 21.6176
-offset_top = -4.64301
-offset_right = 84.7506
-offset_bottom = 3.6562
-grow_horizontal = 2
-grow_vertical = 2
+[node name="TargetLabels" type="HBoxContainer" parent="panel_frame/panel_target/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="label_pitch" type="Label" parent="panel_frame/panel_target/VBoxContainer/TargetLabels"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
 theme = SubResource("Theme_yees3")
 text = "Pitch"
 label_settings = SubResource("LabelSettings_1vrp3")
+horizontal_alignment = 1
 
-[node name="label_pitch_value" type="Label" parent="panel_frame/panel_target"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.113709
-anchor_top = 0.453167
-anchor_right = 0.166458
-anchor_bottom = 0.811278
-offset_left = 17.8511
-offset_top = -0.0207748
-offset_right = 33.9177
-offset_bottom = 12.7894
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_yees3")
-text = "3
-"
-label_settings = SubResource("LabelSettings_xvs7j")
-
-[node name="label_speed" type="Label" parent="panel_frame/panel_target"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.375381
-anchor_top = 0.239278
-anchor_right = 0.579433
-anchor_bottom = 0.441833
-offset_left = 12.5175
-offset_top = -4.09852
-offset_right = 46.2507
-offset_bottom = 4.20068
-grow_horizontal = 2
-grow_vertical = 2
+[node name="label_speed" type="Label" parent="panel_frame/panel_target/VBoxContainer/TargetLabels"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
 theme = SubResource("Theme_yees3")
 text = "Speed"
 label_settings = SubResource("LabelSettings_1vrp3")
+horizontal_alignment = 1
 
-[node name="label_speed_value" type="Label" parent="panel_frame/panel_target"]
+[node name="label_volume" type="Label" parent="panel_frame/panel_target/VBoxContainer/TargetLabels"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_yees3")
+text = "Vol."
+label_settings = SubResource("LabelSettings_1vrp3")
+horizontal_alignment = 1
+
+[node name="TargetValues" type="HBoxContainer" parent="panel_frame/panel_target/VBoxContainer"]
+custom_minimum_size = Vector2(0.53, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="label_pitch_value" type="Label" parent="panel_frame/panel_target/VBoxContainer/TargetValues"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.451033
-anchor_top = 0.472611
-anchor_right = 0.503781
-anchor_bottom = 0.830722
-offset_left = 4.85031
-offset_top = -3.63179
-offset_right = 22.9175
-offset_bottom = -0.821564
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_yees3")
+text = "3"
+label_settings = SubResource("LabelSettings_xvs7j")
+horizontal_alignment = 1
+
+[node name="label_speed_value" type="Label" parent="panel_frame/panel_target/VBoxContainer/TargetValues"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
 theme = SubResource("Theme_yees3")
 text = "3
 "
 label_settings = SubResource("LabelSettings_xqlj8")
+horizontal_alignment = 1
 
-[node name="label_volume" type="Label" parent="panel_frame/panel_target"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.79105
-anchor_top = 0.264278
-anchor_right = 0.892817
-anchor_bottom = 0.466833
-offset_left = -47.8826
-offset_top = -5.99852
-offset_right = 18.6506
-offset_bottom = 2.30069
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_yees3")
-text = "Vol."
-label_settings = SubResource("LabelSettings_1vrp3")
-
-[node name="label_volume_value" type="Label" parent="panel_frame/panel_target"]
+[node name="label_volume_value" type="Label" parent="panel_frame/panel_target/VBoxContainer/TargetValues"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.815559
-anchor_top = 0.497611
-anchor_right = 0.868308
-anchor_bottom = 0.855722
-offset_left = -51.6492
-offset_top = -7.7318
-offset_right = -35.5826
-offset_bottom = -2.92159
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
+size_flags_horizontal = 3
 theme = SubResource("Theme_yees3")
 text = "3
 "
 label_settings = SubResource("LabelSettings_xx25p")
+horizontal_alignment = 1
+
+[node name="label_Current" type="Label" parent="panel_frame/panel_target/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_yees3")
+text = "Current"
+label_settings = SubResource("LabelSettings_n36ei")
+
+[node name="TargetLabels2" type="HBoxContainer" parent="panel_frame/panel_target/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Current_P_Value" type="Label" parent="panel_frame/panel_target/VBoxContainer/TargetLabels2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_6bjud")
+text = "0"
+label_settings = SubResource("LabelSettings_iannj")
+horizontal_alignment = 1
+
+[node name="Current_S_Value" type="Label" parent="panel_frame/panel_target/VBoxContainer/TargetLabels2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_6bjud")
+text = "0"
+label_settings = SubResource("LabelSettings_iannj")
+horizontal_alignment = 1
+
+[node name="Current_V_Value" type="Label" parent="panel_frame/panel_target/VBoxContainer/TargetLabels2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_6bjud")
+text = "0"
+label_settings = SubResource("LabelSettings_iannj")
+horizontal_alignment = 1
 
 [node name="panel_laugh_module" type="NinePatchRect" parent="panel_frame"]
 clip_contents = true
@@ -433,10 +433,10 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.089733
-anchor_top = 0.481202
-anchor_right = 0.300202
-anchor_bottom = 0.61072
+anchor_left = 0.0856832
+anchor_top = 0.59572
+anchor_right = 0.310017
+anchor_bottom = 0.844419
 theme_override_colors/font_color = Color(0.945098, 0.960784, 0, 1)
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_pumu3")
@@ -446,7 +446,8 @@ text = "Launch"
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="panel_frame/panel_laugh_module"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.0697928
 anchor_top = 0.161145
 anchor_right = 0.317339
@@ -498,59 +499,14 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CurrentModule" type="GridContainer" parent="panel_frame/panel_laugh_module"]
 layout_mode = 0
-offset_left = 32.5996
-offset_top = 350.6
-offset_right = 229.6
-offset_bottom = 452.6
+offset_left = 11.5996
+offset_top = -108.4
+offset_right = 208.6
+offset_bottom = -6.4003
 theme_override_constants/h_separation = 4
 theme_override_constants/v_separation = 0
 columns = 2
 script = ExtResource("7_3xkvv")
-
-[node name="Current_Pitch" type="Label" parent="panel_frame/panel_laugh_module/CurrentModule"]
-layout_mode = 2
-theme = SubResource("Theme_6bjud")
-text = "Pitch"
-label_settings = SubResource("LabelSettings_iannj")
-horizontal_alignment = 1
-
-[node name="Current_P_Value" type="Label" parent="panel_frame/panel_laugh_module/CurrentModule"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = SubResource("Theme_6bjud")
-text = "0"
-label_settings = SubResource("LabelSettings_iannj")
-horizontal_alignment = 1
-
-[node name="Current_Speed" type="Label" parent="panel_frame/panel_laugh_module/CurrentModule"]
-layout_mode = 2
-theme = SubResource("Theme_6bjud")
-text = "Speed "
-label_settings = SubResource("LabelSettings_iannj")
-horizontal_alignment = 1
-
-[node name="Current_S_Value" type="Label" parent="panel_frame/panel_laugh_module/CurrentModule"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = SubResource("Theme_6bjud")
-text = "0"
-label_settings = SubResource("LabelSettings_iannj")
-horizontal_alignment = 1
-
-[node name="Current_Volume" type="Label" parent="panel_frame/panel_laugh_module/CurrentModule"]
-layout_mode = 2
-theme = SubResource("Theme_6bjud")
-text = "Volume "
-label_settings = SubResource("LabelSettings_iannj")
-horizontal_alignment = 1
-
-[node name="Current_V_Value" type="Label" parent="panel_frame/panel_laugh_module/CurrentModule"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = SubResource("Theme_6bjud")
-text = "0"
-label_settings = SubResource("LabelSettings_iannj")
-horizontal_alignment = 1
 
 [node name="ResultScreen" type="NinePatchRect" parent="panel_frame"]
 visible = false
