@@ -1,7 +1,8 @@
 extends Control
 
-const PREVIEW_LENGTH = 0.1
-
+const PREVIEW_LENGTH = 0.15
+const NUMBER_OF_ROBOTS_TO_MAKE_LAUGH = 3
+var currentCustomerIndex = 0
 @onready var globals  = get_node("/root/Globals")
 @onready var laughterModule = %laughter_module/Laughter
 @onready var currentModelValues = $panel_frame/panel_laugh_module/CurrentModule
@@ -15,6 +16,10 @@ var item_rsrc = [
 	load("res://resources/items/fax_machine.tres"),
 	load("res://resources/items/hot_sauce.tres"),
 	load("res://resources/items/moonshine.tres"),
+	load("res://resources/items/whistle.tres"),
+	load("res://resources/items/whistle.tres"),
+	load("res://resources/items/whistle.tres"),
+	load("res://resources/items/whistle.tres"),
 	load("res://resources/items/whistle.tres"),
 ]
 
@@ -70,36 +75,41 @@ func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 		%item_list.remove_item(index)
 
 func _on_next_robot_pressed():
-	#invite new robot
-	$panel_frame/panel_laugh_module.invite_robot(randi_range(1,4))
-	#hide results panel
-	$panel_frame/ResultScreen/Text_Average.visible = 0
-	$panel_frame/ResultScreen/Text_Success.visible = 0
-	$panel_frame/ResultScreen/Text_Fail.visible = 0
-	$panel_frame/ResultScreen.visible=0
-	#clear active list
-	%active_item_list.clear()
-	#reenable items
-	for i in range(%item_list.item_count):
-				%item_list.set_item_disabled(i, false)
-	#re-disable Launch button
-	%button_launch.set_disabled(true)
-	currentModelValues.SetPitch(0)
-	currentModelValues.SetSpeed(0)
-	currentModelValues.SetVolume(0)
-	
-	%laughter_module/Laughter.AddValue(globals.LaughParameter.Pitch,3)
-	%laughter_module/Laughter.AddValue(globals.LaughParameter.Speed,3)
-	%laughter_module/Laughter.AddValue(globals.LaughParameter.Volume,3)
-	
-	pass
-
+	if currentCustomerIndex == NUMBER_OF_ROBOTS_TO_MAKE_LAUGH:
+		# Go to End Screen
+		pass
+	else:
+		#invite new robot
+		$panel_frame/panel_laugh_module.invite_robot(randi_range(1,4))
+		#hide results panel
+		$panel_frame/ResultScreen/Text_Average.visible = 0
+		$panel_frame/ResultScreen/Text_Success.visible = 0
+		$panel_frame/ResultScreen/Text_Fail.visible = 0
+		$panel_frame/ResultScreen.visible=0
+		#clear active list
+		%active_item_list.clear()
+		#reenable items
+		for i in range(%item_list.item_count):
+					%item_list.set_item_disabled(i, false)
+		#re-disable Launch button
+		%button_launch.set_disabled(true)
+		currentModelValues.SetPitch(0)
+		currentModelValues.SetSpeed(0)
+		currentModelValues.SetVolume(0)
+		
+		%laughter_module/Laughter.AddValue(globals.LaughParameter.Pitch,3)
+		%laughter_module/Laughter.AddValue(globals.LaughParameter.Speed,3)
+		%laughter_module/Laughter.AddValue(globals.LaughParameter.Volume,3)
+func _on_laugh_again_pressed():
+	laughterModule.Play()
+	pass # Replace with function body.
 func _on_button_launch_pressed():
 	laughterModule.Play()
 	calculate_result()
 	pass # Replace with function body.
 
 func calculate_result():
+	currentCustomerIndex += 1
 	var diff:int = 0
 	diff += abs(int(%label_pitch_value.text) - int(%Current_P_Value.text))
 	diff += abs(int(%label_speed_value.text) - int(%Current_S_Value.text))
@@ -112,6 +122,8 @@ func calculate_result():
 	pitch_result.text = ("P." + %Current_P_Value.text)
 	speed_result.text = ("S." + %Current_S_Value.text)
 	volume_result.text = ("V." + %Current_V_Value.text)
+	if currentCustomerIndex == NUMBER_OF_ROBOTS_TO_MAKE_LAUGH:
+		$panel_frame/ResultScreen/Next_Robot.text = "Finished"
 	if (diff<=2):
 		#success
 		$panel_frame/ResultScreen/Result_Title.text = "Great Job!"
@@ -125,10 +137,12 @@ func calculate_result():
 		$panel_frame/ResultScreen/Result_Title.text = "..whut..how..why?"
 		$panel_frame/ResultScreen/Text_Fail.visible = 1
 	$panel_frame/ResultScreen.visible=1
+	globals.total_score += diff
 	pass
-	
-
 
 func _on_item_list_item_selected(index):
 	print(%item_list.get_item_text(index))
 	pass # Replace with function body.
+
+
+

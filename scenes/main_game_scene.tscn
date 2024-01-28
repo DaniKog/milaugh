@@ -720,5 +720,5 @@ label_settings = SubResource("LabelSettings_a4ypw")
 [connection signal="item_selected" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="." method="_on_item_list_item_selected"]
 [connection signal="gui_input" from="panel_frame/panel_object/VBoxContainer/active_item_list" to="panel_frame/panel_modifiers/VBoxContainer/item_list" method="_on_ItemList_gui_input"]
 [connection signal="pressed" from="panel_frame/panel_laugh_module/button_launch" to="." method="_on_button_launch_pressed"]
-[connection signal="pressed" from="panel_frame/ResultScreen/Laugh_Again" to="." method="_on_button_launch_pressed"]
+[connection signal="pressed" from="panel_frame/ResultScreen/Laugh_Again" to="." method="_on_laugh_again_pressed"]
 [connection signal="pressed" from="panel_frame/ResultScreen/Next_Robot" to="." method="_on_next_robot_pressed"]
