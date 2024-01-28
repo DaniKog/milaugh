@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://bb6hv48hppt78"]
+[gd_scene load_steps=29 format=3 uid="uid://bb6hv48hppt78"]
 
 [ext_resource type="Script" path="res://scripts/gameplay-ui.gd" id="1_nibp3"]
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="2_ceahc"]
+[ext_resource type="PackedScene" uid="uid://d15vh4rg57dp1" path="res://scenes/MusicPlayer.tscn" id="2_csqjr"]
 [ext_resource type="PackedScene" uid="uid://ngu1bkvclntg" path="res://scenes/LaughterModule.tscn" id="2_i56to"]
 [ext_resource type="Texture2D" uid="uid://bhiaf4y2m05aa" path="res://ui_images/table_with_module_open.png" id="3_cna1x"]
 [ext_resource type="Texture2D" uid="uid://bwrt333tfcmlq" path="res://ui_images/blank_ui.png" id="4_0clmj"]
@@ -86,6 +87,8 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_nibp3")
+
+[node name="MusicPlayer" parent="." instance=ExtResource("2_csqjr")]
 
 [node name="laughter_module" parent="." instance=ExtResource("2_i56to")]
 unique_name_in_owner = true
