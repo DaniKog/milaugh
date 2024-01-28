@@ -57,9 +57,7 @@ theme_override_font_sizes/bold_font_size = 22
 theme_override_font_sizes/italics_font_size = 22
 theme_override_font_sizes/bold_italics_font_size = 22
 theme_override_font_sizes/mono_font_size = 22
-text = "\"The year is 9999, humanity is long extinct and the world is only inhabited by robots. Disk City is a thriving metropolis (akin to large major cities like New York, Tokyo, Los Angeles) with a prominent financial business district. 20 minutes away by public transport, buried in a lesser known part of town is Bitburb (similar to Brooklyn, Shimokitazawa, Berlin, other artsy enclaves) where a cultural revolution is taking place.
-
-Coined by an independent zine as The Junkadelic Era, this was the start of a period of creativity, individualism and self-expression for the robot population. Disk City residents were loosening their “ties” and abandoning conformity. And it was all starting inside Bitburb.\""
+text = "You are the owner of Mi-Laugh Atelier, an establishment specialised in the crafting of one-of-a-kind laughters. You must talk to your robot customers, get to know their stories and develop customised laughs for them based on their lifestyle needs. Give them the gift of expressing joy and avoid making them angry!"
 metadata/_edit_use_anchors_ = true
 
 [node name="button_play" type="Button" parent="bg"]

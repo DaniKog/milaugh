@@ -442,7 +442,7 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_pumu3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_uw3th")
 disabled = true
-text = "Launch"
+text = "Ship it"
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="panel_frame/panel_laugh_module"]
