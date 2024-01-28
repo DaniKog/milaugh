@@ -2,8 +2,8 @@ extends Node2D
 
 @onready var audioPlayer = $AudioStreamPlayer2D
 var musics = [
-	load("res://music/milaugh_drunken_fly.wav"),
-	load("res://music/milaugh_factory_standard.wav"),
+	load("res://music/milaugh_drunken_fly.ogg"),
+	load("res://music/milaugh_factory_standard.ogg"),
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready():

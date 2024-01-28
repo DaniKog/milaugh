@@ -15,7 +15,7 @@ var maxVariations = 2
 var pitch = 3
 
 @onready var audioPlayer = $LaughterSound
-@onready var laugh = load("res://audio/Laugh_Ha_High_Fast-001.wav")
+@onready var laugh = load("res://audio/Laugh_Ha_High_Fast-001.ogg")
 @onready var laughBus = AudioServer.get_bus_index("Laugh")
 #@export AudioStream streams: Array  
 # Called when the node enters the scene tree for the first time.
@@ -72,7 +72,7 @@ func UpdateLaughSound():
 	
 	laugh = load("res://audio/Laugh_Ha_" + volumestr + "_"
 										 + speedstr + "-00"
-										 + variationstr + ".wav")
+										 + variationstr + ".ogg")
 	
 	print("Pitch="+str(pitch)+" Intensity="+volumestr+" Speed="+speedstr)
 
