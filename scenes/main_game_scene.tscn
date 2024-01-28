@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bb6hv48hppt78"]
+[gd_scene load_steps=42 format=3 uid="uid://bb6hv48hppt78"]
 
 [ext_resource type="Script" path="res://scripts/gameplay-ui.gd" id="1_nibp3"]
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="2_ceahc"]
@@ -11,7 +11,18 @@
 [ext_resource type="Texture2D" uid="uid://bchs5t42givn3" path="res://ui_images/blank_white.png" id="5_btbry"]
 [ext_resource type="Script" path="res://scripts/robot_interaction.gd" id="6_cubky"]
 [ext_resource type="Script" path="res://scripts/CurrentModule.gd" id="7_3xkvv"]
+[ext_resource type="Texture2D" uid="uid://b35qlg2fq8vro" path="res://art/Items/explosion/tile000.png" id="10_50v3m"]
 [ext_resource type="Texture2D" uid="uid://bsc8totrvkc4s" path="res://art/Robots/JokerRobot.png" id="11_lrb24"]
+[ext_resource type="Texture2D" uid="uid://d4mul34vah83" path="res://art/Items/explosion/tile001.png" id="11_yir0d"]
+[ext_resource type="Texture2D" uid="uid://d4ex8ku4f4qdt" path="res://art/Items/explosion/tile002.png" id="12_eou8u"]
+[ext_resource type="Texture2D" uid="uid://db3ihqk2ylxj3" path="res://art/Items/explosion/tile003.png" id="13_8dl21"]
+[ext_resource type="Texture2D" uid="uid://bc8xqmwdf2opp" path="res://art/Items/explosion/tile004.png" id="14_tppg2"]
+[ext_resource type="Texture2D" uid="uid://byesw0hm8nrnj" path="res://art/Items/explosion/tile005.png" id="15_ycl31"]
+[ext_resource type="Texture2D" uid="uid://hu1wf0kjdmsg" path="res://art/Items/explosion/tile006.png" id="16_0igio"]
+[ext_resource type="Texture2D" uid="uid://bbv1xg7vq0h70" path="res://art/Items/explosion/tile007.png" id="17_y0umi"]
+[ext_resource type="Texture2D" uid="uid://n5i0x0oglslp" path="res://art/Items/explosion/tile008.png" id="18_ddwdk"]
+[ext_resource type="Texture2D" uid="uid://b81afn7lpiss5" path="res://art/Items/explosion/tile009.png" id="19_nrech"]
+[ext_resource type="Theme" uid="uid://cv5o7uq4xg1rr" path="res://themes/pixel_font_theme.tres" id="20_hybi0"]
 
 [sub_resource type="Theme" id="Theme_yees3"]
 default_font = ExtResource("4_rly5q")
@@ -65,6 +76,47 @@ bg_color = Color(0.905882, 0.254902, 0.290196, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hw4ma"]
 size = Vector2(108.617, 93.6227)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b5n1g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_50v3m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_yir0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_eou8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8dl21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_tppg2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ycl31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0igio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_y0umi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ddwdk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_nrech")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4m3c3"]
+font_size = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_bk7j1"]
 font = ExtResource("4_rly5q")
@@ -476,9 +528,42 @@ anchor_bottom = 0.529549
 texture = ExtResource("4_0clmj")
 metadata/_edit_use_anchors_ = true
 
-[node name="text_robot" type="RichTextLabel" parent="panel_frame/panel_laugh_module"]
+[node name="texture_rect_robot_explosion" type="AnimatedSprite2D" parent="panel_frame/panel_laugh_module/texture_rect_robot"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(26.9999, 49.0002)
+scale = Vector2(11.2891, 11.2891)
+sprite_frames = SubResource("SpriteFrames_b5n1g")
+frame = 9
+frame_progress = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="texture_rect_robot_commentary" type="Label" parent="panel_frame/panel_laugh_module/texture_rect_robot"]
 unique_name_in_owner = true
 layout_mode = 0
+anchor_left = -0.300066
+anchor_top = -0.0935248
+anchor_right = 1.22636
+anchor_bottom = 0.134442
+theme = ExtResource("20_hybi0")
+label_settings = SubResource("LabelSettings_4m3c3")
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="texture_rect_robot_button" type="TextureButton" parent="panel_frame/panel_laugh_module"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.529054
+anchor_top = 0.199729
+anchor_right = 0.767876
+anchor_bottom = 0.529549
+metadata/_edit_use_anchors_ = true
+
+[node name="text_robot" type="RichTextLabel" parent="panel_frame/panel_laugh_module"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.400218
 anchor_top = 0.563253
 anchor_right = 0.966194
@@ -680,5 +765,6 @@ label_settings = SubResource("LabelSettings_a4ypw")
 [connection signal="item_selected" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="." method="_on_item_list_item_selected"]
 [connection signal="gui_input" from="panel_frame/panel_object/VBoxContainer/active_item_list" to="panel_frame/panel_modifiers/VBoxContainer/item_list" method="_on_ItemList_gui_input"]
 [connection signal="pressed" from="panel_frame/panel_laugh_module/button_launch" to="." method="_on_button_launch_pressed"]
+[connection signal="pressed" from="panel_frame/panel_laugh_module/texture_rect_robot_button" to="." method="_on_texture_rect_robot_button_pressed"]
 [connection signal="pressed" from="panel_frame/ResultScreen/Laugh_Again" to="." method="_on_laugh_again_pressed"]
 [connection signal="pressed" from="panel_frame/ResultScreen/Next_Robot" to="." method="_on_next_robot_pressed"]

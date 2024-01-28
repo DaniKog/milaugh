@@ -5,6 +5,7 @@ signal end_game
 const PREVIEW_LENGTH = 0.15
 const NUMBER_OF_ROBOTS_TO_MAKE_LAUGH = 3
 var currentCustomerIndex = 0
+var robotClickCount = 0
 @onready var globals  = get_node("/root/Globals")
 @onready var laughterModule = %laughter_module/Laughter
 @onready var currentModelValues = $panel_frame/panel_laugh_module/CurrentModule
@@ -27,6 +28,48 @@ var item_rsrc = [
 	load("res://resources/items/rusty_horn.tres"),
 	load("res://resources/items/whistle.tres"),	
 ]
+
+var robot_comments = [
+	"That tickles!",
+	"Hey! Stop that",
+	"You're tickling me, please stop",
+	"Oh no, it feels weird!",
+	"I'm telling you to stop",
+	"Stop it now",
+	"Right now",
+	"Oh god, no",
+	"If you do that one more time",
+	"This time I will - ",
+	"What was that?",
+	"Did you just… touch me?",
+	"How dare you!",
+	"Do not do that again!",
+	"I'm warning you!",
+	"My father knows people",
+	"Stop it",
+	"STOP IT",
+	"I'm calling the police",
+	"How may I help you?",
+	"Sorry, I didn't quite understand that",
+	"Yes, did you need something?",
+	"What can I do to help?",
+	"I'm sorry, could you try that again?",
+	"I'm going to need more information",
+	"Sorry, please try that again",
+	"I can answer any question you have!",
+	"What did you need help with?",
+	"Okay let's give it one more try",
+	"You need to pay for that",
+	"Touching's not free you know",
+	"Don't do that man",
+	"I'm serious",
+	"I'm calling my manager right now",
+	"Do you want to speak to my record label?",
+	"This is starting to hurt",
+	"I feel sick",
+	"Could you call a robo-doc",
+]
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -175,3 +218,17 @@ func ChangeTextColor(textNode, diffValue):
 		textNode.add_theme_color_override("font_color", Color(221,226,147,255))
 	else:
 		textNode.add_theme_color_override("font_color", Color(252,90,90,255))
+
+
+func _on_texture_rect_robot_button_pressed():
+	if (robotClickCount >= 9):
+		%texture_rect_robot_commentary.text = ""
+		%texture_rect_robot_explosion.visible = true
+		%texture_rect_robot_explosion.play()
+		await get_tree().create_timer(1.0).timeout
+		%texture_rect_robot_explosion.visible = false
+		_on_next_robot_pressed()
+	else: 
+		%texture_rect_robot_commentary.text = robot_comments[randi_range(0, robot_comments.size() - 1)]
+	robotClickCount = (robotClickCount + 1) % 10
+	pass # Replace with function body.

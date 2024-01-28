@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j7hf653y38k0"
-path="res://.godot/imported/Exupulosiooooon.png-9cffadca62918bfa9eb3a3584ea433f2.ctex"
+uid="uid://db3ihqk2ylxj3"
+path="res://.godot/imported/tile003.png-16df2ef30cfb6901ebf37ba220f06dd9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Items/Exupulosiooooon.png"
-dest_files=["res://.godot/imported/Exupulosiooooon.png-9cffadca62918bfa9eb3a3584ea433f2.ctex"]
+source_file="res://art/Items/explosion/tile003.png"
+dest_files=["res://.godot/imported/tile003.png-16df2ef30cfb6901ebf37ba220f06dd9.ctex"]
 
 [params]
 
