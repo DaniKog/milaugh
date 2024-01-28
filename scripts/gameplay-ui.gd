@@ -49,6 +49,7 @@ func _ready():
 
 
 func _on_item_list_item_clicked(index, at_position, mouse_button_index):
+	#colorCoat()
 	if mouse_button_index == 1:
 		# Add to active item list
 		var active_item_idx = %active_item_list.add_item(
@@ -155,5 +156,18 @@ func _on_item_list_item_selected(index):
 	print(%item_list.get_item_text(index))
 	pass # Replace with function body.
 
-
-
+func colorCoat():
+	var pitchDiff = abs(int(%label_pitch_value.text) - int(%Current_P_Value.text))
+	var speedDiff = abs(int(%label_speed_value.text) - int(%Current_S_Value.text))
+	var volumeDiff = abs(int(%label_volume_value.text) - int(%Current_V_Value.text))
+	ChangeTextColor(%label_pitch_value,pitchDiff)
+	ChangeTextColor(%label_speed_value,speedDiff)
+	ChangeTextColor(%label_volume_value,volumeDiff)
+	
+func ChangeTextColor(textNode, diffValue):
+	if (diffValue<=1):
+		textNode.add_theme_color_override("font_color", Color(152,226,147,255))
+	elif (diffValue <=5):
+		textNode.add_theme_color_override("font_color", Color(221,226,147,255))
+	else:
+		textNode.add_theme_color_override("font_color", Color(252,90,90,255))

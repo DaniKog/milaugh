@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_06pk3"]
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="1_ifybn"]
 [ext_resource type="FontFile" uid="uid://6m88uyjxpw1y" path="res://font/joystix monospace.otf" id="2_nad3f"]
-[ext_resource type="Texture2D" uid="uid://cux0dtuhwytqm" path="res://art/main_laugh_robot.png" id="4_8qct8"]
+[ext_resource type="Texture2D" uid="uid://c6xso74xdqqtm" path="res://art/main_laugh_robot.png" id="4_8qct8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p3ifa"]
 font = ExtResource("2_nad3f")
