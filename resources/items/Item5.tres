@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://b2gj7f86qnu8r"]
+
+[ext_resource type="Script" path="res://resources/item.gd" id="1_sl5vl"]
+
+[resource]
+script = ExtResource("1_sl5vl")
+name = ""
+description = ""
+pitch = 0
+speed = 0
+volume = 0
