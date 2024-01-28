@@ -1,6 +1,7 @@
 extends Node2D
-
+@onready var laughmod = %laughter_module/Laughter/LaughterSound
 @onready var audioPlayer = $AudioStreamPlayer2D
+var ducked = false
 var musics = [
 	load("res://music/milaugh_drunken_fly.ogg"),
 	load("res://music/milaugh_factory_standard.ogg"),
@@ -15,4 +16,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if(laughmod.playing and !ducked):
+		audioPlayer.volume_db = audioPlayer.volume_db - 12
+		ducked = true
+	if(!laughmod.playing and ducked):
+		audioPlayer.volume_db = audioPlayer.volume_db + 12
+		ducked = false
 	pass
