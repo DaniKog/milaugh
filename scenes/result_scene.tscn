@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/result_scene.gd" id="1_1luu0"]
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="1_xj7dw"]
-[ext_resource type="Texture2D" uid="uid://bwrt333tfcmlq" path="res://ui_images/blank_ui.png" id="2_np42v"]
 [ext_resource type="Theme" uid="uid://cv5o7uq4xg1rr" path="res://themes/pixel_font_theme.tres" id="3_an16t"]
+[ext_resource type="Texture2D" uid="uid://drjhniryel0ye" path="res://art/robot_happy.png" id="4_7fvwm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0cj81"]
 font_size = 32
@@ -66,10 +66,12 @@ vertical_alignment = 1
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Robot" type="TextureRect" parent="bg/HBoxContainer/VBoxContainer"]
+[node name="graphic_result" type="TextureRect" parent="bg/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(2.08165e-12, 200)
 layout_mode = 2
-texture = ExtResource("2_np42v")
-stretch_mode = 3
+texture = ExtResource("4_7fvwm")
+stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="label_summary" type="Label" parent="bg/HBoxContainer/VBoxContainer"]
