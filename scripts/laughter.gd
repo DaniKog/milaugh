@@ -68,7 +68,7 @@ func UpdateLaughSound():
 	#var formatString = "res://audio/Laugh_Ha_{intensity}_{speed}-00{variation}.wav"
 	var volumestr = str(globals.laughterVolume.keys()[volume-1])
 	var speedstr = str(globals.laughterSpeed.keys()[speed-1])
-	var variationstr = str(1)
+	var variationstr = str(randi() % 2 + 1)
 	
 	laugh = load("res://audio/Laugh_Ha_" + volumestr + "_"
 										 + speedstr + "-00"
