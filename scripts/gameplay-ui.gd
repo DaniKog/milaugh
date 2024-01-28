@@ -59,6 +59,9 @@ func _on_next_robot_pressed():
 	#invite new robot
 	$panel_frame/panel_laugh_module.invite_robot(randi_range(1,4))
 	#hide results panel
+	$panel_frame/ResultScreen/Text_Average.visible = 0
+	$panel_frame/ResultScreen/Text_Success.visible = 0
+	$panel_frame/ResultScreen/Text_Fail.visible = 0
 	$panel_frame/ResultScreen.visible=0
 	#clear active list
 	%active_item_list.clear()
@@ -67,6 +70,14 @@ func _on_next_robot_pressed():
 				%item_list.set_item_disabled(i, false)
 	#re-disable Launch button
 	%button_launch.set_disabled(true)
+	currentModelValues.SetPitch(0)
+	currentModelValues.SetSpeed(0)
+	currentModelValues.SetVolume(0)
+	
+	%laughter_module/Laughter.AddValue(globals.LaughParameter.Pitch,3)
+	%laughter_module/Laughter.AddValue(globals.LaughParameter.Speed,3)
+	%laughter_module/Laughter.AddValue(globals.LaughParameter.Volume,3)
+	
 	pass
 
 func _on_button_launch_pressed():
@@ -80,6 +91,13 @@ func calculate_result():
 	diff += abs(int(%label_speed_value.text) - int(%Current_S_Value.text))
 	diff += abs(int(%label_volume_value.text) - int(%Current_V_Value.text))
 	
+	var pitch_result = $panel_frame/ResultScreen/ModulePicture/HBoxContainer/ResultScreen_Pitch
+	var speed_result = $panel_frame/ResultScreen/ModulePicture/HBoxContainer/ResultScreen_Speed
+	var volume_result = $panel_frame/ResultScreen/ModulePicture/HBoxContainer/ResultScreen_Volume
+	
+	pitch_result.text = ("P." + %Current_P_Value.text)
+	speed_result.text = ("S." + %Current_S_Value.text)
+	volume_result.text = ("V." + %Current_V_Value.text)
 	if (diff<=2):
 		#success
 		$panel_frame/ResultScreen/Result_Title.text = "Great Job!"
