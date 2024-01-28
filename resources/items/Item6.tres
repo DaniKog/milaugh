@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_l5j3m")
-name = ""
-description = ""
-pitch = 0
-speed = 0
-volume = 0
+name = "Devil Duck"
+description = "It's hoarse and evil, do not bring into bathtub."
+pitch = -2
+speed = -2
+volume = -1
