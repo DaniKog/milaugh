@@ -2,8 +2,8 @@ extends Node2D
 
 # For the sake of simplicity, all values have the same bounds
 # based on the size of the sound variation arrays (5).
-const MIN_VALUE = 0
-const MAX_VALUE = 4
+const MIN_VALUE = 1
+const MAX_VALUE = 5
 
 
 #naming variables
@@ -12,7 +12,7 @@ var maxVariations = 2
 @onready var volume = globals.laughterVolume.Medium
 
 @onready var speed = globals.laughterSpeed.Normal
-var pitch = 1
+var pitch = 3
 
 @onready var audioPlayer = $LaughterSound
 @onready var laugh = load("res://audio/Laugh_Ha_High_Fast-001.wav")
@@ -37,13 +37,14 @@ func Stop():
 func SetValue(myType, value):
 	match myType:
 		globals.LaughParameter.Pitch:
-			pitch = value*0.5
-			if pitch == 0:
-				pitch = .3
+			pitch = value
+			pitch = max(MIN_VALUE, min(MAX_VALUE, pitch))
 		globals.LaughParameter.Speed:
 			speed = value
+			speed = max(MIN_VALUE, min(MAX_VALUE, speed))
 		globals.LaughParameter.Volume:
 			volume = value
+			volume = max(MIN_VALUE, min(MAX_VALUE, volume))
 		_:
 			print('Laugh Paramter not support')
 	UpdateLaughSound()
@@ -51,9 +52,7 @@ func SetValue(myType, value):
 func AddValue(myType, value):
 	match myType:
 		globals.LaughParameter.Pitch:
-			pitch += value*0.5
-			if pitch <= 0:
-				pitch += .3
+			pitch += value
 			pitch = max(MIN_VALUE, min(MAX_VALUE, pitch))
 		globals.LaughParameter.Speed:
 			speed += value
@@ -66,17 +65,21 @@ func AddValue(myType, value):
 	UpdateLaughSound()
 	
 func UpdateLaughSound():
-	var formatString = "res://audio/Laugh_Ha_{intensity}_{speed}-00{variation}.wav"
-		
-	var laughSoundPath = formatString.format({"intensity": globals.laughterVolume.keys()[volume],
-	 "speed": globals.laughterSpeed.keys()[speed], "variation" : 1})
-	laugh = load(str(laughSoundPath))
-	print(str(laughSoundPath))
-	print(globals.laughterSpeed.keys()[speed])
-	print(globals.laughterVolume.keys()[volume])
-	print(pitch)
+	#var formatString = "res://audio/Laugh_Ha_{intensity}_{speed}-00{variation}.wav"
+	var volumestr = str(globals.laughterVolume.keys()[volume-1])
+	var speedstr = str(globals.laughterSpeed.keys()[speed-1])
+	var variationstr = str(1)
 	
+	laugh = load("res://audio/Laugh_Ha_" + volumestr + "_"
+										 + speedstr + "-00"
+										 + variationstr + ".wav")
+	
+	print("Pitch="+str(pitch)+" Intensity="+volumestr+" Speed="+speedstr)
+
 	audioPlayer.stream = laugh
-	audioPlayer.pitch_scale = pitch
+	var realPitch = max(0.3, pitch*0.5 - 0.5)
+	
+	print(pitch, "->", realPitch)
+	audioPlayer.pitch_scale = realPitch
 		
 

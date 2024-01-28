@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Milaugh"
-run/main_scene="res://scenes/top_node_scene.tscn"
-config/features=PackedStringArray("4.2", "GL Compatibility")
+run/main_scene="res://scenes/main_game_scene.tscn"
+config/features=PackedStringArray("4.2")
 boot_splash/bg_color=Color(0.145098, 0.12549, 0.203922, 1)
 boot_splash/image="res://art/Robots/JokerRobot.png"
 boot_splash/fullsize=false
@@ -32,5 +32,3 @@ window/stretch/scale_mode="integer"
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"

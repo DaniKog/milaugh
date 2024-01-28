@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://idbruavivbvn" path="res://scenes/main_menu.tscn" id="1_0k6el"]
 [ext_resource type="PackedScene" uid="uid://bpus1miu4qx71" path="res://scenes/story_scene.tscn" id="2_qx7ql"]
-[ext_resource type="PackedScene" uid="uid://bb6hv48hppt78" path="res://scenes/main_game_scene_zach.tscn" id="3_qd35k"]
+[ext_resource type="PackedScene" uid="uid://bb6hv48hppt78" path="res://scenes/main_game_scene.tscn" id="3_qd35k"]
 [ext_resource type="PackedScene" uid="uid://s4oi1oh2dv47" path="res://scenes/result_scene.tscn" id="4_v861w"]
 
 [node name="top_node_scene" type="Node"]

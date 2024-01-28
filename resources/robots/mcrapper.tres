@@ -12,5 +12,5 @@ pitch = 3
 speed = 5
 volume = 3
 fail_text = "I don't just sound bad. I sound basic. This is awful."
-avg_text = "tbd"
-success_text = "tbd"
+avg_text = "tbd Average text"
+success_text = "tbd Success text"
