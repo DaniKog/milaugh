@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_s7l10")
 name = "J35T-ER"
-description = "I'm in the business of making people laugh. But I've never laughed myself! Give me a laugh that's worthy of an encore.I'm in the business of making people laugh. But I've never laughed myself! Give me a laugh that's worthy of an encore."
+description = "I'm in the business of making people laugh. But I've never laughed myself! Give me a laugh that's worthy of an encore."
 image = ExtResource("1_ws8vx")
 pitch = 3
 speed = 1
