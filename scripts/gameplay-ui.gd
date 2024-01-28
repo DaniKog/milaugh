@@ -1,5 +1,7 @@
 extends Control
 
+signal end_game
+
 const PREVIEW_LENGTH = 0.15
 const NUMBER_OF_ROBOTS_TO_MAKE_LAUGH = 3
 var currentCustomerIndex = 0
@@ -25,6 +27,10 @@ var item_rsrc = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# reset score
+	globals.total_score = 0
+	globals.happy_customers = 0
+	
 	for item in item_rsrc:
 		var item_idx = %item_list.add_item(item.name, item.icon)
 		%item_list.set_item_tooltip(item_idx, item.description)
@@ -77,6 +83,7 @@ func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 func _on_next_robot_pressed():
 	if currentCustomerIndex == NUMBER_OF_ROBOTS_TO_MAKE_LAUGH:
 		# Go to End Screen
+		emit_signal("end_game")
 		pass
 	else:
 		#invite new robot
@@ -128,6 +135,7 @@ func calculate_result():
 		#success
 		$panel_frame/ResultScreen/Result_Title.text = "Great Job!"
 		$panel_frame/ResultScreen/Text_Success.visible = 1
+		globals.happy_customers += 1
 	elif (diff <=5):
 		#average
 		$panel_frame/ResultScreen/Result_Title.text = "Good enough.."

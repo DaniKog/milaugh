@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bswhhw0a051ds"]
+[gd_scene load_steps=5 format=3 uid="uid://bswhhw0a051ds"]
 
 [ext_resource type="PackedScene" uid="uid://idbruavivbvn" path="res://scenes/main_menu.tscn" id="1_0k6el"]
 [ext_resource type="Script" path="res://scripts/top_node_scene.gd" id="1_am5rq"]
 [ext_resource type="PackedScene" uid="uid://bpus1miu4qx71" path="res://scenes/story_scene.tscn" id="2_qx7ql"]
-[ext_resource type="PackedScene" uid="uid://bb6hv48hppt78" path="res://scenes/main_game_scene.tscn" id="3_qd35k"]
 [ext_resource type="PackedScene" uid="uid://s4oi1oh2dv47" path="res://scenes/result_scene.tscn" id="4_v861w"]
 
 [node name="top_node_scene" type="Node"]
@@ -14,10 +13,9 @@ script = ExtResource("1_am5rq")
 [node name="story_scene" parent="." instance=ExtResource("2_qx7ql")]
 visible = false
 
-[node name="main_game_scene" parent="." instance=ExtResource("3_qd35k")]
-visible = false
-
 [node name="result_scene" parent="." instance=ExtResource("4_v861w")]
 visible = false
 
+[connection signal="start_game" from="main_menu" to="." method="_on_main_menu_start_game"]
+[connection signal="start_game" from="story_scene" to="." method="_on_story_scene_start_game"]
 [connection signal="restart_game" from="result_scene" to="." method="_on_result_scene_restart_game"]
