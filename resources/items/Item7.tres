@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_k8u40")
-name = ""
-description = ""
-pitch = 0
-speed = 0
-volume = 0
+name = "Blue Horn"
+description = "Same as the Brass Horn but in blue"
+pitch = -2
+speed = -2
+volume = 2
