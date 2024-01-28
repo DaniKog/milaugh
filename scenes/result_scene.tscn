@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://s4oi1oh2dv47"]
+[gd_scene load_steps=9 format=3 uid="uid://s4oi1oh2dv47"]
 
+[ext_resource type="Script" path="res://scripts/result_scene.gd" id="1_1luu0"]
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="1_xj7dw"]
 [ext_resource type="Texture2D" uid="uid://bwrt333tfcmlq" path="res://ui_images/blank_ui.png" id="2_np42v"]
+[ext_resource type="Theme" uid="uid://cv5o7uq4xg1rr" path="res://themes/pixel_font_theme.tres" id="3_an16t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0cj81"]
-font_size = 50
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_sa1p6"]
+font_size = 24
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24c1i"]
 bg_color = Color(0.6, 0.537255, 0.6, 1)
@@ -19,11 +24,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1luu0")
 
 [node name="bg" type="NinePatchRect" parent="."]
-layout_mode = 0
-anchor_right = 0.997768
-anchor_bottom = 0.986772
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_xj7dw")
 patch_margin_left = 16
 patch_margin_top = 16
@@ -31,35 +40,59 @@ patch_margin_right = 16
 patch_margin_bottom = 16
 metadata/_edit_use_anchors_ = true
 
-[node name="label_results" type="Label" parent="bg"]
-layout_mode = 0
-anchor_right = 0.988095
-anchor_bottom = 0.193122
-text = "Results"
+[node name="HBoxContainer" type="HBoxContainer" parent="bg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bg/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="label_result" type="Label" parent="bg/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(800, 100)
+layout_mode = 2
+theme = ExtResource("3_an16t")
+theme_override_font_sizes/font_size = 56000
+text = "That's [num] happy customers today!"
 label_settings = SubResource("LabelSettings_0cj81")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="button_next" type="Button" parent="bg"]
-layout_mode = 0
-anchor_left = 0.744221
-anchor_top = 0.785523
-anchor_right = 0.971663
-anchor_bottom = 0.951743
+[node name="Robot" type="TextureRect" parent="bg/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_np42v")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="label_summary" type="Label" parent="bg/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1000, 100)
+layout_mode = 2
+theme = ExtResource("3_an16t")
+text = "All in a day's work for the Mi-Laugh technician!"
+label_settings = SubResource("LabelSettings_sa1p6")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="button_next" type="Button" parent="bg/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_an16t")
 theme_override_colors/font_color = Color(0.231373, 0.145098, 0.188235, 1)
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_24c1i")
 theme_override_styles/hover = SubResource("StyleBoxFlat_j41eo")
-text = "Next"
+text = "Try again"
 metadata/_edit_use_anchors_ = true
 
-[node name="Robot" type="TextureRect" parent="bg"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.397465
-anchor_top = 0.270777
-anchor_right = 0.604773
-anchor_bottom = 0.643432
-texture = ExtResource("2_np42v")
-metadata/_edit_use_anchors_ = true
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="bg/HBoxContainer/VBoxContainer/button_next" to="." method="_on_button_next_pressed"]

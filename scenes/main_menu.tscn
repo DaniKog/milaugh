@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://idbruavivbvn"]
+[gd_scene load_steps=7 format=3 uid="uid://idbruavivbvn"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ecgof"]
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="1_ifybn"]
 [ext_resource type="FontFile" uid="uid://6m88uyjxpw1y" path="res://font/joystix monospace.otf" id="2_nad3f"]
 [ext_resource type="Texture2D" uid="uid://dtpojnsnxnec1" path="res://art/main_laugh_robot.png" id="4_8qct8"]
@@ -22,7 +21,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ecgof")
 
 [node name="bg" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -67,5 +65,3 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_1p3f8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s843a")
 text = "Play"
 metadata/_edit_use_anchors_ = true
-
-[connection signal="pressed" from="bg/button_play" to="." method="_on_button_play_pressed"]

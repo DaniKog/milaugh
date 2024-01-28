@@ -20,5 +20,4 @@ visible = false
 [node name="result_scene" parent="." instance=ExtResource("4_v861w")]
 visible = false
 
-[connection signal="start_game" from="main_menu" to="." method="_on_main_menu_start_game"]
-[connection signal="start_game" from="story_scene" to="." method="_on_story_scene_start_game"]
+[connection signal="restart_game" from="result_scene" to="." method="_on_result_scene_restart_game"]

@@ -21,3 +21,10 @@ func _on_story_scene_start_game():
 	$story_scene.visible = false
 	$main_game_scene.visible = true
 	pass # Replace with function body.
+
+
+func _on_result_scene_restart_game():
+	$main_game_scene.reload_scene()
+	$result_scene.visible = false
+	$main_game_scene.visible = true
+	pass # Replace with function body.
