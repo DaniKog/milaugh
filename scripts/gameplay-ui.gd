@@ -225,6 +225,8 @@ func _on_texture_rect_robot_button_pressed():
 		%texture_rect_robot_commentary.text = ""
 		%texture_rect_robot_explosion.visible = true
 		%texture_rect_robot_explosion.play()
+		if(!$AudioStreamPlayer2D.playing):
+			$AudioStreamPlayer2D.play()
 		await get_tree().create_timer(1.0).timeout
 		%texture_rect_robot_explosion.visible = false
 		_on_next_robot_pressed()
