@@ -7,18 +7,32 @@ const PREVIEW_LENGTH = 0.1
 @onready var currentModelValues = $panel_frame/panel_laugh_module/CurrentModule
 @onready var textDescriptionDisplay = $panel_frame/panel_object_description/text_description
 
-var item_rsrc:Array[Item]
+#var item_rsrc:Array[Item]
+var item_rsrc = [
+	load("res://resources/items/brass_horn.tres"),
+	load("res://resources/items/cow_bell.tres"),
+	load("res://resources/items/evil_monkey.tres"),
+	load("res://resources/items/fax_machine.tres"),
+	load("res://resources/items/hot_sauce.tres"),
+	load("res://resources/items/moonshine.tres"),
+	load("res://resources/items/whistle.tres"),
+]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	for item in item_rsrc:
+		var item_idx = %item_list.add_item(item.name, item.icon)
+		%item_list.set_item_tooltip(item_idx, item.description)
+		%item_list.set_item_tooltip_enabled(item_idx, true)
+		%item_list.set_item_metadata(item_idx, item)
 	#populate item list, copy the complete rsrc into item "metadata"
-	for filePath in DirAccess.get_files_at("res://resources/items/"):
-		if filePath.get_extension() == "tres":  
-			var item:Item = load("resources/items/"+filePath)
-			var item_idx = %item_list.add_item(item.name, item.icon)
-			%item_list.set_item_tooltip(item_idx, item.description)
-			%item_list.set_item_tooltip_enabled(item_idx, true)
-			%item_list.set_item_metadata(item_idx, item)
+	#for filePath in DirAccess.get_files_at("res://resources/items/"):
+	#	if filePath.get_extension() == "tres":  
+	#		var item:Item = load("resources/items/"+filePath)
+	#		var item_idx = %item_list.add_item(item.name, item.icon)
+	#		%item_list.set_item_tooltip(item_idx, item.description)
+	#		%item_list.set_item_tooltip_enabled(item_idx, true)
+	#		%item_list.set_item_metadata(item_idx, item)
 
 
 func _on_item_list_item_clicked(index, at_position, mouse_button_index):
