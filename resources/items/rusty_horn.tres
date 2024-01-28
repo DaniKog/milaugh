@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_sl5vl")
-name = ""
-description = ""
-pitch = 0
-speed = 0
-volume = 0
+name = "Rusty Horn"
+description = "An instrument that's seen better days. Blowing into it might not be the best idea."
+pitch = -2
+speed = -2
+volume = 2

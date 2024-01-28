@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_rxs8v")
-name = ""
-description = ""
-pitch = 0
-speed = 0
-volume = 0
+name = "Cold Sauce"
+description = "Turns anything into ice cream. Soothes the voice too."
+pitch = -2
+speed = -1
+volume = 1
