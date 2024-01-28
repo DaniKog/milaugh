@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://bc1wtb2dk7lxw"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dhduvwu1rtlnx"]
 
+[ext_resource type="Texture2D" uid="uid://n5p52ptglo3p" path="res://art/Items/BlueWhistle.png" id="1_0ys06"]
 [ext_resource type="Script" path="res://resources/item.gd" id="1_q5eo0"]
 
 [resource]
 script = ExtResource("1_q5eo0")
 name = "Blue Whistle"
 description = "A whistle that wishes it was important. Hates the colour red. Does not emit much sound."
+icon = ExtResource("1_0ys06")
 pitch = -2
 speed = -1
 volume = 2

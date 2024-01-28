@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://bqyh1inx1csq8"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c3uo7b1jer4du"]
 
+[ext_resource type="Texture2D" uid="uid://c7gchxj5ioxx" path="res://art/Items/GreenWhistle.png" id="1_n177l"]
 [ext_resource type="Script" path="res://resources/item.gd" id="1_t8eu6"]
 
 [resource]
 script = ExtResource("1_t8eu6")
 name = "Green Whistle"
 description = "A whistle that is neutral. Don't get it involved in your petty fights. Has an okay sound."
+icon = ExtResource("1_n177l")
 pitch = -1
 speed = 1
 volume = 1

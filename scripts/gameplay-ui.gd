@@ -10,17 +10,19 @@ var currentCustomerIndex = 0
 
 #var item_rsrc:Array[Item]
 var item_rsrc = [
+	load("res://resources/items/blue_whistle.tres"),
 	load("res://resources/items/brass_horn.tres"),
+	load("res://resources/items/cold_sauce.tres"),
 	load("res://resources/items/cow_bell.tres"),
+	load("res://resources/items/devil_duck.tres"),
 	load("res://resources/items/evil_monkey.tres"),
 	load("res://resources/items/fax_machine.tres"),
+	load("res://resources/items/green_whistle.tres"),
 	load("res://resources/items/hot_sauce.tres"),
+	load("res://resources/items/blue_horn.tres"),
 	load("res://resources/items/moonshine.tres"),
-	load("res://resources/items/whistle.tres"),
-	load("res://resources/items/whistle.tres"),
-	load("res://resources/items/whistle.tres"),
-	load("res://resources/items/whistle.tres"),
-	load("res://resources/items/whistle.tres"),
+	load("res://resources/items/rusty_horn.tres"),
+	load("res://resources/items/whistle.tres"),	
 ]
 
 # Called when the node enters the scene tree for the first time.
@@ -51,8 +53,9 @@ func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 		%active_item_list.set_item_metadata(active_item_idx,%item_list.get_item_metadata(index))	
 		
 		# If we've selected 3 items, stop further selections
-		if %active_item_list.item_count >= 3:
+		if %active_item_list.item_count >= 1:
 			%button_launch.set_disabled(false)
+		if %active_item_list.item_count >= 3:
 			for i in range(%item_list.item_count):
 				%item_list.set_item_disabled(i, true)
 				

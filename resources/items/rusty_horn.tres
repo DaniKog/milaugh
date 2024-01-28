@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://b2gj7f86qnu8r"]
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bgk7mvyi4b2fh"]
 
+[ext_resource type="Texture2D" uid="uid://0pnxesyio6km" path="res://art/Items/RustyHorn.png" id="1_3af5i"]
 [ext_resource type="Script" path="res://resources/item.gd" id="1_sl5vl"]
 
 [resource]
 script = ExtResource("1_sl5vl")
 name = "Rusty Horn"
 description = "An instrument that's seen better days. Blowing into it might not be the best idea."
+icon = ExtResource("1_3af5i")
 pitch = -2
 speed = -2
 volume = 2
