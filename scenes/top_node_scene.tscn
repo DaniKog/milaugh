@@ -5,16 +5,27 @@
 [ext_resource type="PackedScene" uid="uid://bpus1miu4qx71" path="res://scenes/story_scene.tscn" id="2_qx7ql"]
 [ext_resource type="PackedScene" uid="uid://s4oi1oh2dv47" path="res://scenes/result_scene.tscn" id="4_v861w"]
 
-[node name="top_node_scene" type="Node"]
+[node name="top_node_scene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_am5rq")
 
 [node name="main_menu" parent="." instance=ExtResource("1_0k6el")]
+layout_mode = 1
 
 [node name="story_scene" parent="." instance=ExtResource("2_qx7ql")]
 visible = false
+layout_mode = 1
 
 [node name="result_scene" parent="." instance=ExtResource("4_v861w")]
 visible = false
+layout_mode = 1
 
 [connection signal="start_game" from="main_menu" to="." method="_on_main_menu_start_game"]
 [connection signal="start_game" from="story_scene" to="." method="_on_story_scene_start_game"]
