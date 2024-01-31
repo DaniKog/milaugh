@@ -1,17 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpus1miu4qx71"]
+[gd_scene load_steps=8 format=3 uid="uid://bpus1miu4qx71"]
 
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="1_0ucix"]
 [ext_resource type="Script" path="res://scripts/story_scene.gd" id="1_i5pke"]
 [ext_resource type="Theme" uid="uid://cv5o7uq4xg1rr" path="res://themes/pixel_font_theme.tres" id="2_vmukq"]
+[ext_resource type="FontFile" uid="uid://6m88uyjxpw1y" path="res://font/joystix monospace.otf" id="4_ht7xv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0cj81"]
+font = ExtResource("4_ht7xv")
 font_size = 50
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_24c1i"]
-bg_color = Color(0.6, 0.537255, 0.6, 1)
+bg_color = Color(0.756863, 0.494118, 0.152941, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j41eo"]
-bg_color = Color(0.505882, 0.937255, 0.6, 1)
+bg_color = Color(0.109804, 0.498039, 0.486275, 1)
 
 [node name="story_scene" type="Control"]
 layout_mode = 3
@@ -23,9 +25,10 @@ grow_vertical = 2
 script = ExtResource("1_i5pke")
 
 [node name="bg" type="NinePatchRect" parent="."]
-layout_mode = 0
-anchor_right = 0.997768
-anchor_bottom = 0.986772
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.997917
+anchor_bottom = 0.997222
 texture = ExtResource("1_0ucix")
 patch_margin_left = 16
 patch_margin_top = 16
@@ -46,29 +49,30 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="text_story" type="RichTextLabel" parent="bg"]
-layout_mode = 0
-anchor_left = 0.0514541
-anchor_top = 0.19571
-anchor_right = 0.967934
-anchor_bottom = 0.75067
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.051
+anchor_top = 0.196
+anchor_right = 0.968
+anchor_bottom = 0.751
+offset_left = 0.608948
+offset_top = -0.216354
+offset_right = -0.088501
+offset_bottom = -0.246216
 theme = ExtResource("2_vmukq")
-theme_override_font_sizes/normal_font_size = 22
-theme_override_font_sizes/bold_font_size = 22
-theme_override_font_sizes/italics_font_size = 22
-theme_override_font_sizes/bold_italics_font_size = 22
-theme_override_font_sizes/mono_font_size = 22
 text = "You are the owner of Mi-Laugh Atelier, an establishment specialised in the crafting of one-of-a-kind laughters. You must talk to your robot customers, get to know their stories and develop customised laughs for them based on their lifestyle needs. Give them the gift of expressing joy and avoid making them angry!"
+fit_content = true
 metadata/_edit_use_anchors_ = true
 
 [node name="button_play" type="Button" parent="bg"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.737509
-anchor_top = 0.780161
-anchor_right = 0.964952
-anchor_bottom = 0.946381
+anchor_left = 0.77714
+anchor_top = 0.86351
+anchor_right = 0.965031
+anchor_bottom = 0.946147
 theme = ExtResource("2_vmukq")
-theme_override_colors/font_color = Color(0.231373, 0.145098, 0.188235, 1)
+theme_override_colors/font_color = Color(0.933333, 0.87451, 0.901961, 1)
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_24c1i")
 theme_override_styles/hover = SubResource("StyleBoxFlat_j41eo")

@@ -597,16 +597,18 @@ script = ExtResource("7_3xkvv")
 
 [node name="ResultScreen" type="NinePatchRect" parent="panel_frame"]
 visible = false
-layout_mode = 0
-offset_left = 138.4
-offset_top = 35.2
-offset_right = 1198.4
-offset_bottom = 701.2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.164932
+anchor_top = 0.109682
+anchor_right = 0.854318
+anchor_bottom = 0.888447
 texture = ExtResource("2_ceahc")
 patch_margin_left = 48
 patch_margin_top = 48
 patch_margin_right = 48
 patch_margin_bottom = 48
+metadata/_edit_use_anchors_ = true
 
 [node name="Laugh_Again" type="Button" parent="panel_frame/ResultScreen"]
 layout_mode = 1

@@ -15,6 +15,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+func _input(event):
+	if(event.is_action_pressed("quit")):
+		get_tree().quit(0)
 
 
 func _on_main_menu_start_game():
