@@ -9,7 +9,6 @@ var musics = [
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var randomIndex = randi_range(0, 1)
-	print(randomIndex)
 	audioPlayer.stream = musics[randomIndex]
 	audioPlayer.play()
 	pass # Replace with function body.
