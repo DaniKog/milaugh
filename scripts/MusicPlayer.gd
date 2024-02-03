@@ -3,13 +3,14 @@ extends Node2D
 @onready var audioPlayer = $AudioStreamPlayer2D
 var ducked = false
 var musics = [
-	load("res://music/milaugh_drunken_fly.ogg"),
+	load("res://music/milaugh_drunken_fly.wav"),
 	load("res://music/milaugh_factory_standard.ogg"),
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var randeomIndex = randi() % 2 
-	audioPlayer.stream = musics[randeomIndex]
+	var randomIndex = randi_range(0, 1)
+	print(randomIndex)
+	audioPlayer.stream = musics[randomIndex]
 	audioPlayer.play()
 	pass # Replace with function body.
 
