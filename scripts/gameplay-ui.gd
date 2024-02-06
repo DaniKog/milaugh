@@ -180,9 +180,10 @@ func calculate_result():
 	pitch_result.text = ("P." + %Current_P_Value.text)
 	speed_result.text = ("S." + %Current_S_Value.text)
 	volume_result.text = ("V." + %Current_V_Value.text)
+	
 	if currentCustomerIndex == NUMBER_OF_ROBOTS_TO_MAKE_LAUGH:
 		$panel_frame/ResultScreen/Next_Robot.text = "Finished"
-	if (diff<=2):
+	if (diff<=3):
 		#success
 		$panel_frame/ResultScreen/Result_Title.text = "Great Job!"
 		$panel_frame/ResultScreen/Text_Success.visible = 1
