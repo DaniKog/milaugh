@@ -93,7 +93,6 @@ func _ready():
 
 
 func _on_item_list_item_clicked(index, at_position, mouse_button_index):
-	#colorCoat()
 	if mouse_button_index == 1:
 		# Add to active item list
 		var active_item_idx = %active_item_list.add_item(
@@ -130,6 +129,8 @@ func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 
 		# LASTLY Remove from available item list
 		%item_list.remove_item(index)
+		#update the colors
+		colorCoat()
 
 func _on_next_robot_pressed():
 	if currentCustomerIndex == NUMBER_OF_ROBOTS_TO_MAKE_LAUGH:
@@ -158,6 +159,10 @@ func _on_next_robot_pressed():
 		%laughter_module/Laughter.AddValue(globals.LaughParameter.Pitch,3)
 		%laughter_module/Laughter.AddValue(globals.LaughParameter.Speed,3)
 		%laughter_module/Laughter.AddValue(globals.LaughParameter.Volume,3)
+		#rest Colors
+		%Current_P_Value.label_settings.font_color = Color.WHITE
+		%Current_S_Value.label_settings.font_color = Color.WHITE
+		%Current_V_Value.label_settings.font_color = Color.WHITE
 func _on_laugh_again_pressed():
 	laughterModule.Play()
 	pass # Replace with function body.
@@ -168,10 +173,11 @@ func _on_button_launch_pressed():
 
 func calculate_result():
 	currentCustomerIndex += 1
-	var diff:int = 0
-	diff += abs(int(%label_pitch_value.text) - int(%Current_P_Value.text))
-	diff += abs(int(%label_speed_value.text) - int(%Current_S_Value.text))
-	diff += abs(int(%label_volume_value.text) - int(%Current_V_Value.text))
+	var toatl_diff:int = 0
+	var pitch_diff = abs(int(%label_pitch_value.text) - int(%Current_P_Value.text))
+	var speed_diff = abs(int(%label_speed_value.text) - int(%Current_S_Value.text))
+	var vol_diff = abs(int(%label_volume_value.text) - int(%Current_V_Value.text))
+	toatl_diff = pitch_diff + speed_diff + vol_diff
 	
 	var pitch_result = $panel_frame/ResultScreen/ModulePicture/HBoxContainer/ResultScreen_Pitch
 	var speed_result = $panel_frame/ResultScreen/ModulePicture/HBoxContainer/ResultScreen_Speed
@@ -181,44 +187,54 @@ func calculate_result():
 	speed_result.text = ("S." + %Current_S_Value.text)
 	volume_result.text = ("V." + %Current_V_Value.text)
 	
+	ChangeTextColor(pitch_result,pitch_diff)
+	ChangeTextColor(speed_result,speed_diff)
+	ChangeTextColor(volume_result,vol_diff)
+	
 	if currentCustomerIndex == NUMBER_OF_ROBOTS_TO_MAKE_LAUGH:
 		$panel_frame/ResultScreen/Next_Robot.text = "Finished"
-	if (diff<=3):
+	if (toatl_diff<=3):
 		#success
 		$panel_frame/ResultScreen/Result_Title.text = "Great Job!"
+		color_result_screen(globals.color_success)
 		$panel_frame/ResultScreen/Text_Success.visible = 1
 		globals.happy_customers += 1
-	elif (diff <=5):
+	elif (toatl_diff <=5):
 		#average
 		$panel_frame/ResultScreen/Result_Title.text = "Good enough.."
+		color_result_screen(globals.color_ok)
 		$panel_frame/ResultScreen/Text_Average.visible = 1
 	else:
 		#fail
 		$panel_frame/ResultScreen/Result_Title.text = "..whut..how..why?"
+		color_result_screen(globals.color_fail)
 		$panel_frame/ResultScreen/Text_Fail.visible = 1
 	$panel_frame/ResultScreen.visible=1
-	globals.total_score += diff
+	globals.total_score += toatl_diff
 	pass
 
 func _on_item_list_item_selected(index):
 	print(%item_list.get_item_text(index))
 	pass # Replace with function body.
+	
+func color_result_screen(color):
+	$panel_frame/ResultScreen/Result_Title.label_settings.font_color = color
 
 func colorCoat():
 	var pitchDiff = abs(int(%label_pitch_value.text) - int(%Current_P_Value.text))
 	var speedDiff = abs(int(%label_speed_value.text) - int(%Current_S_Value.text))
 	var volumeDiff = abs(int(%label_volume_value.text) - int(%Current_V_Value.text))
-	ChangeTextColor(%label_pitch_value,pitchDiff)
-	ChangeTextColor(%label_speed_value,speedDiff)
-	ChangeTextColor(%label_volume_value,volumeDiff)
+	ChangeTextColor(%Current_P_Value,pitchDiff)
+	ChangeTextColor(%Current_S_Value,speedDiff)
+	ChangeTextColor(%Current_V_Value,volumeDiff)
 	
 func ChangeTextColor(textNode, diffValue):
 	if (diffValue<=1):
-		textNode.add_theme_color_override("font_color", Color(152,226,147,255))
-	elif (diffValue <=5):
-		textNode.add_theme_color_override("font_color", Color(221,226,147,255))
+		textNode.label_settings.font_color = globals.color_success
+	elif (diffValue <=3):
+		textNode.label_settings.font_color = globals.color_ok
 	else:
-		textNode.add_theme_color_override("font_color", Color(252,90,90,255))
+		textNode.label_settings.font_color = globals.color_fail
 
 
 func _on_texture_rect_robot_button_pressed():

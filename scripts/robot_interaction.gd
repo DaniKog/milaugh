@@ -23,7 +23,6 @@ func _ready():
 
 func invite_robot(idx):
 	var robot :Robot = robot_rsrc[idx-1]
-	print(robot.name)
 	%label_robot.text = robot.name
 	%texture_rect_robot.texture = robot.image
 	%text_robot.text = robot.description
