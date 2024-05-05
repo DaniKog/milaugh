@@ -74,12 +74,11 @@ func UpdateLaughSound():
 										 + speedstr + "-00"
 										 + variationstr + ".ogg")
 	
-	print("Pitch="+str(pitch)+" Intensity="+volumestr+" Speed="+speedstr)
+	#print("Pitch="+str(pitch)+" Intensity="+volumestr+" Speed="+speedstr)
 
 	audioPlayer.stream = laugh
 	var realPitch = max(0.3, pitch*0.5 - 0.5)
 	
-	print(pitch, "->", realPitch)
 	audioPlayer.pitch_scale = realPitch
 		
 

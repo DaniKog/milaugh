@@ -10,8 +10,7 @@ var musics = [
 func _ready():
 	var randomIndex = randi_range(0, 1)
 	audioPlayer.stream = musics[randomIndex]
-	#audioPlayer.play()
-	#TODO Master the Music
+	audioPlayer.play()
 	pass # Replace with function body.
 
 

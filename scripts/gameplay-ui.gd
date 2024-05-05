@@ -229,14 +229,12 @@ func colorCoat():
 	ChangeTextColor(%Current_V_Value,volumeDiff)
 	
 func ChangeTextColor(textNode, diffValue):
-	print(textNode.text)
-	print(diffValue)
 	if (diffValue<=1):
-		textNode.label_settings.font_color = globals.color_fail
+		textNode.label_settings.font_color = globals.color_success
 	elif (diffValue <=3):
 		textNode.label_settings.font_color = globals.color_ok
 	else:
-		textNode.label_settings.font_color = globals.color_success
+		textNode.label_settings.font_color = globals.color_fail
 
 
 func _on_texture_rect_robot_button_pressed():
