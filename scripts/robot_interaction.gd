@@ -1,5 +1,6 @@
 extends Node
 
+var last_robot_index = -1
 #var robot_rsrc:Array[Robot]
 var robot_rsrc:Array[Robot] = [
 		load("res://resources/robots/antoinette.tres"),
@@ -13,16 +14,16 @@ func _ready():
 	#for filePath in DirAccess.get_files_at("res://resources/robots/"):
 	#	if filePath.get_extension() == "tres":  
 	#		robot_rsrc.append(load("resources/robots/"+filePath) )
-	
-	# choose a random robot
-	var rand_robot_idx = randi_range(1,4)
-	
 	# invite the robot
-	invite_robot(rand_robot_idx)
+	invite_robot()
 	pass # Replace with function body.
 
-func invite_robot(idx):
-	var robot :Robot = robot_rsrc[idx-1]
+func invite_robot():
+	# choose a random robot
+	var rand_robot_idx = randi_range(1,4)
+	while rand_robot_idx == last_robot_index:
+		rand_robot_idx = randi_range(1,4)
+	var robot :Robot = robot_rsrc[rand_robot_idx-1]
 	%label_robot.text = robot.name
 	%texture_rect_robot.texture = robot.image
 	%text_robot.text = robot.description
@@ -36,8 +37,5 @@ func invite_robot(idx):
 	$"../ResultScreen/Text_Average".text = robot.avg_text
 	$"../ResultScreen/Text_Success".text = robot.success_text
 	$"../ResultScreen/Text_Success".visible = 0
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+	last_robot_index = rand_robot_idx
 	pass

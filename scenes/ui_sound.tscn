@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba61qw2liuke2"]
+
+[ext_resource type="Script" path="res://scripts/UiSound.gd" id="1_sasl8"]
+
+[node name="UiSound" type="Node2D"]
+script = ExtResource("1_sasl8")
+
+[node name="UiSoundAudio" type="AudioStreamPlayer2D" parent="."]

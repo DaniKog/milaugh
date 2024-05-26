@@ -16,7 +16,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if(laughmod.playing and !ducked):
 		audioPlayer.volume_db = audioPlayer.volume_db - 12
 		ducked = true

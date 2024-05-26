@@ -17,14 +17,6 @@ var pitch = 3
 @onready var audioPlayer = $LaughterSound
 @onready var laugh = load("res://audio/Laugh_Ha_High_Fast-001.ogg")
 @onready var laughBus = AudioServer.get_bus_index("Laugh")
-#@export AudioStream streams: Array  
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 	
 func Play():
 	Stop()

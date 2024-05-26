@@ -38,4 +38,5 @@ func _on_visibility_changed():
 
 
 func _on_button_next_pressed():
+	UiSound.play_UI_Click()
 	emit_signal("restart_game")

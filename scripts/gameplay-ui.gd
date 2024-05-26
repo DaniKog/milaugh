@@ -2,7 +2,8 @@ extends Control
 
 signal end_game
 
-const PREVIEW_LENGTH = 0.15
+const PREVIEW_LENGTH = 1
+const PREVIEW_PLAYDELAY = 0.5
 const NUMBER_OF_ROBOTS_TO_MAKE_LAUGH = 3
 var currentCustomerIndex = 0
 var robotClickCount = 0
@@ -95,8 +96,9 @@ func _ready():
 	currentModelValues.SetVolume(%laughter_module/Laughter.volume)
 
 
-func _on_item_list_item_clicked(index, at_position, mouse_button_index):
+func _on_item_list_item_clicked(index, _at_position, mouse_button_index):
 	if mouse_button_index == 1:
+		UiSound.play_UI_InstallPart()
 		# Add to active item list
 		var active_item_idx = %active_item_list.add_item(
 			%item_list.get_item_text(index),
@@ -121,11 +123,6 @@ func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 		%laughter_module/Laughter.AddValue(globals.LaughParameter.Speed, %item_list.get_item_metadata(index).speed)
 		%laughter_module/Laughter.AddValue(globals.LaughParameter.Volume, %item_list.get_item_metadata(index).volume)
 		
-		# Play preview of new sound
-		%laughter_module/Laughter.Play()
-		await get_tree().create_timer(PREVIEW_LENGTH).timeout
-		%laughter_module/Laughter.Stop()
-
 		currentModelValues.SetPitch(%laughter_module/Laughter.pitch)
 		currentModelValues.SetSpeed(%laughter_module/Laughter.speed)
 		currentModelValues.SetVolume(%laughter_module/Laughter.volume)
@@ -134,15 +131,22 @@ func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 		%item_list.remove_item(index)
 		#update the colors
 		colorCoat()
+		
+		await get_tree().create_timer(PREVIEW_PLAYDELAY).timeout # Ensure the last thing we do is trigger a timer to stop the sound
+		# Play preview of new sound
+		%laughter_module/Laughter.Play()
+		await get_tree().create_timer(PREVIEW_LENGTH).timeout # Ensure the last thing we do is trigger a timer to stop the sound
+		%laughter_module/Laughter.Stop()
 
 func _on_next_robot_pressed():
+	UiSound.play_UI_NextRobot()
 	if currentCustomerIndex == NUMBER_OF_ROBOTS_TO_MAKE_LAUGH:
 		# Go to End Screen
 		emit_signal("end_game")
 		pass
 	else:
 		#invite new robot
-		$panel_frame/panel_laugh_module.invite_robot(randi_range(1,4))
+		$panel_frame/panel_laugh_module.invite_robot()
 		#hide results panel
 		$panel_frame/ResultScreen/Text_Average.visible = 0
 		$panel_frame/ResultScreen/Text_Success.visible = 0
@@ -155,13 +159,14 @@ func _on_next_robot_pressed():
 					%item_list.set_item_disabled(i, false)
 		#re-disable Launch button
 		%button_launch.set_disabled(true)
+		
+		%laughter_module/Laughter.SetValue(globals.LaughParameter.Pitch,3)
+		%laughter_module/Laughter.SetValue(globals.LaughParameter.Speed,3)
+		%laughter_module/Laughter.SetValue(globals.LaughParameter.Volume,3)
+		
 		currentModelValues.SetPitch(%laughter_module/Laughter.pitch)
 		currentModelValues.SetSpeed(%laughter_module/Laughter.speed)
 		currentModelValues.SetVolume(%laughter_module/Laughter.volume)
-		
-		%laughter_module/Laughter.AddValue(globals.LaughParameter.Pitch,3)
-		%laughter_module/Laughter.AddValue(globals.LaughParameter.Speed,3)
-		%laughter_module/Laughter.AddValue(globals.LaughParameter.Volume,3)
 		rest_color_current_value_colors()
 		
 func rest_color_current_value_colors():
@@ -171,6 +176,7 @@ func rest_color_current_value_colors():
 		%Current_V_Value.label_settings.font_color = Color.WHITE
 	
 func _on_laugh_again_pressed():
+	UiSound.play_UI_Click()
 	laughterModule.Play()
 	pass # Replace with function body.
 func _on_button_launch_pressed():
