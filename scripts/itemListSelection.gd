@@ -32,6 +32,10 @@ func show_expected_result_on_current_module(index):
 	%Current_S_Addition.text = speed_prediction_to_show
 	%Current_V_Addition.text = volume_prediction_to_show
 	
+func hide_expected_result_on_current_module():
+	%Current_P_Addition.text = ""
+	%Current_S_Addition.text = ""
+	%Current_V_Addition.text = ""
 	
 func convert_int_to_result_string(number):
 	var text  = str(number)
@@ -39,3 +43,7 @@ func convert_int_to_result_string(number):
 		return str('+' + text)
 	else:
 		return text
+
+
+func _on_mouse_exited():
+	hide_expected_result_on_current_module()

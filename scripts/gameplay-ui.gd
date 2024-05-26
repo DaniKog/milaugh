@@ -97,7 +97,7 @@ func _ready():
 
 
 func _on_item_list_item_clicked(index, _at_position, mouse_button_index):
-	if mouse_button_index == 1:
+	if mouse_button_index == 1 and not $panel_frame/ResultScreen.visible:
 		UiSound.play_UI_InstallPart()
 		# Add to active item list
 		var active_item_idx = %active_item_list.add_item(
@@ -139,12 +139,12 @@ func _on_item_list_item_clicked(index, _at_position, mouse_button_index):
 		%laughter_module/Laughter.Stop()
 
 func _on_next_robot_pressed():
-	UiSound.play_UI_NextRobot()
 	if currentCustomerIndex == NUMBER_OF_ROBOTS_TO_MAKE_LAUGH:
 		# Go to End Screen
 		emit_signal("end_game")
 		pass
 	else:
+		UiSound.play_UI_NextRobot()
 		#invite new robot
 		$panel_frame/panel_laugh_module.invite_robot()
 		#hide results panel

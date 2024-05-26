@@ -865,6 +865,7 @@ volume_db = -12.0
 [connection signal="gui_input" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="panel_frame/panel_modifiers/VBoxContainer/item_list" method="_on_ItemList_gui_input"]
 [connection signal="item_clicked" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="." method="_on_item_list_item_clicked"]
 [connection signal="item_selected" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="." method="_on_item_list_item_selected"]
+[connection signal="mouse_exited" from="panel_frame/panel_modifiers/VBoxContainer/item_list" to="panel_frame/panel_modifiers/VBoxContainer/item_list" method="_on_mouse_exited"]
 [connection signal="gui_input" from="panel_frame/panel_object/VBoxContainer/active_item_list" to="panel_frame/panel_modifiers/VBoxContainer/item_list" method="_on_ItemList_gui_input"]
 [connection signal="pressed" from="panel_frame/panel_laugh_module/button_launch" to="." method="_on_button_launch_pressed"]
 [connection signal="pressed" from="panel_frame/panel_laugh_module/texture_rect_robot_button" to="." method="_on_texture_rect_robot_button_pressed"]
