@@ -156,7 +156,7 @@ func _on_next_robot_pressed():
 		%active_item_list.clear()
 		#reenable items
 		for i in range(%item_list.item_count):
-					%item_list.set_item_disabled(i, false)
+			%item_list.set_item_disabled(i, false)
 		#re-disable Launch button
 		%button_launch.set_disabled(true)
 		

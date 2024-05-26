@@ -97,7 +97,7 @@ text = "Try again"
 metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-volume_db = -12.0
+volume_db = -18.0
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="bg/HBoxContainer/VBoxContainer/button_next" to="." method="_on_button_next_pressed"]
