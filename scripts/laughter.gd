@@ -48,7 +48,18 @@ func SetValue(myType, value):
 		_:
 			print('Laugh Paramter not support')
 	UpdateLaughSound()
-
+	
+func GetValue(myType):
+	match myType:
+		globals.LaughParameter.Pitch:
+			return pitch
+		globals.LaughParameter.Speed:
+			return speed 
+		globals.LaughParameter.Volume:
+			return volume
+		_:
+			print('Laugh Paramter not support')
+			
 func AddValue(myType, value):
 	match myType:
 		globals.LaughParameter.Pitch:

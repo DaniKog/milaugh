@@ -10,7 +10,8 @@ var musics = [
 func _ready():
 	var randomIndex = randi_range(0, 1)
 	audioPlayer.stream = musics[randomIndex]
-	audioPlayer.play()
+	#audioPlayer.play()
+	#TODO fix 44.1 khz default sound device
 	pass # Replace with function body.
 
 

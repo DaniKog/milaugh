@@ -76,11 +76,11 @@ func _ready():
 	# reset score
 	globals.total_score = 0
 	globals.happy_customers = 0
-	
+	rest_color_current_value_colors()
 	for item in item_rsrc:
 		var item_idx = %item_list.add_item(item.name, item.icon)
 		%item_list.set_item_tooltip(item_idx, item.description)
-		%item_list.set_item_tooltip_enabled(item_idx, true)
+		#%item_list.set_item_tooltip_enabled(item_idx, true) removed tooltip to better see the extimated values
 		%item_list.set_item_metadata(item_idx, item)
 	#populate item list, copy the complete rsrc into item "metadata"
 	#for filePath in DirAccess.get_files_at("res://resources/items/"):
@@ -90,6 +90,9 @@ func _ready():
 	#		%item_list.set_item_tooltip(item_idx, item.description)
 	#		%item_list.set_item_tooltip_enabled(item_idx, true)
 	#		%item_list.set_item_metadata(item_idx, item)
+	currentModelValues.SetPitch(%laughter_module/Laughter.pitch)
+	currentModelValues.SetSpeed(%laughter_module/Laughter.speed)
+	currentModelValues.SetVolume(%laughter_module/Laughter.volume)
 
 
 func _on_item_list_item_clicked(index, at_position, mouse_button_index):
@@ -152,17 +155,21 @@ func _on_next_robot_pressed():
 					%item_list.set_item_disabled(i, false)
 		#re-disable Launch button
 		%button_launch.set_disabled(true)
-		currentModelValues.SetPitch(0)
-		currentModelValues.SetSpeed(0)
-		currentModelValues.SetVolume(0)
+		currentModelValues.SetPitch(%laughter_module/Laughter.pitch)
+		currentModelValues.SetSpeed(%laughter_module/Laughter.speed)
+		currentModelValues.SetVolume(%laughter_module/Laughter.volume)
 		
 		%laughter_module/Laughter.AddValue(globals.LaughParameter.Pitch,3)
 		%laughter_module/Laughter.AddValue(globals.LaughParameter.Speed,3)
 		%laughter_module/Laughter.AddValue(globals.LaughParameter.Volume,3)
+		rest_color_current_value_colors()
+		
+func rest_color_current_value_colors():
 		#rest Colors
 		%Current_P_Value.label_settings.font_color = Color.WHITE
 		%Current_S_Value.label_settings.font_color = Color.WHITE
 		%Current_V_Value.label_settings.font_color = Color.WHITE
+	
 func _on_laugh_again_pressed():
 	laughterModule.Play()
 	pass # Replace with function body.
@@ -174,9 +181,9 @@ func _on_button_launch_pressed():
 func calculate_result():
 	currentCustomerIndex += 1
 	var toatl_diff:int = 0
-	var pitch_diff = abs(int(%label_pitch_value.text) - int(%Current_P_Value.text))
-	var speed_diff = abs(int(%label_speed_value.text) - int(%Current_S_Value.text))
-	var vol_diff = abs(int(%label_volume_value.text) - int(%Current_V_Value.text))
+	var pitch_diff = abs(int(%label_pitch_value.text) - %laughter_module/Laughter.pitch)
+	var speed_diff = abs(int(%label_speed_value.text) - %laughter_module/Laughter.speed)
+	var vol_diff = abs(int(%label_volume_value.text) - %laughter_module/Laughter.volume)
 	toatl_diff = pitch_diff + speed_diff + vol_diff
 	
 	var pitch_result = $panel_frame/ResultScreen/ModulePicture/HBoxContainer/ResultScreen_Pitch
@@ -221,9 +228,9 @@ func color_result_screen(color):
 	$panel_frame/ResultScreen/Result_Title.label_settings.font_color = color
 
 func colorCoat():
-	var pitchDiff = abs(int(%label_pitch_value.text) - int(%Current_P_Value.text))
-	var speedDiff = abs(int(%label_speed_value.text) - int(%Current_S_Value.text))
-	var volumeDiff = abs(int(%label_volume_value.text) - int(%Current_V_Value.text))
+	var pitchDiff = abs(int(%label_pitch_value.text) - %laughter_module/Laughter.pitch)
+	var speedDiff = abs(int(%label_speed_value.text) - %laughter_module/Laughter.speed)
+	var volumeDiff = abs(int(%label_volume_value.text) - %laughter_module/Laughter.volume)
 	ChangeTextColor(%Current_P_Value,pitchDiff)
 	ChangeTextColor(%Current_S_Value,speedDiff)
 	ChangeTextColor(%Current_V_Value,volumeDiff)

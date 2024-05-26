@@ -11,3 +11,4 @@ icon = ExtResource("1_xm20y")
 pitch = -2
 speed = -2
 volume = -1
+property_to_hide = 2

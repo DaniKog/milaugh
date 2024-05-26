@@ -17,3 +17,12 @@ func SetSpeed(value):
 	
 func SetVolume(value):
 	%Current_V_Value.text = str(value)
+	
+func GetPitch():
+	return int(%Current_P_Value.text)
+
+func GetSpeed():
+	return int(%Current_S_Value.text)
+	
+func GetVolume():
+	return int(%Current_V_Value.text)

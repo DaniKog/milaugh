@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bb6hv48hppt78"]
+[gd_scene load_steps=49 format=3 uid="uid://bb6hv48hppt78"]
 
 [ext_resource type="Script" path="res://scripts/gameplay-ui.gd" id="1_nibp3"]
 [ext_resource type="Texture2D" uid="uid://bwlfd3aa8q3w6" path="res://ui_images/border_trim.png" id="2_ceahc"]
@@ -68,6 +68,10 @@ default_font = ExtResource("4_rly5q")
 [sub_resource type="LabelSettings" id="LabelSettings_cbivg"]
 font = ExtResource("4_rly5q")
 font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_ceaa0"]
+font_size = 22
+font_color = Color(1, 1, 1, 0.266667)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8c5qn"]
 font = ExtResource("4_rly5q")
@@ -378,7 +382,6 @@ label_settings = SubResource("LabelSettings_1vrp3")
 horizontal_alignment = 1
 
 [node name="TargetValues" type="HBoxContainer" parent="panel_frame/panel_target/VBoxContainer"]
-custom_minimum_size = Vector2(0.53, 0)
 layout_mode = 2
 alignment = 1
 
@@ -421,7 +424,12 @@ label_settings = SubResource("LabelSettings_n36ei")
 layout_mode = 2
 alignment = 1
 
-[node name="Current_P_Value" type="Label" parent="panel_frame/panel_target/VBoxContainer/TargetLabels2"]
+[node name="Current_P_Value_Contaner" type="HBoxContainer" parent="panel_frame/panel_target/VBoxContainer/TargetLabels2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Current_P_Value" type="Label" parent="panel_frame/panel_target/VBoxContainer/TargetLabels2/Current_P_Value_Contaner"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -430,7 +438,29 @@ text = "0"
 label_settings = SubResource("LabelSettings_cbivg")
 horizontal_alignment = 1
 
-[node name="Current_S_Value" type="Label" parent="panel_frame/panel_target/VBoxContainer/TargetLabels2"]
+[node name="Current_P_Addition" type="Label" parent="panel_frame/panel_target/VBoxContainer/TargetLabels2/Current_P_Value_Contaner/Current_P_Value"]
+unique_name_in_owner = true
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -12.0
+offset_right = 52.0
+offset_bottom = 15.0
+size_flags_horizontal = 3
+theme = SubResource("Theme_6bjud")
+text = "0"
+label_settings = SubResource("LabelSettings_ceaa0")
+horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="panel_frame/panel_target/VBoxContainer/TargetLabels2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Current_S_Value" type="Label" parent="panel_frame/panel_target/VBoxContainer/TargetLabels2/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -439,7 +469,32 @@ text = "0"
 label_settings = SubResource("LabelSettings_8c5qn")
 horizontal_alignment = 1
 
-[node name="Current_V_Value" type="Label" parent="panel_frame/panel_target/VBoxContainer/TargetLabels2"]
+[node name="Current_S_Addition" type="Label" parent="panel_frame/panel_target/VBoxContainer/TargetLabels2/HBoxContainer/Current_S_Value"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -12.0
+offset_right = 52.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_6bjud")
+text = "0"
+label_settings = SubResource("LabelSettings_ceaa0")
+horizontal_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="panel_frame/panel_target/VBoxContainer/TargetLabels2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Current_V_Value" type="Label" parent="panel_frame/panel_target/VBoxContainer/TargetLabels2/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -447,6 +502,26 @@ theme = SubResource("Theme_6bjud")
 text = "0"
 label_settings = SubResource("LabelSettings_vc8xy")
 horizontal_alignment = 1
+
+[node name="Current_V_Addition" type="Label" parent="panel_frame/panel_target/VBoxContainer/TargetLabels2/HBoxContainer2/Current_V_Value"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -12.0
+offset_right = 52.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_6bjud")
+text = "0"
+label_settings = SubResource("LabelSettings_ceaa0")
+horizontal_alignment = 2
 
 [node name="panel_laugh_module" type="NinePatchRect" parent="panel_frame"]
 clip_contents = true
@@ -603,6 +678,7 @@ expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="CurrentModule" type="GridContainer" parent="panel_frame/panel_laugh_module"]
+visible = false
 layout_mode = 0
 offset_left = 11.5996
 offset_top = -108.4
